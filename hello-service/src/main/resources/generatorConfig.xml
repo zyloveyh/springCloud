@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE generatorConfiguration
-        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <!-- 配置生成器 -->
 <generatorConfiguration>
@@ -30,7 +29,9 @@
             2，MyBatis3Simple：类似MyBatis3，只是不生成XXXBySample；
         introspectedColumnImpl：类全限定名，用于扩展MBG
     -->
-    <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple" >
+
+    <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3">
+
 
         <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
             一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
@@ -47,11 +48,23 @@
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
+        <property name="suppressAllComments" value="false"/>
+        <!--        注释生成器
+        必须放在property 标签下面，否则context标签报错
+        -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" />
+            <property name="author" value="ZY"/>
+            <property name="dateFormat" value="yyyy/MM/dd"/>
+        </commentGenerator>
+
         <!-- 必须要有的，使用这个配置链接数据库
             @TODO:是否可以扩展
          -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.6:3306/mybatis" userId="root" password="666666">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.1.4:3306/mybatis"
+                        userId="root" password="666666">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
+            <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
         <!-- java类型处理器
@@ -76,7 +89,7 @@
             targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
             targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
          -->
-        <javaModelGenerator targetPackage="com.zy.dao.domain" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.zy.helloservice.dao.domain" targetProject="src/main/java">
             <!--  for MyBatis3/MyBatis3Simple
                 自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter；
              -->
@@ -97,7 +110,7 @@
                     1，属性名相同，类型相同，有相同的getter/setter方法；
 
              -->
-            <property name="rootClass" value="com.zy.dao.domain.BaseDomain"/>
+            <!--            <property name="rootClass" value="com.zy.helloservice.dao.domain.BaseDomain"/>-->
 
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
             <property name="trimStrings" value="true"/>
@@ -109,7 +122,7 @@
                 或者只使用Mapper接口+Annotation，所以，如果 javaClientGenerator配置中配置了需要生成XML的话，这个元素就必须配置
             targetPackage/targetProject:同javaModelGenerator
          -->
-        <sqlMapGenerator targetPackage="com.zy.dao.mapper" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com.zy.helloservice.dao.mapper" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
@@ -123,7 +136,7 @@
                 3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
             注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER
         -->
-        <javaClientGenerator targetPackage="com.zy.dao.mapper" type="ANNOTATEDMAPPER" targetProject="src/main/java">
+        <javaClientGenerator targetPackage="com.zy.helloservice.dao.imapper" type="XMLMAPPER" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
 
@@ -170,8 +183,7 @@
 
             注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
          -->
-        <table tableName="students" >
-
+        <table tableName="students">
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <property name="constructorBased" value="false"/>
 

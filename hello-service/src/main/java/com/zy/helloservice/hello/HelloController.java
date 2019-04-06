@@ -1,6 +1,6 @@
 package com.zy.helloservice.hello;
 
-import com.zy.entity.Hello;
+import com.zy.helloservice.entity.Hello;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;

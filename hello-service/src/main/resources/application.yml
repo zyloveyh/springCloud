@@ -1,0 +1,40 @@
+#server.port=9001
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.1.4:3306/mybatis?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: 666666
+    driver-class-name: com.mysql.jdbc.Driver
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 60000
+    minIdle: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 'x'
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
+  application:
+    name: hello-service
+mybatis:
+  mapperLocations: classpath:com.zy.helloservice.dao.mapper/*.xml
+  typeAliasesPackage: com.zy.helloservice.dao.domain
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8888/eureka/
+
+  ####用于定义服务续约任务的调用间隔时间，默认30秒
+  instance:
+    #没隔30秒向注册中心发送一次心跳，心跳30秒一次
+    lease-renewal-interval-in-seconds: 30
+    ####用来定义服务失效的时间，默认90秒，90秒内没心跳就表示服务失效
+    lease-expiration-duration-in-seconds: 90

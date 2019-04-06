@@ -8,14 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="eureka_server" />
         <module name="hello-service" />
+        <module name="mybatisGenerator" />
         <module name="ribbon-consumer" />
-        <module name="mybatis" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eureka_server" target="1.8" />
       <module name="hello-service" target="1.8" />
       <module name="mybatis" target="1.8" />
+      <module name="mybatisGenerator" target="1.5" />
       <module name="ribbon-consumer" target="1.8" />
       <module name="root" target="1.8" />
     </bytecodeTargetLevel>

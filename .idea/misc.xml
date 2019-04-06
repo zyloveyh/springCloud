@@ -9,8 +9,9 @@
         <option value="$PROJECT_DIR$/eureka_server/pom.xml" />
         <option value="$PROJECT_DIR$/hello-service/pom.xml" />
         <option value="$PROJECT_DIR$/ribbon-consumer/pom.xml" />
-        <option value="$PROJECT_DIR$/mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatisGenerator/pom.xml" />
       </list>
     </option>
   </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="1.8.0_131" project-jdk-type="JavaSDK" />
 </project>
