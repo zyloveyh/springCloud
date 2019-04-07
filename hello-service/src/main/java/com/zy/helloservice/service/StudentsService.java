@@ -1,7 +1,7 @@
 package com.zy.helloservice.service;
 
 import com.zy.helloservice.dao.domain.Students;
-import com.zy.helloservice.dao.imapper.StudentsMapper;
+import com.zy.helloservice.dao.mapper.StudentsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

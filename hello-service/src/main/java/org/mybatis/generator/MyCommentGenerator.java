@@ -19,7 +19,7 @@ import static org.mybatis.generator.internal.util.StringUtility.isTrue;
  * 基于MBG 1.3.2.
  *
  */
-public class MyCommentGenerator implements CommentGenerator {
+public abstract class MyCommentGenerator implements CommentGenerator {
 
     private Properties properties;
     private Properties systemPro;
@@ -187,10 +187,7 @@ public class MyCommentGenerator implements CommentGenerator {
         field.addJavaDocLine(" */");
     }
 
-    @Override
-    public void addModelClassComment(TopLevelClass topLevelClass, IntrospectedTable introspectedTable) {
 
-    }
 
     public void addGeneralMethodComment(Method method, IntrospectedTable introspectedTable) {
         if (suppressAllComments) {
