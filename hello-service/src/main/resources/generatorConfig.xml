@@ -30,7 +30,7 @@
         introspectedColumnImpl：类全限定名，用于扩展MBG
     -->
 
-    <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3">
+    <context id="mysql" defaultModelType="hierarchical" targetRuntime="MyBatis3Simple">
 
 
         <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
