@@ -48,3 +48,10 @@ eureka:
     lease-renewal-interval-in-seconds: 30
     ####用来定义服务失效的时间，默认90秒，90秒内没心跳就表示服务失效
     lease-expiration-duration-in-seconds: 90
+logging:
+  file: my.log
+  path: /var/logs
+  level:
+    ##root表示所有的文件，此处可以写文件所在地方，然后再写级别
+    root: info
+    com.zy.helloservice.dao: debug
