@@ -31,7 +31,7 @@ public class HelloServiceApplicationTests {
 
     @Test
     public void testinsert() {
-        Students students = Students.builder().address("湖北").sex("男").age(23).name("zpl").teacher(2).lastName("厉害了").fatherName("呵呵哒").build();
+        Students students = Students.builder().address("湖北").sex("男").age(23).name("zpl").teacher(2).lastName("厉害了").build();
         logger.info(students.toString());
         int insert = studentsMapper.insert(students);
         System.out.println(insert);

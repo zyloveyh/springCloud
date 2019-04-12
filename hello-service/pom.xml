@@ -94,6 +94,7 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatisplus-spring-boot-starter</artifactId>
             <version>1.0.5</version>
+
         </dependency>
         <!--需要和上面的配合使用否则会编译不通过-->
         <dependency>

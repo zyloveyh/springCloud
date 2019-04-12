@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/hello-service/pom.xml" />
         <option value="$PROJECT_DIR$/ribbon-consumer/pom.xml" />
         <option value="$PROJECT_DIR$/mybatisGenerator/pom.xml" />
+        <option value="$PROJECT_DIR$/schoolrelation/pom.xml" />
+        <option value="$PROJECT_DIR$/eureka_server_214/pom.xml" />
       </list>
     </option>
   </component>
