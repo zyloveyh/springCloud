@@ -3,6 +3,9 @@ server:
   port: 8000
   ###服务名称 --注册到注册中心的服务名称
 spring:
+  cloud:
+    inetutils:
+      timeout-seconds: 2
   datasource:
     url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8
     username: root
@@ -36,7 +39,7 @@ mybatis-plus:
   global-config:
     db-config:
       ###配置全局主键策略
-      id-type: auto
+#      id-type: auto
       ###表名前缀配置
       table-prefix:
 
