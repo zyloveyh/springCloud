@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/hello-service/hello-service.iml" filepath="$PROJECT_DIR$/hello-service/hello-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatisGenerator/mybatisGenerator.iml" filepath="$PROJECT_DIR$/mybatisGenerator/mybatisGenerator.iml" />
       <module fileurl="file://$PROJECT_DIR$/ribbon-consumer/ribbon-consumer.iml" filepath="$PROJECT_DIR$/ribbon-consumer/ribbon-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/school-relation-consumer/school-relation-consumer.iml" filepath="$PROJECT_DIR$/school-relation-consumer/school-relation-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/schoolrelation/schoolrelation.iml" filepath="$PROJECT_DIR$/schoolrelation/schoolrelation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springCloud.iml" filepath="$PROJECT_DIR$/.idea/springCloud.iml" />
     </modules>

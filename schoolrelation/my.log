@@ -1,0 +1,1113 @@
+2019-04-14 14:40:25.509  INFO 13376 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:40:26.223  INFO 13376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:40:26.225  INFO 13376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:40:26.245  INFO 13376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9ms. Found 0 repository interfaces.
+2019-04-14 14:40:26.352  WARN 13376 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:40:26.559  INFO 13376 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:40:26.663  INFO 13376 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$6fe5b2e7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:40:26.693  INFO 13376 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:40:26.725  INFO 13376 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cb4dede8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:40:26.759  INFO 13376 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$e767f0e5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:40:27.227  INFO 13376 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:40:48.310 ERROR 13376 --- [Druid-ConnectionPool-Create-20911636] com.alibaba.druid.pool.DruidDataSource   : create connection error, url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8, errorCode 0, state 08S01
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464) ~[druid-1.1.0.jar:1.1.0]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1529) ~[druid-1.1.0.jar:1.1.0]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2178) ~[druid-1.1.0.jar:1.1.0]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_131]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_131]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 6 common frames omitted
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_131]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_131]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 9 common frames omitted
+
+2019-04-14 14:41:09.315 ERROR 13376 --- [Druid-ConnectionPool-Create-20911636] com.alibaba.druid.pool.DruidDataSource   : create connection error, url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8, errorCode 0, state 08S01
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1464) ~[druid-1.1.0.jar:1.1.0]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1529) ~[druid-1.1.0.jar:1.1.0]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2178) ~[druid-1.1.0.jar:1.1.0]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_131]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_131]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 6 common frames omitted
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_131]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_131]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
+	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
+	... 9 common frames omitted
+
+2019-04-14 14:41:09.990  WARN 13376 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:41:09.991  INFO 13376 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:41:10.000  WARN 13376 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:41:10.000  INFO 13376 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:41:10.925  INFO 13376 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:41:13.335  INFO 13376 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:41:16.174  INFO 13376 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:41:16.460  INFO 13376 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:41:16.641  INFO 13376 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 54.787 seconds (JVM running for 55.636)
+2019-04-14 14:41:16.879  INFO 13376 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:41:16.881  INFO 13376 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:41:16.892  INFO 13376 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:41:16.896  INFO 13376 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 14:44:30.745  INFO 13192 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:44:31.386  INFO 13192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:44:31.388  INFO 13192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:44:31.402  INFO 13192 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 14:44:31.503  WARN 13192 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:44:31.691  INFO 13192 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:44:31.787  INFO 13192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:44:31.812  INFO 13192 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:44:31.855  INFO 13192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:44:31.901  INFO 13192 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:44:32.274  INFO 13192 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:44:32.858  WARN 13192 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:44:32.859  INFO 13192 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:44:32.863  WARN 13192 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:44:32.863  INFO 13192 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:44:33.525  INFO 13192 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:44:35.776  INFO 13192 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:44:38.210  INFO 13192 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:44:38.324  INFO 13192 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:44:38.396  INFO 13192 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.942 seconds (JVM running for 11.607)
+2019-04-14 14:44:38.594 DEBUG 13192 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 14:44:38.612 DEBUG 13192 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: zy(String), 19(Integer)
+2019-04-14 14:44:38.628 DEBUG 13192 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : <==      Total: 0
+2019-04-14 14:44:38.638  INFO 13192 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:44:38.639  INFO 13192 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:44:38.654  INFO 13192 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:44:38.657  INFO 13192 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 14:46:21.399  INFO 17348 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:46:22.145  INFO 17348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:46:22.147  INFO 17348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:46:22.176  INFO 17348 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15ms. Found 0 repository interfaces.
+2019-04-14 14:46:22.367  WARN 17348 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:46:22.720  INFO 17348 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:46:22.860  INFO 17348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:22.888  INFO 17348 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:46:22.933  INFO 17348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:22.971  INFO 17348 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:23.322  INFO 17348 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:46:23.808  WARN 17348 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:46:23.808  INFO 17348 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:46:23.814  WARN 17348 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:46:23.814  INFO 17348 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:46:24.437  INFO 17348 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:46:26.637  INFO 17348 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:46:28.969  INFO 17348 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:46:29.188  INFO 17348 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:46:29.252  INFO 17348 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.315 seconds (JVM running for 11.991)
+2019-04-14 14:46:29.471 DEBUG 17348 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 14:46:29.496 DEBUG 17348 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: zlp(String), 19(Integer)
+2019-04-14 14:46:29.512 DEBUG 17348 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : <==      Total: 0
+2019-04-14 14:46:29.522  INFO 17348 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:46:29.524  INFO 17348 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:46:29.534  INFO 17348 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:46:29.537  INFO 17348 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 14:46:51.312  INFO 9112 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:46:52.119  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:46:52.123  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:46:52.153  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-04-14 14:46:52.357  WARN 9112 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:46:52.559  INFO 9112 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:46:52.747  INFO 9112 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:52.783  INFO 9112 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:46:52.818  INFO 9112 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:52.861  INFO 9112 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:46:53.210  INFO 9112 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:46:53.807  WARN 9112 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:46:53.808  INFO 9112 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:46:53.818  WARN 9112 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:46:53.819  INFO 9112 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:46:54.844  INFO 9112 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:46:57.049  INFO 9112 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:46:59.878  INFO 9112 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:47:00.026  INFO 9112 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:47:00.103  INFO 9112 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 12.269 seconds (JVM running for 12.964)
+2019-04-14 14:47:00.303 DEBUG 9112 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 14:47:00.322 DEBUG 9112 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 14:47:00.342 DEBUG 9112 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : <==      Total: 20
+2019-04-14 14:47:00.359  INFO 9112 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:47:00.362  INFO 9112 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:47:00.374  INFO 9112 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:47:00.381  INFO 9112 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 14:48:09.348  INFO 16488 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:48:10.147  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:48:10.149  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:48:10.163  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 14:48:10.393  WARN 16488 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:48:10.589  INFO 16488 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:48:10.687  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:48:10.712  INFO 16488 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:48:10.740  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:48:10.783  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:48:11.206  INFO 16488 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:48:11.889  WARN 16488 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:48:11.890  INFO 16488 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:48:11.894  WARN 16488 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:48:11.894  INFO 16488 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:48:12.471  INFO 16488 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:48:14.939  INFO 16488 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:48:18.478  INFO 16488 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:48:18.644  INFO 16488 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:48:18.717  INFO 16488 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 12.696 seconds (JVM running for 13.364)
+2019-04-14 14:48:19.069 DEBUG 16488 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 14:48:19.109 DEBUG 16488 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 14:48:19.161 DEBUG 16488 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 20
+2019-04-14 14:48:19.193  INFO 16488 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:48:19.196  INFO 16488 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:48:19.214  INFO 16488 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:48:19.218  INFO 16488 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 14:56:12.642  INFO 5268 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 14:56:13.507  INFO 5268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 14:56:13.509  INFO 5268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 14:56:13.523  INFO 5268 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 14:56:13.623  WARN 5268 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 14:56:13.815  INFO 5268 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 14:56:13.927  INFO 5268 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:56:13.962  INFO 5268 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 14:56:14.001  INFO 5268 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:56:14.036  INFO 5268 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 14:56:14.368  INFO 5268 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 14:56:14.861  WARN 5268 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:56:14.861  INFO 5268 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:56:14.866  WARN 5268 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 14:56:14.866  INFO 5268 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 14:56:15.655  INFO 5268 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:56:17.930  INFO 5268 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:56:20.730  INFO 5268 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 14:56:20.853  INFO 5268 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 14:56:20.928  INFO 5268 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.666 seconds (JVM running for 12.379)
+2019-04-14 14:56:21.134 DEBUG 5268 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 14:56:21.153 DEBUG 5268 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 14:56:21.186 DEBUG 5268 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 20
+2019-04-14 14:56:21.194 DEBUG 5268 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==>  Preparing: UPDATE students SET last_name=?, age=? 
+2019-04-14 14:56:21.195 DEBUG 5268 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==> Parameters: hhaf(String), 15(Integer)
+2019-04-14 14:56:21.230 DEBUG 5268 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : <==    Updates: 26
+2019-04-14 14:56:21.253  INFO 5268 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 14:56:21.257  INFO 5268 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 14:56:21.274  INFO 5268 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 14:56:21.278  INFO 5268 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:03:34.975  INFO 16896 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:03:35.982  INFO 16896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:03:35.987  INFO 16896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:03:36.019  INFO 16896 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2019-04-14 15:03:36.223  WARN 16896 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:03:36.481  INFO 16896 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:03:36.595  INFO 16896 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:03:36.647  INFO 16896 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:03:36.705  INFO 16896 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:03:36.765  INFO 16896 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:03:37.176  INFO 16896 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:03:37.836  WARN 16896 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:03:37.836  INFO 16896 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:03:37.844  WARN 16896 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:03:37.844  INFO 16896 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:03:38.704  INFO 16896 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:03:41.498  INFO 16896 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:03:44.512  INFO 16896 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:03:44.829  INFO 16896 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:03:45.037  INFO 16896 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 13.774 seconds (JVM running for 14.486)
+2019-04-14 15:03:45.391 DEBUG 16896 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:03:45.419 DEBUG 16896 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:03:45.437 DEBUG 16896 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:03:45.441 DEBUG 16896 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==>  Preparing: UPDATE students SET age=?, last_name=?, age=? 
+2019-04-14 15:03:45.442 DEBUG 16896 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==> Parameters: 23(Integer), hhaf(String), 15(Integer)
+2019-04-14 15:03:45.444 DEBUG 16896 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : <==    Updates: 26
+2019-04-14 15:03:45.455  INFO 16896 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:03:45.458  INFO 16896 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:03:45.473  INFO 16896 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:03:45.476  INFO 16896 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:05:00.066  INFO 9828 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:05:00.761  INFO 9828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:05:00.764  INFO 9828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:05:00.796  INFO 9828 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-04-14 15:05:00.977  WARN 9828 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:05:01.158  INFO 9828 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:05:01.252  INFO 9828 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:05:01.278  INFO 9828 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:05:01.306  INFO 9828 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:05:01.335  INFO 9828 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:05:01.671  INFO 9828 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:05:02.194  WARN 9828 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:05:02.195  INFO 9828 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:05:02.203  WARN 9828 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:05:02.203  INFO 9828 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:05:02.799  INFO 9828 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:05:05.043  INFO 9828 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:05:07.800  INFO 9828 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:05:08.004  INFO 9828 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:05:08.077  INFO 9828 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.446 seconds (JVM running for 12.107)
+2019-04-14 15:05:08.467 DEBUG 9828 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:05:08.537 DEBUG 9828 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:05:08.582 DEBUG 9828 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:05:08.593 DEBUG 9828 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==>  Preparing: UPDATE students SET age=?, last_name=?, age=? WHERE name LIKE ? 
+2019-04-14 15:05:08.595 DEBUG 9828 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==> Parameters: 23(Integer), hhaf(String), 15(Integer), %pl%(String)
+2019-04-14 15:05:08.601 DEBUG 9828 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : <==    Updates: 20
+2019-04-14 15:05:08.616  INFO 9828 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:05:08.619  INFO 9828 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:05:08.637  INFO 9828 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:05:08.647  INFO 9828 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:08:45.118  INFO 872 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:08:45.699  INFO 872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:08:45.700  INFO 872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:08:45.715  INFO 872 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 15:08:45.817  WARN 872 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:08:45.998  INFO 872 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:08:46.095  INFO 872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:08:46.120  INFO 872 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:08:46.148  INFO 872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:08:46.177  INFO 872 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:08:46.511  INFO 872 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:08:47.104  WARN 872 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:08:47.105  INFO 872 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:08:47.109  WARN 872 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:08:47.109  INFO 872 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:08:47.703  INFO 872 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:08:49.813  INFO 872 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:08:52.333  INFO 872 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:08:52.471  INFO 872 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:08:52.536  INFO 872 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.682 seconds (JVM running for 11.354)
+2019-04-14 15:08:52.759 DEBUG 872 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:08:52.809 DEBUG 872 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:08:52.839 DEBUG 872 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:08:52.846 DEBUG 872 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==>  Preparing: UPDATE students SET age=?, last_name=?, age=? WHERE name LIKE ? 
+2019-04-14 15:08:52.848 DEBUG 872 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : ==> Parameters: 23(Integer), hhaf(String), 15(Integer), %pl%(String)
+2019-04-14 15:08:52.849 DEBUG 872 --- [main] c.z.s.mp.mapper.StudentsMapper.update    : <==    Updates: 20
+2019-04-14 15:08:52.850 DEBUG 872 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT name,age,id,last_name FROM students 
+2019-04-14 15:08:52.850 DEBUG 872 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: 
+2019-04-14 15:08:52.928  INFO 872 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:08:52.930  INFO 872 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:08:52.941  INFO 872 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:08:52.944  INFO 872 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:09:47.904  INFO 4608 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:09:48.648  INFO 4608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:09:48.654  INFO 4608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:09:48.692  INFO 4608 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 repository interfaces.
+2019-04-14 15:09:48.925  WARN 4608 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:09:49.268  INFO 4608 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:09:49.415  INFO 4608 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:09:49.463  INFO 4608 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:09:49.499  INFO 4608 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:09:49.538  INFO 4608 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:09:49.882  INFO 4608 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:09:50.493  WARN 4608 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:09:50.493  INFO 4608 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:09:50.499  WARN 4608 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:09:50.499  INFO 4608 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:09:51.283  INFO 4608 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:09:53.390  INFO 4608 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:09:56.075  INFO 4608 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:09:56.233  INFO 4608 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:09:56.299  INFO 4608 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 12.006 seconds (JVM running for 12.674)
+2019-04-14 15:09:56.573 DEBUG 4608 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:09:56.593 DEBUG 4608 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:09:56.611 DEBUG 4608 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:09:56.614 DEBUG 4608 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT name,age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:09:56.614 DEBUG 4608 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: %pl%(String)
+2019-04-14 15:09:56.675  INFO 4608 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:09:56.677  INFO 4608 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:09:56.688  INFO 4608 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:09:56.692  INFO 4608 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:16:37.990  INFO 15444 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:16:38.576  INFO 15444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:16:38.577  INFO 15444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:16:38.591  INFO 15444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:16:38.695  WARN 15444 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:16:38.924  INFO 15444 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:16:39.020  INFO 15444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:16:39.046  INFO 15444 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:16:39.077  INFO 15444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:16:39.107  INFO 15444 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:16:39.435  INFO 15444 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:16:39.888  WARN 15444 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:16:39.888  INFO 15444 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:16:39.897  WARN 15444 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:16:39.897  INFO 15444 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:16:40.494  INFO 15444 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:16:42.519  INFO 15444 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:16:44.679  INFO 15444 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:16:44.854  INFO 15444 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:16:44.920  INFO 15444 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.218 seconds (JVM running for 10.897)
+2019-04-14 15:16:45.117 DEBUG 15444 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:16:45.138 DEBUG 15444 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:16:45.159 DEBUG 15444 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:16:45.161 DEBUG 15444 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT name,age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:16:45.161 DEBUG 15444 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: %pl%(String)
+2019-04-14 15:16:45.220  INFO 15444 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:16:45.222  INFO 15444 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:16:45.233  INFO 15444 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:16:45.237  INFO 15444 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:19:02.369  INFO 14976 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:19:03.046  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:19:03.048  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:19:03.063  INFO 14976 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:19:03.169  WARN 14976 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:19:03.457  INFO 14976 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:19:03.560  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:19:03.585  INFO 14976 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:19:03.612  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:19:03.642  INFO 14976 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:19:03.973  INFO 14976 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:19:04.510  WARN 14976 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:19:04.511  INFO 14976 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:19:04.525  WARN 14976 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:19:04.525  INFO 14976 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:19:05.322  INFO 14976 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:19:07.413  INFO 14976 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:19:09.716  INFO 14976 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:19:10.010  INFO 14976 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:19:10.173  INFO 14976 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.077 seconds (JVM running for 11.724)
+2019-04-14 15:19:10.541 DEBUG 14976 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:19:10.572 DEBUG 14976 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:19:10.594 DEBUG 14976 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:19:10.596 DEBUG 14976 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:19:10.597 DEBUG 14976 --- [main] c.z.s.m.mapper.StudentsMapper.selectOne  : ==> Parameters: %pl%(String)
+2019-04-14 15:19:10.617  INFO 14976 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:19:10.619  INFO 14976 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:19:10.630  INFO 14976 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:19:10.634  INFO 14976 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:20:55.117  INFO 18004 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:20:56.348  INFO 18004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:20:56.354  INFO 18004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:20:56.405  INFO 18004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 repository interfaces.
+2019-04-14 15:20:56.696  WARN 18004 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:20:56.924  INFO 18004 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:20:57.071  INFO 18004 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$7735cb9d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:20:57.124  INFO 18004 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:20:57.179  INFO 18004 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d29e069e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:20:57.248  INFO 18004 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$eeb8099b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:20:57.645  INFO 18004 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:20:58.314  WARN 18004 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:20:58.314  INFO 18004 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:20:58.327  WARN 18004 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:20:58.327  INFO 18004 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:20:59.536  INFO 18004 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:21:02.232  INFO 18004 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:21:05.470  INFO 18004 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:21:05.779  INFO 18004 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:21:05.928  INFO 18004 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 14.203 seconds (JVM running for 14.883)
+2019-04-14 15:21:06.142 DEBUG 18004 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 15:21:06.161 DEBUG 18004 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 15:21:06.178 DEBUG 18004 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 15:21:06.179 DEBUG 18004 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:21:06.180 DEBUG 18004 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 15:21:06.200  INFO 18004 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:21:06.202  INFO 18004 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:21:06.213  INFO 18004 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:21:06.217  INFO 18004 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:22:17.791  INFO 8428 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:22:18.490  INFO 8428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:22:18.494  INFO 8428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:22:18.521  INFO 8428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 repository interfaces.
+2019-04-14 15:22:18.731  WARN 8428 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:22:19.055  INFO 8428 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:22:19.175  INFO 8428 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:22:19.210  INFO 8428 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:22:19.249  INFO 8428 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:22:19.297  INFO 8428 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:22:19.902  INFO 8428 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:22:21.015  WARN 8428 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:22:21.016  INFO 8428 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:22:21.032  WARN 8428 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:22:21.032  INFO 8428 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:22:22.182  INFO 8428 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:22:24.579  INFO 8428 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:22:28.433  INFO 8428 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:22:28.696  INFO 8428 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:22:28.890  INFO 8428 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 15.424 seconds (JVM running for 16.158)
+2019-04-14 15:22:29.282 DEBUG 8428 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:22:29.325 DEBUG 8428 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 15:22:29.385  INFO 8428 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:22:29.388  INFO 8428 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:22:29.408  INFO 8428 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:22:29.419  INFO 8428 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:27:27.837  INFO 12688 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:27:28.391  INFO 12688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:27:28.393  INFO 12688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:27:28.407  INFO 12688 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:27:28.507  WARN 12688 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:27:28.682  INFO 12688 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:27:28.772  INFO 12688 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:27:28.797  INFO 12688 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:27:28.823  INFO 12688 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:27:28.852  INFO 12688 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:27:29.117  INFO 12688 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:27:29.518  WARN 12688 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:27:29.518  INFO 12688 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:27:29.523  WARN 12688 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:27:29.523  INFO 12688 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:27:30.068  INFO 12688 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:27:31.987  INFO 12688 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:27:34.214  INFO 12688 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:27:34.436  INFO 12688 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:27:34.497  INFO 12688 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.794 seconds (JVM running for 10.453)
+2019-04-14 15:27:34.682 DEBUG 12688 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 15:27:34.700 DEBUG 12688 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 15:27:34.770  INFO 12688 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:27:34.771  INFO 12688 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:27:34.782  INFO 12688 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:27:34.788  INFO 12688 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:31:42.762  INFO 16488 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:31:43.316  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:31:43.317  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:31:43.331  INFO 16488 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:31:43.429  WARN 16488 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:31:43.611  INFO 16488 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:31:43.701  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:31:43.726  INFO 16488 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:31:43.753  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:31:43.782  INFO 16488 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:31:44.063  INFO 16488 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:31:44.459  WARN 16488 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:31:44.459  INFO 16488 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:31:44.464  WARN 16488 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:31:44.464  INFO 16488 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:31:44.985  INFO 16488 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:31:46.870  INFO 16488 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:31:49.069  INFO 16488 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:31:49.239  INFO 16488 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:31:49.300  INFO 16488 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.656 seconds (JVM running for 10.267)
+2019-04-14 15:31:49.486 DEBUG 16488 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,age,id,last_name FROM students WHERE id = ? 
+2019-04-14 15:31:49.504 DEBUG 16488 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: 12(Integer)
+2019-04-14 15:31:49.573  INFO 16488 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:31:49.575  INFO 16488 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:31:49.585  INFO 16488 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:31:49.588  INFO 16488 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:37:03.494  INFO 1952 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:37:04.278  INFO 1952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:37:04.279  INFO 1952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:37:04.293  INFO 1952 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:37:04.392  WARN 1952 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:37:04.571  INFO 1952 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:37:04.659  INFO 1952 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:37:04.685  INFO 1952 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:37:04.712  INFO 1952 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:37:04.755  INFO 1952 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:37:05.032  INFO 1952 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:37:05.529  WARN 1952 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:37:05.529  INFO 1952 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:37:05.534  WARN 1952 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:37:05.535  INFO 1952 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:37:06.063  INFO 1952 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:37:08.046  INFO 1952 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:37:10.204  INFO 1952 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:37:10.309  INFO 1952 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:37:10.377  INFO 1952 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.083 seconds (JVM running for 10.704)
+2019-04-14 15:37:10.570 DEBUG 1952 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,age FROM students WHERE name = ? 
+2019-04-14 15:37:10.591 DEBUG 1952 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 15:37:10.621  INFO 1952 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:37:10.623  INFO 1952 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:37:10.634  INFO 1952 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:37:10.642  INFO 1952 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:39:59.094  INFO 16548 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:39:59.693  INFO 16548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:39:59.695  INFO 16548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:39:59.713  INFO 16548 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 15:39:59.819  WARN 16548 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:40:00.010  INFO 16548 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:40:00.108  INFO 16548 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:00.134  INFO 16548 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:40:00.167  INFO 16548 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:00.202  INFO 16548 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:00.478  INFO 16548 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:40:00.906  WARN 16548 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:40:00.907  INFO 16548 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:40:00.912  WARN 16548 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:40:00.912  INFO 16548 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:40:01.478  INFO 16548 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:40:03.487  INFO 16548 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:40:05.718  INFO 16548 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:40:05.831  INFO 16548 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:40:05.904  INFO 16548 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.932 seconds (JVM running for 10.63)
+2019-04-14 15:40:06.115 DEBUG 16548 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,age FROM students WHERE name = ? 
+2019-04-14 15:40:06.138 DEBUG 16548 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 15:40:06.170  INFO 16548 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:40:06.175  INFO 16548 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:40:06.187  INFO 16548 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:40:06.191  INFO 16548 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:40:36.374  INFO 964 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:40:36.935  INFO 964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:40:36.937  INFO 964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:40:36.950  INFO 964 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 15:40:37.047  WARN 964 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:40:37.224  INFO 964 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:40:37.314  INFO 964 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:37.339  INFO 964 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:40:37.366  INFO 964 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:37.396  INFO 964 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:40:37.688  INFO 964 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:40:38.108  WARN 964 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:40:38.108  INFO 964 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:40:38.115  WARN 964 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:40:38.115  INFO 964 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:40:38.639  INFO 964 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:40:40.543  INFO 964 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:40:42.752  INFO 964 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:40:42.913  INFO 964 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:40:42.975  INFO 964 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.721 seconds (JVM running for 10.36)
+2019-04-14 15:40:43.176 DEBUG 964 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? 
+2019-04-14 15:40:43.194 DEBUG 964 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 15:40:43.215 DEBUG 964 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 20
+2019-04-14 15:40:43.228  INFO 964 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:40:43.230  INFO 964 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:40:43.240  INFO 964 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:40:43.247  INFO 964 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:41:48.866  INFO 4208 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:41:49.447  INFO 4208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:41:49.449  INFO 4208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:41:49.467  INFO 4208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 15:41:49.566  WARN 4208 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:41:49.751  INFO 4208 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:41:49.846  INFO 4208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:41:49.874  INFO 4208 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:41:49.902  INFO 4208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:41:49.936  INFO 4208 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:41:50.216  INFO 4208 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:41:50.623  WARN 4208 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:41:50.623  INFO 4208 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:41:50.627  WARN 4208 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:41:50.628  INFO 4208 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:41:51.160  INFO 4208 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:41:53.060  INFO 4208 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:41:55.175  INFO 4208 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:41:55.281  INFO 4208 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:41:55.348  INFO 4208 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.598 seconds (JVM running for 10.297)
+2019-04-14 15:41:55.537 DEBUG 4208 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name FROM students WHERE name = ? 
+2019-04-14 15:41:55.555 DEBUG 4208 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 15:41:55.626  INFO 4208 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:41:55.627  INFO 4208 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:41:55.638  INFO 4208 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:41:55.641  INFO 4208 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 15:42:16.176  INFO 2116 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 15:42:16.738  INFO 2116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 15:42:16.740  INFO 2116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 15:42:16.754  INFO 2116 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 15:42:16.851  WARN 2116 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 15:42:17.029  INFO 2116 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 15:42:17.126  INFO 2116 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:42:17.151  INFO 2116 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 15:42:17.177  INFO 2116 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:42:17.207  INFO 2116 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 15:42:17.472  INFO 2116 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 15:42:17.878  WARN 2116 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:42:17.878  INFO 2116 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:42:17.883  WARN 2116 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 15:42:17.883  INFO 2116 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 15:42:18.408  INFO 2116 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:42:20.304  INFO 2116 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:42:22.369  INFO 2116 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 15:42:22.471  INFO 2116 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 15:42:22.533  INFO 2116 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.443 seconds (JVM running for 10.084)
+2019-04-14 15:42:22.725 DEBUG 2116 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id FROM students WHERE name = ? 
+2019-04-14 15:42:22.745 DEBUG 2116 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 15:42:22.776  INFO 2116 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 15:42:22.778  INFO 2116 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 15:42:22.788  INFO 2116 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 15:42:22.795  INFO 2116 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:01:07.547  INFO 7148 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:01:08.318  INFO 7148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:01:08.320  INFO 7148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:01:08.339  INFO 7148 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8ms. Found 0 repository interfaces.
+2019-04-14 16:01:08.450  WARN 7148 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:01:08.651  INFO 7148 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:01:08.762  INFO 7148 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:01:08.794  INFO 7148 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:01:08.825  INFO 7148 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:01:08.859  INFO 7148 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:01:09.188  INFO 7148 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:01:09.643  WARN 7148 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:01:09.643  INFO 7148 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:01:09.648  WARN 7148 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:01:09.648  INFO 7148 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:01:10.244  INFO 7148 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:01:12.234  INFO 7148 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:01:14.438  INFO 7148 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:01:14.569  INFO 7148 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:01:14.648  INFO 7148 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.403 seconds (JVM running for 11.223)
+2019-04-14 16:01:14.891 DEBUG 7148 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age FROM students WHERE name = ? 
+2019-04-14 16:01:14.912 DEBUG 7148 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:01:14.947  INFO 7148 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:01:14.950  INFO 7148 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:01:14.962  INFO 7148 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:01:14.969  INFO 7148 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:11:57.479  INFO 15868 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:11:58.076  INFO 15868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:11:58.077  INFO 15868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:11:58.091  INFO 15868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 16:11:58.187  WARN 15868 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:11:58.373  INFO 15868 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:11:58.467  INFO 15868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$452d075b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:11:58.494  INFO 15868 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:11:58.523  INFO 15868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a095425c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:11:58.555  INFO 15868 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bcaf4559] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:11:58.839  INFO 15868 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:11:59.274  WARN 15868 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:11:59.274  INFO 15868 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:11:59.279  WARN 15868 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:11:59.279  INFO 15868 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:11:59.778  INFO 15868 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:12:01.693  INFO 15868 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:12:03.882  INFO 15868 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:12:04.006  INFO 15868 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:12:04.069  INFO 15868 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.757 seconds (JVM running for 10.389)
+2019-04-14 16:12:04.267 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 16:12:04.287 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 16:12:04.302 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 16:12:04.304 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 16:12:04.305 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 16:12:04.319 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-04-14 16:12:04.319 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(Integer)
+2019-04-14 16:12:04.321 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-04-14 16:12:04.325 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age FROM students WHERE name = ? 
+2019-04-14 16:12:04.325 DEBUG 15868 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:12:04.348  INFO 15868 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:12:04.349  INFO 15868 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:12:04.361  INFO 15868 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:12:04.369  INFO 15868 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:13:32.539  INFO 17512 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:13:33.167  INFO 17512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:13:33.169  INFO 17512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:13:33.185  INFO 17512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-04-14 16:13:33.295  WARN 17512 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:13:33.502  INFO 17512 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:13:33.598  INFO 17512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$452d075b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:13:33.623  INFO 17512 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:13:33.651  INFO 17512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a095425c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:13:33.689  INFO 17512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bcaf4559] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:13:33.999  INFO 17512 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:13:34.432  WARN 17512 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:13:34.432  INFO 17512 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:13:34.440  WARN 17512 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:13:34.440  INFO 17512 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:13:35.009  INFO 17512 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:13:36.960  INFO 17512 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:13:39.161  INFO 17512 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:13:39.272  INFO 17512 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:13:39.336  INFO 17512 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.873 seconds (JVM running for 10.494)
+2019-04-14 16:13:39.541 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 16:13:39.561 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 16:13:39.575 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 16:13:39.577 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 16:13:39.577 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 16:13:39.592 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-04-14 16:13:39.593 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(Integer)
+2019-04-14 16:13:39.595 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-04-14 16:13:39.600 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age FROM students WHERE name = ? 
+2019-04-14 16:13:39.600 DEBUG 17512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:13:39.642  INFO 17512 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:13:39.644  INFO 17512 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:13:39.656  INFO 17512 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:13:39.663  INFO 17512 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:16:31.866  INFO 7512 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:16:32.490  INFO 7512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:16:32.492  INFO 7512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:16:32.507  INFO 7512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 16:16:32.621  WARN 7512 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:16:32.814  INFO 7512 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:16:32.911  INFO 7512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:16:32.939  INFO 7512 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:16:32.969  INFO 7512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:16:33.004  INFO 7512 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:16:33.299  INFO 7512 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:16:33.748  WARN 7512 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:16:33.749  INFO 7512 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:16:33.755  WARN 7512 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:16:33.755  INFO 7512 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:16:34.321  INFO 7512 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:16:36.289  INFO 7512 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:16:38.465  INFO 7512 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:16:38.606  INFO 7512 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:16:38.681  INFO 7512 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.029 seconds (JVM running for 10.723)
+2019-04-14 16:16:38.883 DEBUG 7512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age FROM students WHERE name = ? 
+2019-04-14 16:16:38.903 DEBUG 7512 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:16:38.935  INFO 7512 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:16:38.937  INFO 7512 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:16:38.952  INFO 7512 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:16:38.959  INFO 7512 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:19:32.602  INFO 11576 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:19:33.221  INFO 11576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:19:33.222  INFO 11576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:19:33.238  INFO 11576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7ms. Found 0 repository interfaces.
+2019-04-14 16:19:33.347  WARN 11576 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:19:33.556  INFO 11576 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:19:33.657  INFO 11576 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:19:33.684  INFO 11576 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:19:33.713  INFO 11576 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:19:33.745  INFO 11576 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:19:34.052  INFO 11576 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:19:34.490  WARN 11576 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:19:34.490  INFO 11576 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:19:34.495  WARN 11576 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:19:34.495  INFO 11576 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:19:35.079  INFO 11576 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:19:37.055  INFO 11576 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:19:39.252  INFO 11576 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:19:39.382  INFO 11576 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:19:39.449  INFO 11576 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 10.066 seconds (JVM running for 10.762)
+2019-04-14 16:19:39.652 DEBUG 11576 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age,address FROM students WHERE name = ? 
+2019-04-14 16:19:39.671 DEBUG 11576 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:19:39.752  INFO 11576 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:19:39.753  INFO 11576 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:19:39.764  INFO 11576 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:19:39.772  INFO 11576 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:22:52.841  INFO 5440 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:22:53.450  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:22:53.452  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:22:53.467  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 16:22:53.581  WARN 5440 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:22:53.778  INFO 5440 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:22:53.872  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:22:53.901  INFO 5440 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:22:53.930  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:22:53.964  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:22:54.253  INFO 5440 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:22:54.699  WARN 5440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:22:54.699  INFO 5440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:22:54.703  WARN 5440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:22:54.703  INFO 5440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:22:55.274  INFO 5440 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:22:57.251  INFO 5440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:22:59.445  INFO 5440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:22:59.570  INFO 5440 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:22:59.642  INFO 5440 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 9.982 seconds (JVM running for 10.68)
+2019-04-14 16:22:59.853 DEBUG 5440 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age,address FROM students WHERE name = ? 
+2019-04-14 16:22:59.873 DEBUG 5440 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:22:59.949  INFO 5440 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:22:59.951  INFO 5440 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:22:59.964  INFO 5440 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:22:59.972  INFO 5440 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:26:01.871  INFO 16404 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:26:02.496  INFO 16404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:26:02.498  INFO 16404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:26:02.514  INFO 16404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 16:26:02.620  WARN 16404 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:26:02.812  INFO 16404 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:26:02.913  INFO 16404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$452d075b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:02.942  INFO 16404 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:26:02.973  INFO 16404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a095425c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:03.050  INFO 16404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bcaf4559] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:03.313  INFO 16404 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:26:03.758  WARN 16404 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:26:03.758  INFO 16404 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:26:03.763  WARN 16404 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:26:03.763  INFO 16404 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:26:04.336  INFO 16404 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:26:24.708  INFO 16404 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:26:24.781  INFO 16404 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 26.054 seconds (JVM running for 26.828)
+2019-04-14 16:26:24.978 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 16:26:25.003 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 16:26:25.018 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 16:26:25.020 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 16:26:25.020 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 16:26:25.034 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-04-14 16:26:25.035 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(Integer)
+2019-04-14 16:26:25.037 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-04-14 16:26:25.041 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age,address FROM students WHERE name = ? 
+2019-04-14 16:26:25.041 DEBUG 16404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:26:25.112  INFO 16404 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:26:25.114  INFO 16404 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:26:25.126  INFO 16404 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:26:25.130  INFO 16404 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:26:47.371  INFO 12404 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:26:47.998  INFO 12404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:26:48.000  INFO 12404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:26:48.015  INFO 12404 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 16:26:48.130  WARN 12404 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:26:48.322  INFO 12404 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:26:48.418  INFO 12404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:48.446  INFO 12404 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:26:48.474  INFO 12404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:48.505  INFO 12404 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:26:48.801  INFO 12404 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:26:49.234  WARN 12404 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:26:49.235  INFO 12404 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:26:49.240  WARN 12404 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:26:49.240  INFO 12404 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:26:49.819  INFO 12404 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:27:11.063  INFO 12404 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 16:27:11.233  INFO 12404 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:27:11.306  INFO 12404 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 27.157 seconds (JVM running for 27.855)
+2019-04-14 16:27:11.588 DEBUG 12404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,age,address FROM students WHERE name = ? 
+2019-04-14 16:27:11.615 DEBUG 12404 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:27:11.703  INFO 12404 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:27:11.704  INFO 12404 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:27:11.715  INFO 12404 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:27:11.722  INFO 12404 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:42:19.410  INFO 14748 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:42:20.004  INFO 14748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:42:20.006  INFO 14748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:42:20.020  INFO 14748 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 16:42:20.126  WARN 14748 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:42:20.317  INFO 14748 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:42:20.417  INFO 14748 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:42:20.444  INFO 14748 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:42:20.474  INFO 14748 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:42:20.507  INFO 14748 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:42:20.792  INFO 14748 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:42:21.222  WARN 14748 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:42:21.222  INFO 14748 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:42:21.227  WARN 14748 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:42:21.227  INFO 14748 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:42:21.785  INFO 14748 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:42:42.527  INFO 14748 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:42:42.617  INFO 14748 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 26.337 seconds (JVM running for 27.009)
+2019-04-14 16:42:42.873 DEBUG 14748 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,age,address FROM students WHERE name = ? 
+2019-04-14 16:42:42.892 DEBUG 14748 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:42:42.970  INFO 14748 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:42:42.972  INFO 14748 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:42:42.983  INFO 14748 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:42:42.990  INFO 14748 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 16:45:51.892  INFO 8648 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 16:45:52.444  INFO 8648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 16:45:52.446  INFO 8648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 16:45:52.460  INFO 8648 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 16:45:52.558  WARN 8648 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 16:45:52.735  INFO 8648 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 16:45:52.822  INFO 8648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:45:52.848  INFO 8648 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 16:45:52.873  INFO 8648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:45:52.905  INFO 8648 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 16:45:53.165  INFO 8648 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 16:45:53.585  WARN 8648 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:45:53.585  INFO 8648 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:45:53.589  WARN 8648 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 16:45:53.590  INFO 8648 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 16:45:54.099  INFO 8648 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:46:14.646  INFO 8648 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 16:46:14.713  INFO 8648 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 25.938 seconds (JVM running for 26.545)
+2019-04-14 16:46:14.898 DEBUG 8648 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,age,address FROM students WHERE name = ? 
+2019-04-14 16:46:14.916 DEBUG 8648 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 16:46:14.987  INFO 8648 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 16:46:14.989  INFO 8648 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 16:46:15.000  INFO 8648 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 16:46:15.007  INFO 8648 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 18:04:08.692  INFO 13708 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 18:04:09.241  INFO 13708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 18:04:09.243  INFO 13708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 18:04:09.257  INFO 13708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 18:04:09.355  WARN 13708 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 18:04:09.529  INFO 13708 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 18:04:09.620  INFO 13708 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:04:09.644  INFO 13708 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 18:04:09.671  INFO 13708 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:04:09.700  INFO 13708 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:04:09.962  INFO 13708 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 18:04:10.366  WARN 13708 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:04:10.366  INFO 13708 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:04:10.371  WARN 13708 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:04:10.371  INFO 13708 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:04:10.886  INFO 13708 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:04:31.107  INFO 13708 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 18:04:31.174  INFO 13708 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 25.582 seconds (JVM running for 26.177)
+2019-04-14 18:04:31.360 DEBUG 13708 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 18:04:31.378 DEBUG 13708 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 18:04:31.392 DEBUG 13708 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 18:04:31.394 DEBUG 13708 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 18:04:31.394 DEBUG 13708 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 18:04:31.422  INFO 13708 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 18:04:31.425  INFO 13708 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 18:04:31.446  INFO 13708 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:04:31.449  INFO 13708 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 18:06:09.812  INFO 14920 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 18:06:10.371  INFO 14920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 18:06:10.372  INFO 14920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 18:06:10.387  INFO 14920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 18:06:10.480  WARN 14920 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 18:06:10.654  INFO 14920 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 18:06:10.742  INFO 14920 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$452d075b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:06:10.769  INFO 14920 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 18:06:10.795  INFO 14920 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a095425c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:06:10.857  INFO 14920 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bcaf4559] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:06:11.090  INFO 14920 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 18:06:11.497  WARN 14920 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:06:11.497  INFO 14920 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:06:11.501  WARN 14920 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:06:11.501  INFO 14920 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:06:12.002  INFO 14920 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:06:32.364  INFO 14920 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 18:06:32.424  INFO 14920 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 25.731 seconds (JVM running for 26.318)
+2019-04-14 18:06:32.613 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 18:06:32.632 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 18:06:32.651 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 18:06:32.653 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 18:06:32.653 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 18:06:32.666 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-04-14 18:06:32.666 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(Integer)
+2019-04-14 18:06:32.671 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,age,address FROM students WHERE name = ? 
+2019-04-14 18:06:32.671 DEBUG 14920 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 18:06:32.694  INFO 14920 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 18:06:32.696  INFO 14920 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 18:06:32.709  INFO 14920 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:06:32.716  INFO 14920 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 18:09:06.727  INFO 4188 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 18:09:07.274  INFO 4188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 18:09:07.275  INFO 4188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 18:09:07.290  INFO 4188 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 18:09:07.382  WARN 4188 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 18:09:07.555  INFO 4188 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 18:09:07.641  INFO 4188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$452d075b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:09:07.665  INFO 4188 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 18:09:07.691  INFO 4188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a095425c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:09:07.722  INFO 4188 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$bcaf4559] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:09:07.986  INFO 4188 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 18:09:08.384  WARN 4188 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:09:08.384  INFO 4188 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:09:08.389  WARN 4188 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:09:08.389  INFO 4188 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:09:08.893  INFO 4188 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:09:11.757  INFO 4188 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:09:14.869  INFO 4188 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:09:15.013  INFO 4188 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 18:09:15.077  INFO 4188 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.428 seconds (JVM running for 12.016)
+2019-04-14 18:09:15.267 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? AND age >= ? 
+2019-04-14 18:09:15.286 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String), 19(Integer)
+2019-04-14 18:09:15.300 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 0
+2019-04-14 18:09:15.302 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age,id,last_name FROM students WHERE name LIKE ? 
+2019-04-14 18:09:15.302 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: %pl%(String)
+2019-04-14 18:09:15.314 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-04-14 18:09:15.314 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(Integer)
+2019-04-14 18:09:15.316 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-04-14 18:09:15.319 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name,address FROM students WHERE name = ? 
+2019-04-14 18:09:15.319 DEBUG 4188 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 18:09:15.381  INFO 4188 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 18:09:15.386  INFO 4188 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 18:09:15.397  INFO 4188 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:09:15.401  INFO 4188 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 18:18:17.228  INFO 5440 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 18:18:17.775  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 18:18:17.777  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 18:18:17.790  INFO 5440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 18:18:17.887  WARN 5440 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 18:18:18.065  INFO 5440 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 18:18:18.154  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:18.182  INFO 5440 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 18:18:18.209  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:18.242  INFO 5440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:18.508  INFO 5440 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 18:18:18.950  WARN 5440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:18:18.950  INFO 5440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:18:18.955  WARN 5440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:18:18.955  INFO 5440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:18:19.468  INFO 5440 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:18:22.357  INFO 5440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:18:25.505  INFO 5440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:18:25.629  INFO 5440 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 18:18:25.689  INFO 5440 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.537 seconds (JVM running for 12.146)
+2019-04-14 18:18:25.870 DEBUG 5440 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT age FROM students WHERE name = ? 
+2019-04-14 18:18:25.888 DEBUG 5440 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 18:18:25.930  INFO 5440 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 18:18:25.934  INFO 5440 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 18:18:25.951  INFO 5440 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:18:25.955  INFO 5440 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 18:18:49.852  INFO 17592 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 18:18:50.395  INFO 17592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 18:18:50.397  INFO 17592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 18:18:50.410  INFO 17592 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-04-14 18:18:50.505  WARN 17592 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 18:18:50.682  INFO 17592 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 18:18:50.771  INFO 17592 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:50.797  INFO 17592 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 18:18:50.826  INFO 17592 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:50.856  INFO 17592 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 18:18:51.117  INFO 17592 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 18:18:51.507  WARN 17592 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:18:51.507  INFO 17592 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:18:51.511  WARN 17592 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 18:18:51.511  INFO 17592 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 18:18:52.028  INFO 17592 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:18:54.908  INFO 17592 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:18:58.019  INFO 17592 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 18:18:58.154  INFO 17592 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 18:18:58.214  INFO 17592 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.435 seconds (JVM running for 12.057)
+2019-04-14 18:18:58.399 DEBUG 17592 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE name = ? 
+2019-04-14 18:18:58.417 DEBUG 17592 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: zpl(String)
+2019-04-14 18:18:58.438 DEBUG 17592 --- [main] c.z.s.m.m.StudentsMapper.selectList      : <==      Total: 20
+2019-04-14 18:18:58.448  INFO 17592 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 18:18:58.449  INFO 17592 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 18:18:58.459  INFO 17592 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 18:18:58.466  INFO 17592 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed
+2019-04-14 22:57:07.251  INFO 13572 --- [main] c.z.s.SchoolrelationApplicationTests     : No active profile set, falling back to default profiles: default
+2019-04-14 22:57:07.814  INFO 13572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-04-14 22:57:07.816  INFO 13572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-04-14 22:57:07.830  INFO 13572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-04-14 22:57:07.932  WARN 13572 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-04-14 22:57:08.148  INFO 13572 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1f07015e-fccd-3691-a49b-8963dc68934d
+2019-04-14 22:57:08.255  INFO 13572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$dfc1c549] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 22:57:08.285  INFO 13572 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-04-14 22:57:08.317  INFO 13572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$3b2a004a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 22:57:08.357  INFO 13572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$57440347] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-04-14 22:57:08.640  INFO 13572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2019-04-14 22:57:09.062  WARN 13572 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 22:57:09.063  INFO 13572 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 22:57:09.067  WARN 13572 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-04-14 22:57:09.067  INFO 13572 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-04-14 22:57:09.617  INFO 13572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-14 22:57:12.520  INFO 13572 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 22:57:15.661  INFO 13572 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-04-14 22:57:15.805  INFO 13572 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-04-14 22:57:15.867  INFO 13572 --- [main] c.z.s.SchoolrelationApplicationTests     : Started SchoolrelationApplicationTests in 11.92 seconds (JVM running for 12.668)
+2019-04-14 22:57:16.044 DEBUG 13572 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==>  Preparing: SELECT name FROM students 
+2019-04-14 22:57:16.062 DEBUG 13572 --- [main] c.z.s.m.m.StudentsMapper.selectList      : ==> Parameters: 
+2019-04-14 22:57:16.131  INFO 13572 --- [Thread-5] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-04-14 22:57:16.132  INFO 13572 --- [Thread-5] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application SCHOOLRELATION-SERVICE with eureka with status DOWN
+2019-04-14 22:57:16.150  INFO 13572 --- [Thread-5] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2019-04-14 22:57:16.153  INFO 13572 --- [Thread-5] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} closed

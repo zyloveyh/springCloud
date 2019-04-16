@@ -60,8 +60,7 @@ public class SchoolrelationApplicationTests {
     public void testUpdateWrapper() {
 
         List<Students> students = studentsMapper.selectList(
-                new QueryWrapper<Students>()
-                        .eq("name", "zpl"));
+                new QueryWrapper<Students>().select("name"));
         System.out.println(students);
 
     }

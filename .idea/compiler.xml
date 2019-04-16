@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="schoolrelation" />
-        <module name="eureka_server" />
         <module name="demo" />
+        <module name="eureka_server" />
+        <module name="schoolrelation" />
         <module name="ribbon-consumer" />
         <module name="mybatisGenerator" />
+        <module name="school-relation-consumer" />
         <module name="hello-service" />
         <module name="eureka_server_214" />
       </profile>
@@ -24,6 +25,7 @@
       <module name="mybatisGenerator" target="1.5" />
       <module name="ribbon-consumer" target="1.8" />
       <module name="root" target="1.8" />
+      <module name="school-relation-consumer" target="1.8" />
       <module name="schoolrelation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -32,6 +34,7 @@
       <module name="eureka_server_214" options="-parameters" />
       <module name="hello-service" options="" />
       <module name="mybatis" options="-parameters" />
+      <module name="school-relation-consumer" options="-parameters" />
       <module name="schoolrelation" options="-parameters" />
     </option>
   </component>
