@@ -60,7 +60,7 @@ public class SchoolrelationApplicationTests {
     public void testUpdateWrapper() {
 
         List<Students> students = studentsMapper.selectList(
-                new QueryWrapper<Students>().select("name"));
+                new QueryWrapper<Students>().select("address"));
         System.out.println(students);
 
     }
