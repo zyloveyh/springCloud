@@ -1,8 +1,6 @@
 package com.zy.schoolrelation;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.netflix.discovery.converters.Auto;
 import com.zy.schoolrelation.mp.entity.Students;
 import com.zy.schoolrelation.mp.mapper.StudentsMapper;
 import com.zy.schoolrelation.mp.service.IStudentsService;
@@ -13,7 +11,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
-import java.util.function.Predicate;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -64,5 +61,7 @@ public class SchoolrelationApplicationTests {
         System.out.println(students);
 
     }
+
+
 
 }

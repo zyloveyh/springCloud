@@ -1,7 +1,5 @@
-#服务端口号
 server:
   port: 8000
-  ###服务名称 --注册到注册中心的服务名称
 spring:
   cloud:
     inetutils:
@@ -11,7 +9,6 @@ spring:
     username: root
     password: 666666
     driver-class-name: com.mysql.jdbc.Driver
-    # 使用druid数据源
     type: com.alibaba.druid.pool.DruidDataSource
     filters: stat
     maxActive: 20
@@ -38,20 +35,17 @@ mybatis-plus:
   typeAliasesPackage: com.zy.helloservice.dao.domain
   global-config:
     db-config:
-      ###配置全局主键策略
-#      id-type: auto
-      ###表名前缀配置
       table-prefix:
 
-###eureka基本配置信息
+
 eureka:
   client:
     service-url:
-      ####当前服务的注册中心地址
+
       defaultZone: http://peer1:9999/eureka/
-      ###需要将服务注册到eureka上
+
     register-with-eureka: true
-    #####需要去检索服务信息
+
     fetch-registry: true
   instance:
     lease-renewal-interval-in-seconds: 30
@@ -61,7 +55,6 @@ logging:
   file: my.log
   path: var/logs
   level:
-    ##root表示所有的文件，此处可以写文件所在地方，然后再写级别
     root: info
     com.zy.schoolrelation.mp: debug
 

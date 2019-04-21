@@ -2,13 +2,11 @@ package com.zy.schoolrelation.mp.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.netflix.discovery.converters.Auto;
 import com.zy.schoolrelation.mp.entity.Students;
 import com.zy.schoolrelation.mp.mapper.StudentsMapper;
 import com.zy.schoolrelation.mp.service.impl.StudentsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -36,12 +34,9 @@ public class StudentsController {
 
     @RequestMapping("getByColumn")
     public Students getByColumn(String key) {
-        /*return studentsMapper.selectList(
+        return studentsMapper.selectOne(
                 new QueryWrapper<Students>()
                         .select("id", "name", "age", "address")
-                        .eq("id", key)).get(0);*/
-
-
-        return null;
+                        .eq("id", key));
     }
 }
