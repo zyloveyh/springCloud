@@ -14,6 +14,7 @@
         <module name="school-relation-consumer" />
         <module name="hello-service" />
         <module name="eureka_server_214" />
+        <module name="study" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,18 +22,21 @@
       <module name="eureka_server" target="1.8" />
       <module name="eureka_server_214" target="1.8" />
       <module name="hello-service" target="1.8" />
+      <module name="learning" target="1.8" />
       <module name="mybatis" target="1.8" />
       <module name="mybatisGenerator" target="1.5" />
       <module name="ribbon-consumer" target="1.8" />
       <module name="root" target="1.8" />
       <module name="school-relation-consumer" target="1.8" />
       <module name="schoolrelation" target="1.8" />
+      <module name="study" target="8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="eureka_server_214" options="-parameters" />
       <module name="hello-service" options="" />
+      <module name="learning" options="-parameters" />
       <module name="mybatis" options="-parameters" />
       <module name="school-relation-consumer" options="-parameters" />
       <module name="schoolrelation" options="-parameters" />

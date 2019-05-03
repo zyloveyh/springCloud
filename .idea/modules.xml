@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/school-relation-consumer/school-relation-consumer.iml" filepath="$PROJECT_DIR$/school-relation-consumer/school-relation-consumer.iml" />
       <module fileurl="file://$PROJECT_DIR$/schoolrelation/schoolrelation.iml" filepath="$PROJECT_DIR$/schoolrelation/schoolrelation.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/springCloud.iml" filepath="$PROJECT_DIR$/.idea/springCloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study/study.iml" filepath="$PROJECT_DIR$/study/study.iml" />
     </modules>
   </component>
 </project>
