@@ -1,13 +1,13 @@
 package com.zy.schoolrelation.mp.entity;
 
-import java.time.LocalDateTime;
-
 import com.baomidou.mybatisplus.annotation.TableField;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
-import lombok.*;
-import lombok.experimental.Accessors;
+import java.time.LocalDateTime;
 
 /**
  * <p>

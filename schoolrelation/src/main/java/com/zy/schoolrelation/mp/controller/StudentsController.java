@@ -1,7 +1,6 @@
 package com.zy.schoolrelation.mp.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zy.schoolrelation.mp.entity.Students;
 import com.zy.schoolrelation.mp.mapper.StudentsMapper;
 import com.zy.schoolrelation.mp.service.impl.StudentsServiceImpl;
@@ -32,11 +31,4 @@ public class StudentsController {
         return studentsService.getById(key);
     }
 
-    @RequestMapping("getByColumn")
-    public Students getByColumn(String key) {
-        return studentsMapper.selectOne(
-                new QueryWrapper<Students>()
-                        .select("id", "name", "age", "address")
-                        .eq("id", key));
-    }
 }

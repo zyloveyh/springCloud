@@ -9,30 +9,26 @@ spring:
     username: root
     password: 666666
     driver-class-name: com.mysql.jdbc.Driver
-    type: com.alibaba.druid.pool.DruidDataSource
-    filters: stat
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
+    zy1:
+      url: jdbc:mysql://192.168.1.6:3306/zy1?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 666666
+      driver-class-name: com.mysql.jdbc.Driver
+    zy2:
+      url: jdbc:mysql://192.168.1.6:3306/zy2?useUnicode=true&characterEncoding=utf8
+      username: root
+      password: 666666
+      driver-class-name: com.mysql.jdbc.Driver
+
   application:
     name: schoolrelation-service
 
-
 mybatis:
-  mapperLocations: classpath:com/zy/helloservice/**/*.xml
-  typeAliasesPackage: com.zy.helloservice.dao.domain
+  mapperLocations: classpath:com/zy/schoolrelation/**/*.xml
+  typeAliasesPackage: com.zy.schoolrelation.map.entity
 mybatis-plus:
-  mapperLocations: classpath:com/zy/helloservice/**/*.xml
-  typeAliasesPackage: com.zy.helloservice.dao.domain
+  mapperLocations: classpath:com/zy/schoolrelation/**/*.xml
+  typeAliasesPackage: com.zy.schoolrelation.map.entity
   global-config:
     db-config:
       table-prefix:
