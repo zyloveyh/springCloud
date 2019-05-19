@@ -7,10 +7,11 @@ import com.zy.schoolrelation.mp.mapper.StudentsMapper;
 import com.zy.schoolrelation.mp.service.IStudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>
- *  服务实现类
+ * 服务实现类
  * </p>
  *
  * @author zy
@@ -24,11 +25,27 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
 
     @DS("slave_1")
     public Students getById1(String key) {
+        Students student = Students.builder().age(18).address("深圳").lastName("z").name("zu").sex("男").teacher(2).build();
+         studentsMapper.insert(student);
         return studentsMapper.selectById(key);
     }
 
     @DS("slave_2")
     public Students getById2(String key) {
         return studentsMapper.selectById(key);
+    }
+
+    @DS("slave_1")
+    @Transactional
+    public Integer addstudent1() {
+        Students student = Students.builder().age(18).address("深圳").lastName("z").name("zu").sex("男").teacher(2).build();
+        return studentsMapper.insert(student);
+    }
+
+    @DS("slave_2")
+    @Transactional
+    public Integer addstudent2() {
+        Students student = Students.builder().age(18).address("深圳").lastName("z").name("zu").sex("男").teacher(2).build();
+        return studentsMapper.insert(student);
     }
 }

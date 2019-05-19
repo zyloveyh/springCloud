@@ -1,4 +1,4 @@
-/*
+
 package com.zy.schoolrelation;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -41,12 +41,11 @@ public class SchoolrelationApplicationTests {
         List<Students> students = studentsMapper.selectList(queryWrapper);
 
 
-     */
 /*  更新
                 int update = studentsMapper.update(
                 Students.builder().age(23).lastName("hhaf").build(),
                 new UpdateWrapper<Students>().set("age", 15).like("name","pl")
-        );*//*
+        );*/
 
 
         List<Students> students1 = studentsMapper.selectList(
@@ -65,7 +64,11 @@ public class SchoolrelationApplicationTests {
 
     }
 
+    @Test
+    public void testInsert() {
+        Students student = Students.builder().age(18).address("深圳").lastName("z").name("zu").sex("男").teacher(2).build();
+        studentsMapper.insert(student);
 
+    }
 
 }
-*/

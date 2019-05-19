@@ -1,13 +1,15 @@
 package com.zy.schoolrelation.mp.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 /**
  * <p>
@@ -26,6 +28,7 @@ public class Students implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @TableField(value = "id")
+    @TableId(type = IdType.AUTO)  //主键策略
     private Integer id;
     /**
      * 名字
@@ -61,7 +64,7 @@ public class Students implements Serializable {
      * 创建时间
      */
     @TableField("createTime")
-    private LocalDateTime createTime;
+    private Timestamp createTime;
 
     /**
      * lastName

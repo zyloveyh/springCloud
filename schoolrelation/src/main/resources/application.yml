@@ -1,24 +1,31 @@
 server:
   port: 8000
 spring:
+  profiles:
+    active: test
   cloud:
     inetutils:
       timeout-seconds: 2
   datasource:
-    url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8
-    username: root
-    password: 666666
-    driver-class-name: com.mysql.jdbc.Driver
-    zy1:
-      url: jdbc:mysql://192.168.1.6:3306/zy1?useUnicode=true&characterEncoding=utf8
-      username: root
-      password: 666666
-      driver-class-name: com.mysql.jdbc.Driver
-    zy2:
-      url: jdbc:mysql://192.168.1.6:3306/zy2?useUnicode=true&characterEncoding=utf8
-      username: root
-      password: 666666
-      driver-class-name: com.mysql.jdbc.Driver
+    dynamic:
+      primary: master
+      strict: false
+      datasource:
+        master:
+          url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8
+          username: root
+          password: 666666
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_1:
+          url: jdbc:mysql://192.168.1.6:3306/zy1?useUnicode=true&characterEncoding=utf8
+          username: root
+          password: 666666
+          driver-class-name: com.mysql.jdbc.Driver
+        slave_2:
+          url: jdbc:mysql://192.168.1.6:3306/zy2?useUnicode=true&characterEncoding=utf8
+          username: root
+          password: 666666
+          driver-class-name: com.mysql.jdbc.Driver
 
   application:
     name: schoolrelation-service
