@@ -1,418 +1,527 @@
-2019-05-18 16:07:49.517  INFO 11572 --- [main] com.zy.SchoolrelationApplication         : No active profile set, falling back to default profiles: default
-2019-05-18 16:07:50.312  INFO 11572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2019-05-18 16:07:50.313  INFO 11572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-05-18 16:07:50.329  INFO 11572 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
-2019-05-18 16:07:50.418  WARN 11572 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2019-05-18 16:07:50.565  INFO 11572 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=270a4e46-fff4-39ff-aa0c-41947279b81c
-2019-05-18 16:07:50.605  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$bdbf1eac] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.625  INFO 11572 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2019-05-18 16:07:50.658  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$192759ad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.676  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.677  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$82b5ca7e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.683  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.686  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.691  INFO 11572 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$35415caa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:07:50.926  INFO 11572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2019-05-18 16:07:50.941  INFO 11572 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-05-18 16:07:50.941  INFO 11572 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-18 16:07:51.037  INFO 11572 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-05-18 16:07:51.037  INFO 11572 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1510 ms
-2019-05-18 16:07:51.121  WARN 11572 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:07:51.121  INFO 11572 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:07:51.127  INFO 11572 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@1adc393
-2019-05-18 16:07:51.213  INFO 11572 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
-2019-05-18 16:07:51.258  INFO 11572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
-2019-05-18 16:07:51.261  INFO 11572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
-2019-05-18 16:07:51.263  INFO 11572 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
-2019-05-18 16:07:51.263  INFO 11572 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
-2019-05-18 16:07:51.264  INFO 11572 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
-2019-05-18 16:07:51.264  INFO 11572 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
-2019-05-18 16:07:51.264  INFO 11572 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
-2019-05-18 16:07:51.264  INFO 11572 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
-2019-05-18 16:07:53.514  INFO 11572 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:08:14.998 ERROR 11572 --- [Druid-ConnectionPool-Create-30330614] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8, errorCode 0, state 08S01
+2019-05-19 21:53:35.917  INFO 15808 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
+2019-05-19 21:53:36.562  INFO 15808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-19 21:53:36.563  INFO 15808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-19 21:53:36.595  INFO 15808 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-05-19 21:53:36.699  WARN 15808 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-05-19 21:53:36.853  INFO 15808 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3487506d-a656-3f28-9a87-d8ab54c8914d
+2019-05-19 21:53:36.900  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$922d34f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:36.919  INFO 15808 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-05-19 21:53:36.955  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$648b0e50] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:36.977  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:36.978  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$ce197f21] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:36.982  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:36.985  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:37.006  INFO 15808 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$80a5114d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:53:37.234  INFO 15808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2019-05-19 21:53:37.248  INFO 15808 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-19 21:53:37.248  INFO 15808 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-19 21:53:37.342  INFO 15808 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-19 21:53:37.342  INFO 15808 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1414 ms
+2019-05-19 21:53:37.428  WARN 15808 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:53:37.428  INFO 15808 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:53:37.435  INFO 15808 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@422efb
+2019-05-19 21:53:37.662  INFO 15808 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
+2019-05-19 21:53:37.704  INFO 15808 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
+2019-05-19 21:53:37.707  INFO 15808 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
+2019-05-19 21:53:37.712  INFO 15808 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
+2019-05-19 21:53:37.713  INFO 15808 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
+2019-05-19 21:53:37.713  INFO 15808 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
+2019-05-19 21:53:37.713  INFO 15808 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
+2019-05-19 21:53:37.713  INFO 15808 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
+2019-05-19 21:53:37.713  INFO 15808 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
+2019-05-19 21:53:39.959  INFO 15808 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:53:40.920  WARN 15808 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:53:40.920  INFO 15808 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:53:41.145  INFO 15808 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-19 21:53:43.869  INFO 15808 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:53:43.928  INFO 15808 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-19 21:53:44.034  INFO 15808 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-05-19 21:53:44.066  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-05-19 21:53:44.352  INFO 15808 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-05-19 21:53:44.352  INFO 15808 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-05-19 21:53:44.464  INFO 15808 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-05-19 21:53:44.464  INFO 15808 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-05-19 21:53:44.597  INFO 15808 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 21:53:44.707  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-05-19 21:53:44.708  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-05-19 21:53:44.865  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-05-19 21:53:44.870  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-05-19 21:53:44.871  INFO 15808 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-19 21:53:44.874  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558274024873 with initial instances count: 0
+2019-05-19 21:53:44.876  INFO 15808 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
+2019-05-19 21:53:44.876  INFO 15808 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558274024876, current=UP, previous=STARTING]
+2019-05-19 21:53:44.878  INFO 15808 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
+2019-05-19 21:53:44.903  INFO 15808 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2019-05-19 21:53:44.903  INFO 15808 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
+2019-05-19 21:53:44.904  INFO 15808 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 12.058 seconds (JVM running for 12.631)
+2019-05-19 21:53:44.951  INFO 15808 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
+2019-05-19 21:54:10.192  INFO 15808 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-19 21:54:10.193  INFO 15808 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-19 21:54:10.200  INFO 15808 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-05-19 21:54:14.872  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-05-19 21:54:14.873  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-05-19 21:54:14.873  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-05-19 21:54:14.874  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-05-19 21:54:14.874  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-05-19 21:54:14.874  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2019-05-19 21:54:14.875  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-05-19 21:54:14.950  INFO 15808 --- [DiscoveryClient-CacheRefreshExecutor-0] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-05-19 21:54:42.390 ERROR 15808 --- [http-nio-8000-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@1ac7733'. At least one cache should be provided per cache operation.] with root cause
 
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@1ac7733'. At least one cache should be provided per cache operation.
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:255) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:707) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:598) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at com.zy.schoolrelation.mp.controller.StudentsController$$EnhancerBySpringCGLIB$$c6d00402.getByKey1(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
 
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:786) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1560) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+2019-05-19 21:56:26.222  INFO 13900 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
+2019-05-19 21:56:26.811  INFO 13900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-19 21:56:26.813  INFO 13900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-19 21:56:26.827  INFO 13900 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-05-19 21:56:26.911  WARN 13900 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-05-19 21:56:27.057  INFO 13900 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3487506d-a656-3f28-9a87-d8ab54c8914d
+2019-05-19 21:56:27.101  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$d49c4707] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.116  INFO 13900 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-05-19 21:56:27.151  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$30048208] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.171  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.172  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$9992f2d9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.176  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.179  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.199  INFO 13900 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$4c1e8505] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:56:27.427  INFO 13900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2019-05-19 21:56:27.447  INFO 13900 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-19 21:56:27.448  INFO 13900 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-19 21:56:27.549  INFO 13900 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-19 21:56:27.549  INFO 13900 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1318 ms
+2019-05-19 21:56:27.638  WARN 13900 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:56:27.638  INFO 13900 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:56:27.648  INFO 13900 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@168c66f
+2019-05-19 21:56:27.875  INFO 13900 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
+2019-05-19 21:56:27.917  INFO 13900 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
+2019-05-19 21:56:27.920  INFO 13900 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
+2019-05-19 21:56:27.922  INFO 13900 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
+2019-05-19 21:56:27.922  INFO 13900 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
+2019-05-19 21:56:27.923  INFO 13900 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
+2019-05-19 21:56:27.923  INFO 13900 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
+2019-05-19 21:56:27.923  INFO 13900 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
+2019-05-19 21:56:27.923  INFO 13900 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
+2019-05-19 21:56:30.170  INFO 13900 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:56:30.761  WARN 13900 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:56:30.761  INFO 13900 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:56:30.941  INFO 13900 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-19 21:56:33.594  INFO 13900 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:56:33.681  INFO 13900 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-19 21:56:33.756  INFO 13900 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-05-19 21:56:33.786  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-05-19 21:56:34.019  INFO 13900 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-05-19 21:56:34.020  INFO 13900 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-05-19 21:56:34.097  INFO 13900 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-05-19 21:56:34.097  INFO 13900 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-05-19 21:56:34.212  INFO 13900 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-05-19 21:56:34.318  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-05-19 21:56:34.431  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-05-19 21:56:34.433  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-05-19 21:56:34.435  INFO 13900 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-19 21:56:34.437  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558274194436 with initial instances count: 1
+2019-05-19 21:56:34.439  INFO 13900 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
+2019-05-19 21:56:34.439  INFO 13900 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558274194439, current=UP, previous=STARTING]
+2019-05-19 21:56:34.441  INFO 13900 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
+2019-05-19 21:56:34.470  INFO 13900 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
+2019-05-19 21:56:34.475  INFO 13900 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2019-05-19 21:56:34.476  INFO 13900 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
+2019-05-19 21:56:34.477  INFO 13900 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 11.213 seconds (JVM running for 11.754)
+2019-05-19 21:56:35.966  INFO 13900 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-19 21:56:35.966  INFO 13900 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-19 21:56:35.973  INFO 13900 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
+2019-05-19 21:56:36.017 ERROR 13900 --- [http-nio-8000-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@139ace5'. At least one cache should be provided per cache operation.] with root cause
 
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_131]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_131]
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_131]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_131]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 11 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_131]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_131]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 14 common frames omitted
+java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@139ace5'. At least one cache should be provided per cache operation.
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:255) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:707) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:598) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at com.zy.schoolrelation.mp.controller.StudentsController$$EnhancerBySpringCGLIB$$cec44b42.getByKey1(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
 
-2019-05-18 16:08:36.004 ERROR 11572 --- [Druid-ConnectionPool-Create-30330614] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8, errorCode 0, state 08S01
+2019-05-19 21:56:37.754 ERROR 13900 --- [http-nio-8000-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@139ace5'. At least one cache should be provided per cache operation.] with root cause
 
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+java.lang.IllegalStateException: No cache could be resolved for 'Builder[public com.zy.schoolrelation.mp.entity.Students com.zy.schoolrelation.mp.controller.StudentsController.getByKey1(java.lang.String)] caches=[] | key='' | keyGenerator='' | cacheManager='' | cacheResolver='' | condition='' | unless='' | sync='false'' using resolver 'org.springframework.cache.interceptor.SimpleCacheResolver@139ace5'. At least one cache should be provided per cache operation.
+	at org.springframework.cache.interceptor.CacheAspectSupport.getCaches(CacheAspectSupport.java:255) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContext.<init>(CacheAspectSupport.java:707) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.getOperationContext(CacheAspectSupport.java:265) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport$CacheOperationContexts.<init>(CacheAspectSupport.java:598) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheAspectSupport.execute(CacheAspectSupport.java:345) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.cache.interceptor.CacheInterceptor.invoke(CacheInterceptor.java:61) ~[spring-context-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:688) ~[spring-aop-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at com.zy.schoolrelation.mp.controller.StudentsController$$EnhancerBySpringCGLIB$$cec44b42.getByKey1(<generated>) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_131]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_131]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_131]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_131]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:189) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:102) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1038) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882) ~[spring-webmvc-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at com.alibaba.druid.support.http.WebStatFilter.doFilter(WebStatFilter.java:123) ~[druid-1.1.10.jar:1.1.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.web.trace.servlet.HttpTraceFilter.doFilterInternal(HttpTraceFilter.java:90) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.filterAndRecordMetrics(WebMvcMetricsFilter.java:117) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:106) ~[spring-boot-actuator-2.1.4.RELEASE.jar:2.1.4.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) ~[spring-web-5.1.6.RELEASE.jar:5.1.6.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:200) ~[tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:834) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1415) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_131]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_131]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.17.jar:9.0.17]
+	at java.lang.Thread.run(Thread.java:748) [na:1.8.0_131]
 
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:786) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1560) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_131]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_131]
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_131]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_131]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 11 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_131]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_131]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 14 common frames omitted
-
-2019-05-18 16:08:57.528 ERROR 11572 --- [Druid-ConnectionPool-Create-30330614] com.alibaba.druid.pool.DruidDataSource   : create connection SQLException, url: jdbc:mysql://192.168.1.6:3306/mybatis?useUnicode=true&characterEncoding=utf8, errorCode 0, state 08S01
-
-com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterAdapter.connection_connect(FilterAdapter.java:786) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1560) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623) ~[druid-1.1.10.jar:1.1.10]
-	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2468) ~[druid-1.1.10.jar:1.1.10]
-Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
-
-The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:1.8.0_131]
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[na:1.8.0_131]
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:1.8.0_131]
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:423) ~[na:1.8.0_131]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.NativeSession.connect(NativeSession.java:152) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:955) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 11 common frames omitted
-Caused by: java.net.ConnectException: Connection timed out: connect
-	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[na:1.8.0_131]
-	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[na:1.8.0_131]
-	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[na:1.8.0_131]
-	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[na:1.8.0_131]
-	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[na:1.8.0_131]
-	at java.net.Socket.connect(Socket.java:589) ~[na:1.8.0_131]
-	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65) ~[mysql-connector-java-8.0.15.jar:8.0.15]
-	... 14 common frames omitted
-
-2019-05-18 16:09:07.247  WARN 11572 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:09:07.247  INFO 11572 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:09:07.454  INFO 11572 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-05-18 16:09:10.111  INFO 11572 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:09:10.190  INFO 11572 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-05-18 16:09:10.266  INFO 11572 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2019-05-18 16:09:10.290  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2019-05-18 16:09:10.516  INFO 11572 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2019-05-18 16:09:10.517  INFO 11572 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2019-05-18 16:09:10.593  INFO 11572 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2019-05-18 16:09:10.593  INFO 11572 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2019-05-18 16:09:10.717  INFO 11572 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:09:10.825  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2019-05-18 16:09:10.825  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2019-05-18 16:09:10.826  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2019-05-18 16:09:10.826  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2019-05-18 16:09:10.826  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2019-05-18 16:09:10.826  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2019-05-18 16:09:10.826  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2019-05-18 16:09:10.971  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2019-05-18 16:09:10.972  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2019-05-18 16:09:10.974  INFO 11572 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2019-05-18 16:09:10.976  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558166950975 with initial instances count: 0
-2019-05-18 16:09:10.978  INFO 11572 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
-2019-05-18 16:09:10.978  INFO 11572 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558166950978, current=UP, previous=STARTING]
-2019-05-18 16:09:10.979  INFO 11572 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
-2019-05-18 16:09:11.015  INFO 11572 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2019-05-18 16:09:11.015  INFO 11572 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
-2019-05-18 16:09:11.017  INFO 11572 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 84.579 seconds (JVM running for 85.093)
-2019-05-18 16:09:11.060  INFO 11572 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
-2019-05-18 16:09:31.435  INFO 6440 --- [main] com.zy.SchoolrelationApplication         : No active profile set, falling back to default profiles: default
-2019-05-18 16:09:32.035  INFO 6440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2019-05-18 16:09:32.036  INFO 6440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-05-18 16:09:32.049  INFO 6440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
-2019-05-18 16:09:32.146  WARN 6440 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2019-05-18 16:09:32.298  INFO 6440 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=270a4e46-fff4-39ff-aa0c-41947279b81c
-2019-05-18 16:09:32.348  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$f57bdde5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.368  INFO 6440 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2019-05-18 16:09:32.403  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$50e418e6] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.421  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.422  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$ba7289b7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.429  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.431  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.436  INFO 6440 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$6cfe1be3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:09:32.690  INFO 6440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2019-05-18 16:09:32.705  INFO 6440 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-05-18 16:09:32.705  INFO 6440 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-18 16:09:32.798  INFO 6440 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-05-18 16:09:32.799  INFO 6440 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1355 ms
-2019-05-18 16:09:32.878  WARN 6440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:09:32.878  INFO 6440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:09:32.884  INFO 6440 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@9e57da
-2019-05-18 16:09:32.995  INFO 6440 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
-2019-05-18 16:09:33.037  INFO 6440 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
-2019-05-18 16:09:33.040  INFO 6440 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
-2019-05-18 16:09:33.043  INFO 6440 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
-2019-05-18 16:09:33.043  INFO 6440 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
-2019-05-18 16:09:33.043  INFO 6440 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
-2019-05-18 16:09:33.043  INFO 6440 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
-2019-05-18 16:09:33.044  INFO 6440 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
-2019-05-18 16:09:33.044  INFO 6440 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
-2019-05-18 16:09:35.310  INFO 6440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:09:35.883  WARN 6440 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:09:35.883  INFO 6440 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:09:36.094  INFO 6440 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-05-18 16:09:38.755  INFO 6440 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:09:38.826  INFO 6440 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-05-18 16:09:38.899  INFO 6440 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2019-05-18 16:09:38.934  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2019-05-18 16:09:39.156  INFO 6440 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2019-05-18 16:09:39.156  INFO 6440 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2019-05-18 16:09:39.232  INFO 6440 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2019-05-18 16:09:39.232  INFO 6440 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2019-05-18 16:09:39.342  INFO 6440 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2019-05-18 16:09:39.452  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2019-05-18 16:09:39.560  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2019-05-18 16:09:39.562  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2019-05-18 16:09:39.564  INFO 6440 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2019-05-18 16:09:39.566  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558166979565 with initial instances count: 1
-2019-05-18 16:09:39.568  INFO 6440 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
-2019-05-18 16:09:39.568  INFO 6440 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558166979568, current=UP, previous=STARTING]
-2019-05-18 16:09:39.569  INFO 6440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
-2019-05-18 16:09:39.590  INFO 6440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
-2019-05-18 16:09:39.594  INFO 6440 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2019-05-18 16:09:39.594  INFO 6440 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
-2019-05-18 16:09:39.595  INFO 6440 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 11.109 seconds (JVM running for 11.724)
-2019-05-18 16:11:55.305  INFO 6440 --- [http-nio-8000-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-18 16:11:55.306  INFO 6440 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-05-18 16:11:55.313  INFO 6440 --- [http-nio-8000-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 6 ms
-2019-05-18 16:12:15.909  INFO 4352 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
-2019-05-18 16:12:16.472  INFO 4352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2019-05-18 16:12:16.474  INFO 4352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-05-18 16:12:16.486  INFO 4352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
-2019-05-18 16:12:16.571  WARN 4352 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2019-05-18 16:12:16.714  INFO 4352 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=270a4e46-fff4-39ff-aa0c-41947279b81c
-2019-05-18 16:12:16.754  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$bd42a779] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.770  INFO 4352 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2019-05-18 16:12:16.806  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$18aae27a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.824  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.825  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$8239534b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.829  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.832  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:16.836  INFO 4352 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$34c4e577] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:12:17.070  INFO 4352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2019-05-18 16:12:17.085  INFO 4352 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-05-18 16:12:17.085  INFO 4352 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-18 16:12:17.179  INFO 4352 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-05-18 16:12:17.179  INFO 4352 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1263 ms
-2019-05-18 16:12:17.259  WARN 4352 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:12:17.259  INFO 4352 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:12:17.266  INFO 4352 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@15156a6
-2019-05-18 16:12:17.351  INFO 4352 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
-2019-05-18 16:12:17.387  INFO 4352 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
-2019-05-18 16:12:17.389  INFO 4352 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
-2019-05-18 16:12:17.395  INFO 4352 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
-2019-05-18 16:12:17.395  INFO 4352 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
-2019-05-18 16:12:17.396  INFO 4352 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
-2019-05-18 16:12:17.396  INFO 4352 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
-2019-05-18 16:12:17.396  INFO 4352 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
-2019-05-18 16:12:17.396  INFO 4352 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
-2019-05-18 16:12:19.635  INFO 4352 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:12:20.236  WARN 4352 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:12:20.237  INFO 4352 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:12:20.445  INFO 4352 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-05-18 16:12:23.139  INFO 4352 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:12:23.225  INFO 4352 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-05-18 16:12:23.301  INFO 4352 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2019-05-18 16:12:23.324  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2019-05-18 16:12:23.549  INFO 4352 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2019-05-18 16:12:23.550  INFO 4352 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2019-05-18 16:12:23.626  INFO 4352 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2019-05-18 16:12:23.626  INFO 4352 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2019-05-18 16:12:23.739  INFO 4352 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:12:23.857  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2019-05-18 16:12:23.857  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2019-05-18 16:12:23.857  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2019-05-18 16:12:23.858  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2019-05-18 16:12:23.858  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2019-05-18 16:12:23.858  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2019-05-18 16:12:23.858  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2019-05-18 16:12:23.982  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2019-05-18 16:12:23.985  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2019-05-18 16:12:23.987  INFO 4352 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2019-05-18 16:12:23.990  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558167143989 with initial instances count: 1
-2019-05-18 16:12:23.992  INFO 4352 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
-2019-05-18 16:12:23.992  INFO 4352 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558167143992, current=UP, previous=STARTING]
-2019-05-18 16:12:23.994  INFO 4352 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
-2019-05-18 16:12:24.027  INFO 4352 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
-2019-05-18 16:12:24.032  INFO 4352 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2019-05-18 16:12:24.033  INFO 4352 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
-2019-05-18 16:12:24.034  INFO 4352 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 11.149 seconds (JVM running for 11.67)
-2019-05-18 16:12:28.944  INFO 4352 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-18 16:12:28.944  INFO 4352 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-05-18 16:12:28.952  INFO 4352 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
-2019-05-18 16:13:23.494  INFO 2276 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
-2019-05-18 16:13:24.036  INFO 2276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
-2019-05-18 16:13:24.038  INFO 2276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
-2019-05-18 16:13:24.050  INFO 2276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
-2019-05-18 16:13:24.135  WARN 2276 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
-2019-05-18 16:13:24.278  INFO 2276 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=270a4e46-fff4-39ff-aa0c-41947279b81c
-2019-05-18 16:13:24.319  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$61d7a778] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.335  INFO 2276 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
-2019-05-18 16:13:24.371  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bd3fe279] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.389  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.389  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$26ce534a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.393  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.395  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.402  INFO 2276 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$d959e576] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2019-05-18 16:13:24.621  INFO 2276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
-2019-05-18 16:13:24.636  INFO 2276 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2019-05-18 16:13:24.636  INFO 2276 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
-2019-05-18 16:13:24.730  INFO 2276 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2019-05-18 16:13:24.730  INFO 2276 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1228 ms
-2019-05-18 16:13:24.811  WARN 2276 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:13:24.811  INFO 2276 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:13:24.817  INFO 2276 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@ffc159
-2019-05-18 16:13:24.912  INFO 2276 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
-2019-05-18 16:13:24.955  INFO 2276 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
-2019-05-18 16:13:24.958  INFO 2276 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
-2019-05-18 16:13:24.964  INFO 2276 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
-2019-05-18 16:13:24.964  INFO 2276 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
-2019-05-18 16:13:24.965  INFO 2276 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
-2019-05-18 16:13:24.965  INFO 2276 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
-2019-05-18 16:13:24.965  INFO 2276 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
-2019-05-18 16:13:24.965  INFO 2276 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
-2019-05-18 16:13:27.224  INFO 2276 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:13:27.782  WARN 2276 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
-2019-05-18 16:13:27.782  INFO 2276 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
-2019-05-18 16:13:27.983  INFO 2276 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2019-05-18 16:13:30.603  INFO 2276 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2019-05-18 16:13:30.689  INFO 2276 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
-2019-05-18 16:13:30.758  INFO 2276 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2019-05-18 16:13:30.781  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2019-05-18 16:13:31.004  INFO 2276 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2019-05-18 16:13:31.004  INFO 2276 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2019-05-18 16:13:31.081  INFO 2276 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2019-05-18 16:13:31.082  INFO 2276 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2019-05-18 16:13:31.191  INFO 2276 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:13:31.292  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2019-05-18 16:13:31.292  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2019-05-18 16:13:31.292  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2019-05-18 16:13:31.292  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2019-05-18 16:13:31.292  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2019-05-18 16:13:31.293  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2019-05-18 16:13:31.293  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2019-05-18 16:13:31.394  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2019-05-18 16:13:31.396  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2019-05-18 16:13:31.398  INFO 2276 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2019-05-18 16:13:31.400  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558167211399 with initial instances count: 1
-2019-05-18 16:13:31.401  INFO 2276 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
-2019-05-18 16:13:31.401  INFO 2276 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558167211401, current=UP, previous=STARTING]
-2019-05-18 16:13:31.403  INFO 2276 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
-2019-05-18 16:13:31.430  INFO 2276 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
-2019-05-18 16:13:31.434  INFO 2276 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
-2019-05-18 16:13:31.435  INFO 2276 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
-2019-05-18 16:13:31.436  INFO 2276 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 10.897 seconds (JVM running for 11.415)
-2019-05-18 16:14:04.747  INFO 2276 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2019-05-18 16:14:04.747  INFO 2276 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2019-05-18 16:14:04.754  INFO 2276 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
-2019-05-18 16:18:31.297  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:23:31.299  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:28:31.302  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:33:31.304  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:38:31.306  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:43:31.308  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:48:31.311  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:53:31.313  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 16:58:31.316  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:03:31.318  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:08:31.321  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:13:31.323  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:18:31.326  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:23:31.329  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:28:31.331  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:33:31.334  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2019-05-18 17:38:31.336  INFO 2276 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 21:59:14.067  INFO 5152 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
+2019-05-19 21:59:14.690  INFO 5152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-19 21:59:14.691  INFO 5152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-19 21:59:14.706  INFO 5152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5ms. Found 0 repository interfaces.
+2019-05-19 21:59:14.797  WARN 5152 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-05-19 21:59:14.957  INFO 5152 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3487506d-a656-3f28-9a87-d8ab54c8914d
+2019-05-19 21:59:15.000  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$b3430d0c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.016  INFO 5152 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-05-19 21:59:15.052  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$eab480d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.074  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.075  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$7839b8de] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.079  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.103  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.126  INFO 5152 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$2ac54b0a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:15.354  INFO 5152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2019-05-19 21:59:15.368  INFO 5152 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-19 21:59:15.368  INFO 5152 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-19 21:59:15.461  INFO 5152 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-19 21:59:15.462  INFO 5152 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1383 ms
+2019-05-19 21:59:15.543  WARN 5152 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:59:15.543  INFO 5152 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:59:15.552  INFO 5152 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@62d6d5
+2019-05-19 21:59:15.761  INFO 5152 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
+2019-05-19 21:59:15.798  INFO 5152 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
+2019-05-19 21:59:15.804  INFO 5152 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
+2019-05-19 21:59:15.806  INFO 5152 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
+2019-05-19 21:59:15.807  INFO 5152 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
+2019-05-19 21:59:15.807  INFO 5152 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
+2019-05-19 21:59:15.807  INFO 5152 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
+2019-05-19 21:59:15.807  INFO 5152 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
+2019-05-19 21:59:15.807  INFO 5152 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
+2019-05-19 21:59:18.046  INFO 5152 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:59:18.582  WARN 5152 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:59:18.582  INFO 5152 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:59:18.809  INFO 5152 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-19 21:59:21.459  INFO 5152 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:59:21.554  INFO 5152 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-19 21:59:21.627  INFO 5152 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-05-19 21:59:21.656  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-05-19 21:59:21.873  INFO 5152 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-05-19 21:59:21.873  INFO 5152 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-05-19 21:59:21.954  INFO 5152 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-05-19 21:59:21.954  INFO 5152 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-05-19 21:59:22.086  INFO 5152 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-05-19 21:59:22.185  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-05-19 21:59:22.295  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-05-19 21:59:22.297  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-05-19 21:59:22.299  INFO 5152 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-19 21:59:22.301  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558274362300 with initial instances count: 1
+2019-05-19 21:59:22.303  INFO 5152 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
+2019-05-19 21:59:22.303  INFO 5152 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558274362303, current=UP, previous=STARTING]
+2019-05-19 21:59:22.305  INFO 5152 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
+2019-05-19 21:59:22.332  INFO 5152 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
+2019-05-19 21:59:22.336  INFO 5152 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2019-05-19 21:59:22.337  INFO 5152 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
+2019-05-19 21:59:22.338  INFO 5152 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 11.239 seconds (JVM running for 12.006)
+2019-05-19 21:59:47.303  INFO 10812 --- [main] com.zy.SchoolrelationApplication         : The following profiles are active: test
+2019-05-19 21:59:47.888  INFO 10812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-05-19 21:59:47.889  INFO 10812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-05-19 21:59:47.904  INFO 10812 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6ms. Found 0 repository interfaces.
+2019-05-19 21:59:47.988  WARN 10812 --- [main] o.s.boot.actuate.endpoint.EndpointId     : Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+2019-05-19 21:59:48.133  INFO 10812 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=3487506d-a656-3f28-9a87-d8ab54c8914d
+2019-05-19 21:59:48.175  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$fc65a127] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.191  INFO 10812 --- [main] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2019-05-19 21:59:48.225  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$57cddc28] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.246  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource.dynamic-com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.247  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration' of type [com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceAutoConfiguration$$EnhancerBySpringCGLIB$$c15c4cf9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.251  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dsProcessor' of type [com.baomidou.dynamic.datasource.processor.DsHeaderProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.253  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDatasourceAnnotationAdvisor' of type [com.baomidou.dynamic.datasource.aop.DynamicDataSourceAnnotationAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.274  INFO 10812 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$73e7df25] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-05-19 21:59:48.495  INFO 10812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8000 (http)
+2019-05-19 21:59:48.509  INFO 10812 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2019-05-19 21:59:48.510  INFO 10812 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.17]
+2019-05-19 21:59:48.609  INFO 10812 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2019-05-19 21:59:48.610  INFO 10812 --- [main] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1298 ms
+2019-05-19 21:59:48.690  WARN 10812 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:59:48.690  INFO 10812 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:59:48.696  INFO 10812 --- [main] c.netflix.config.DynamicPropertyFactory  : DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@70c3c2
+2019-05-19 21:59:48.914  INFO 10812 --- [main] c.b.d.d.DynamicDataSourceCreator         : 动态数据源-检测到druid存在,如配置中未指定type,druid会默认配置
+2019-05-19 21:59:48.951  INFO 10812 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1,master} inited
+2019-05-19 21:59:48.954  INFO 10812 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-2,slave_1} inited
+2019-05-19 21:59:48.959  INFO 10812 --- [main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-3,slave_2} inited
+2019-05-19 21:59:48.959  INFO 10812 --- [main] c.b.d.d.DynamicRoutingDataSource         : 初始共加载 3 个数据源
+2019-05-19 21:59:48.960  INFO 10812 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_2 成功
+2019-05-19 21:59:48.960  INFO 10812 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 master 成功
+2019-05-19 21:59:48.960  INFO 10812 --- [main] c.b.d.d.DynamicRoutingDataSource         : 动态数据源-加载 slave_1 成功
+2019-05-19 21:59:48.960  INFO 10812 --- [main] c.b.d.d.DynamicRoutingDataSource         : 当前的默认数据源是单数据源，数据源名为 master
+2019-05-19 21:59:51.195  INFO 10812 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:59:51.747  WARN 10812 --- [main] c.n.c.sources.URLConfigurationSource     : No URLs will be polled as dynamic configuration sources.
+2019-05-19 21:59:51.747  INFO 10812 --- [main] c.n.c.sources.URLConfigurationSource     : To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2019-05-19 21:59:51.963  INFO 10812 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2019-05-19 21:59:54.643  INFO 10812 --- [main] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2019-05-19 21:59:54.743  INFO 10812 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoint(s) beneath base path '/actuator'
+2019-05-19 21:59:54.814  INFO 10812 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2019-05-19 21:59:54.837  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2019-05-19 21:59:55.083  INFO 10812 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2019-05-19 21:59:55.083  INFO 10812 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2019-05-19 21:59:55.159  INFO 10812 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2019-05-19 21:59:55.160  INFO 10812 --- [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2019-05-19 21:59:55.268  INFO 10812 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2019-05-19 21:59:55.373  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2019-05-19 21:59:55.478  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2019-05-19 21:59:55.480  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2019-05-19 21:59:55.481  INFO 10812 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2019-05-19 21:59:55.484  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1558274395483 with initial instances count: 1
+2019-05-19 21:59:55.486  INFO 10812 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application SCHOOLRELATION-SERVICE with eureka with status UP
+2019-05-19 21:59:55.486  INFO 10812 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1558274395486, current=UP, previous=STARTING]
+2019-05-19 21:59:55.487  INFO 10812 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000: registering service...
+2019-05-19 21:59:55.508  INFO 10812 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_SCHOOLRELATION-SERVICE/localhost:schoolrelation-service:8000 - registration status: 204
+2019-05-19 21:59:55.511  INFO 10812 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8000 (http) with context path ''
+2019-05-19 21:59:55.512  INFO 10812 --- [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8000
+2019-05-19 21:59:55.513  INFO 10812 --- [main] com.zy.SchoolrelationApplication         : Started SchoolrelationApplication in 11.173 seconds (JVM running for 11.692)
+2019-05-19 22:00:03.687  INFO 10812 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-05-19 22:00:03.687  INFO 10812 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2019-05-19 22:00:03.694  INFO 10812 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2019-05-19 22:00:03.793  INFO 10812 --- [http-nio-8000-exec-1] io.lettuce.core.EpollProvider            : Starting without optional epoll library
+2019-05-19 22:00:03.794  INFO 10812 --- [http-nio-8000-exec-1] io.lettuce.core.KqueueProvider           : Starting without optional kqueue library
+2019-05-19 22:00:04.144 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.mp.mapper.StudentsMapper.insert    : ==>  Preparing: INSERT INTO students ( name, address, age, sex, teacher, last_name ) VALUES ( ?, ?, ?, ?, ?, ? ) 
+2019-05-19 22:00:04.228 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.mp.mapper.StudentsMapper.insert    : ==> Parameters: zu(String), 深圳(String), 18(Integer), 男(String), 2(Integer), z(String)
+2019-05-19 22:00:04.234 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.mp.mapper.StudentsMapper.insert    : <==    Updates: 1
+2019-05-19 22:00:04.245 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-05-19 22:00:04.269 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(String)
+2019-05-19 22:00:04.277 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-05-19 22:00:17.815 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : ==>  Preparing: SELECT id,name,address,age,sex,teacher,createTime,last_name FROM students WHERE id=? 
+2019-05-19 22:00:17.816 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : ==> Parameters: 5(String)
+2019-05-19 22:00:17.818 DEBUG 10812 --- [http-nio-8000-exec-1] c.z.s.m.m.StudentsMapper.selectById      : <==      Total: 1
+2019-05-19 22:04:55.375  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:09:55.378  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:14:55.380  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:19:55.383  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:24:55.385  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:29:55.388  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:34:55.390  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:39:55.393  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:44:55.395  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:49:55.397  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:54:55.399  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 22:59:55.401  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 23:04:55.403  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2019-05-19 23:09:55.406  INFO 10812 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

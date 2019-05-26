@@ -7,6 +7,7 @@ import com.zy.schoolrelation.mp.mapper.StudentsMapper;
 import com.zy.schoolrelation.mp.service.impl.StudentsServiceImpl;
 import com.zy.schoolrelation.mp.service.impl.StudentsTestService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,11 +34,13 @@ public class StudentsController {
     private StudentsTestService testService;
 
     @RequestMapping("/getByKey1")
+    @Cacheable(cacheNames = "zy1")
     public Students getByKey1(String key) {
         return studentsService.getById1(key);
     }
 
     @RequestMapping("/getByKey2")
+    @Cacheable(cacheNames = "zy2")
     public Students getByKey2(String key) {
         return studentsService.getById2(key);
     }
