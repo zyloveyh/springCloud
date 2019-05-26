@@ -11,10 +11,10 @@
         <module name="schoolrelation" />
         <module name="ribbon-consumer" />
         <module name="mybatisGenerator" />
-        <module name="school-relation-consumer" />
         <module name="hello-service" />
         <module name="eureka_server_214" />
         <module name="study" />
+        <module name="redis-search" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +25,7 @@
       <module name="learning" target="1.8" />
       <module name="mybatis" target="1.8" />
       <module name="mybatisGenerator" target="1.5" />
+      <module name="redis-search" target="1.8" />
       <module name="ribbon-consumer" target="1.8" />
       <module name="root" target="1.8" />
       <module name="school-relation-consumer" target="1.8" />
@@ -38,6 +39,7 @@
       <module name="hello-service" options="" />
       <module name="learning" options="-parameters" />
       <module name="mybatis" options="-parameters" />
+      <module name="redis-search" options="-parameters" />
       <module name="school-relation-consumer" options="-parameters" />
       <module name="schoolrelation" options="-parameters" />
     </option>

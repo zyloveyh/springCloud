@@ -1,8 +1,8 @@
 package com.zy.learning.lambda;
 
 
-import com.zy.learning.lambda.entity.Man;
-import com.zy.learning.lambda.entity.Woman;
+import com.zy.learning.entity.Man;
+import com.zy.learning.entity.Woman;
 import org.apache.commons.lang.RandomStringUtils;
 import org.junit.Test;
 
