@@ -11,6 +11,12 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
 /**
  * <p>
  * 前端控制器
@@ -21,7 +27,16 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping(value = "/mp/students", produces = "application/json;charset=UTF-8")
-public class StudentsController {
+public class StudentsController extends HttpServlet {
+    @Override
+    public void init() throws ServletException {
+        super.init();
+    }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+    }
 
     @Autowired
     private StudentsServiceImpl studentsService;
@@ -53,6 +68,15 @@ public class StudentsController {
     @RequestMapping("/getConfig")
     public String getConfig() {
         return config.getZyAge();
+    }
+
+    @RequestMapping("/localtion")
+    public void locution(HttpServletRequest request, HttpServletResponse response) throws IOException, InterruptedException {
+        String contextPath = request.getContextPath();
+        System.out.println("contextPath:" + contextPath);
+
+//        Thread.sleep(1000);
+//        response.sendRedirect("http://www.taobao.com");
     }
 
 }
