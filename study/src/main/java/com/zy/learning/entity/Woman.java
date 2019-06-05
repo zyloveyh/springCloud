@@ -7,6 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Woman {
+    private String type;
     private String name;
     private String sex;
     private String age;

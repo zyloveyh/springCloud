@@ -30,11 +30,13 @@ import java.io.IOException;
 public class StudentsController extends HttpServlet {
     @Override
     public void init() throws ServletException {
+        System.out.println("初始化");
         super.init();
     }
 
     @Override
     public void destroy() {
+        System.out.println("结束");
         super.destroy();
     }
 
@@ -75,7 +77,7 @@ public class StudentsController extends HttpServlet {
         String contextPath = request.getContextPath();
         System.out.println("contextPath:" + contextPath);
 
-//        Thread.sleep(1000);
+        //        Thread.sleep(1000);
 //        response.sendRedirect("http://www.taobao.com");
     }
 
