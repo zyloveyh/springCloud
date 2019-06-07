@@ -17,10 +17,14 @@ import java.util.concurrent.ConcurrentHashMap;
 @SuppressWarnings({"rawtypes", "unchecked"})
 public class HandlerProcessor implements BeanFactoryPostProcessor {
     private static final Logger log = LoggerFactory.getLogger(HandlerProcessor.class);
-    private final String HANDLE_PACKAGE = "com.zy.learning.strategypattern.handler";
+    private static final String HANDLE_PACKAGE = "com.zy.learning.strategypattern.handler";
 
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
+
+    }
+
+    public static void main(String[] args) {
         Map<String, Class> handleMap = new ConcurrentHashMap<>(16);
         Set<Class> classSet = ClassScaner.scan(HANDLE_PACKAGE, HandlerType.class);
         log.info("class info :{}", classSet);
