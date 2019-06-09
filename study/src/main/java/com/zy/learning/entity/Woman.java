@@ -7,6 +7,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Woman {
+    static {
+        System.out.println( "woman static 静态代码块");
+    }
     private String type;
     private String name;
     private String sex;
