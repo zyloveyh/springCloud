@@ -1,6 +1,7 @@
 package com.zy.schoolrelation.mp.service.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.zy.schoolrelation.mp.entity.Students;
 import com.zy.schoolrelation.mp.mapper.StudentsMapper;
@@ -8,6 +9,8 @@ import com.zy.schoolrelation.mp.service.IStudentsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * <p>
@@ -26,12 +29,19 @@ public class StudentsServiceImpl extends ServiceImpl<StudentsMapper, Students> i
     @DS("slave_1")
     public Students getById1(String key) {
         Students student = Students.builder().age(18).address("深圳").lastName("z").name("zu").sex("男").teacher(2).build();
-         studentsMapper.insert(student);
+        studentsMapper.insert(student);
         return studentsMapper.selectById(key);
     }
 
     @DS("slave_2")
     public Students getById2(String key) {
+        List<Students> students = studentsMapper.selectList(
+                new QueryWrapper<Students>()
+                        .eq("name", "ztl")
+                        .or(true,i->i.eq("age","18").eq("address","sz"))
+
+
+        );
         return studentsMapper.selectById(key);
     }
 

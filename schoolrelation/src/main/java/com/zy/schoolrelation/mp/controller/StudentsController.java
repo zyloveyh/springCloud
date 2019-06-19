@@ -57,7 +57,6 @@ public class StudentsController extends HttpServlet {
     }
 
     @RequestMapping("/getByKey2")
-    @Cacheable(cacheNames = "zy2")
     public Students getByKey2(String key) {
         return studentsService.getById2(key);
     }
