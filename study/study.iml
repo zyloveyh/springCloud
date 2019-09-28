@@ -65,5 +65,6 @@
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web-services:unknown" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:unknown" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.2.0.BUILD-SNAPSHOT" level="project" />
+    <orderEntry type="library" name="Maven: error:spring-:unknown" level="project" />
   </component>
 </module>
