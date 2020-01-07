@@ -1,5 +1,6 @@
 package com.zy.learning.annotation;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,7 +16,7 @@ public class ClassTypeUtil {
     private static String mapperTypeName = "org.apache.ibatis.annotations.Mapper";
     private static String autowiredTypeName = "org.springframework.beans.factory.annotation.Autowired";
 
-    public static boolean controllerClass() {
+    public boolean controllerClass() {
         String targetClass = "com.zy.learning.annotation.Person";
         Class clazz = null;
         try {
@@ -36,7 +37,7 @@ public class ClassTypeUtil {
         return false;
     }
 
-    public static boolean mapperClass() {
+    public boolean mapperClass() {
         String targetClass = "com.zy.learning.annotation.Son";
         Class clazz = null;
         try {
@@ -55,7 +56,7 @@ public class ClassTypeUtil {
         return false;
     }
 
-    public static List<FieldInfo> getAutowiredField() {
+    public List<FieldInfo> getAutowiredField() {
         List<FieldInfo> result = new ArrayList<>();
         String targetClass = "com.zy.learning.annotation.Person";
         Class clazz = null;
@@ -88,10 +89,12 @@ public class ClassTypeUtil {
         return result;
     }
 
-    public static class FieldInfo {
+    public  class FieldInfo {
         private String name;
         private String typeSimpleName;
         private String typeName;
+
+
 
         public FieldInfo() {
         }
@@ -125,22 +128,23 @@ public class ClassTypeUtil {
             return "FieldInfo{" +
                     "name='" + name + '\'' +
                     ", typeSimpleName='" + typeSimpleName + '\'' +
-                    ", typeName='" + typeName + '\'' +
+                    ", typeName='" + typeName +
                     '}';
         }
-
     }
 
 
-    public static String lowerFirstCapse(String str) {
+    public String lowerFirstCapse(String str) {
         char[] chars = str.toCharArray();
         chars[0] += 32;
         return String.valueOf(chars);
     }
 
-    public static String getMethodValidParam() {
+    public Map<String, List<String>> getMethodValidParam() {
+        Map<String, List<String>> result = new HashMap<>();
         String targetClass = "com.zy.learning.annotation.TestController";
         Class klass = null;
+
         try {
             klass = Class.forName(targetClass);
         } catch (ClassNotFoundException e) {
@@ -155,13 +159,19 @@ public class ClassTypeUtil {
             Type[] genericParameterTypes = declaredMethod.getGenericParameterTypes();
 //            Parameter[] parameters = declaredMethod.getParameters();
             for (Type genericParameterType : genericParameterTypes) {
+                //TODO 判断参数注解是否含有@Valid 注解, 有的话,加入到result 的key  中 否则continue
+
+                //TODO 判断此参数的属性是否含有 @NotNull 等 相关注解
+
                 if (genericParameterType instanceof ParameterizedType)
-                    // 判断获取的类型是否是参数类型
+                // 判断获取的类型是否是参数类型
                 {
                     Type[] types = ((ParameterizedType) genericParameterType).getActualTypeArguments();// 强制转型为带参数的泛型类型，
                     // getActualTypeArguments()方法获取类型中的实际类型，如map<String,Integer>中的
                     // String，integer因为可能是多个，所以使用数组
                     for (Type type : types) {
+                        //此处标明参数为泛型
+                        //TODO 判断此参数的属性是否含有 @NotNull 等 相关注解
                         System.out.println(type.getTypeName());
                     }
 
@@ -172,8 +182,12 @@ public class ClassTypeUtil {
         return null;
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void main() {
         getMethodValidParam();
+
+        ClassTypeUtil ctu = new ClassTypeUtil();
+        FieldInfo fieldInfo = new FieldInfo();
 
 //        getAutowiredField();
 //        System.out.println(mapperClass());
