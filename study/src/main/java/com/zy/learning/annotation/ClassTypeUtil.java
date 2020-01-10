@@ -10,6 +10,8 @@ import java.beans.BeanInfo;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ClassTypeUtil {
     private static Logger logger = LoggerFactory.getLogger(ClassTypeUtil.class);
@@ -139,17 +141,33 @@ public class ClassTypeUtil {
     }
 
 
-    public String lowerFirstCapse(String str) {
+    /*
+       首字母小写的方法
+       如果我们需要把一个大写字母转化成小写字母，那么我们只需要把这个 char 字符的ascii码值加上 32
+        */
+    public static String lowerFirstCapse(String str) {
         char[] chars = str.toCharArray();
-        chars[0] += 32;
+        if (chars[0] <= 90 && chars[0] >= 65) {
+            chars[0] += 32;
+        }
         return String.valueOf(chars);
     }
 
-    public List<MethodNecessaryParamInfo> getMethodValidParam() throws ClassNotFoundException {
-        List<MethodNecessaryParamInfo> result = new ArrayList<>();
-        String targetClass = "com.zy.learning.annotation.TestController";
-        Class klass = null;
+    /*
+    首字母大写的方法
+    如果我们需要把一个小写字母转化成大写字母，那么我们只需要把这个 char 字符的ascii码值减上 32
+ */
+    public static String upperFirstCapse(String str) {
+        char[] chars = str.toCharArray();
+        if (chars[0] <= 122 && chars[0] >= 97) {
+            chars[0] -= 32;
+        }
+        return String.valueOf(chars);
+    }
 
+    public Map<String, Map<String, Set<Field>>> getMethodValidParam(String targetClass) {
+        Map<String, Map<String, Set<Field>>> result = new HashMap<>();
+        Class klass = null;
         try {
             klass = Class.forName(targetClass);
         } catch (ClassNotFoundException e) {
@@ -158,16 +176,15 @@ public class ClassTypeUtil {
         }
         Method[] declaredMethods = klass.getDeclaredMethods();
         for (Method declaredMethod : declaredMethods) {
-            MethodNecessaryParamInfo mnp = new MethodNecessaryParamInfo();
             //需要使用getGenericParameterTypes 才能获取到泛型的类型
             Type[] genericParameterTypes = declaredMethod.getGenericParameterTypes();
             //获取参数类型
             Parameter[] parameters = declaredMethod.getParameters();
 
-            Map<String, Set<String>> params = new HashMap<>();
+            Map<String, Set<Field>> params = new HashMap<>();
 
             for (Parameter parameter : parameters) {
-                Set<String> necessaryFields = new HashSet<>();
+                Set<Field> necessaryFields = new HashSet<>();
                 if (null != params.get(parameter.getType().getTypeName())) {
                     //重复的类,则跳过
                     continue;
@@ -196,7 +213,7 @@ public class ClassTypeUtil {
                             //重复的类,跳过
                             continue;
                         }
-                        Set<String> actualParamField = getNecessaryField((Class) actualTypeArgument);
+                        Set<Field> actualParamField = getNecessaryField((Class) actualTypeArgument);
                         if (!CollectionUtils.isEmpty(actualParamField)) {
                             //necessaryFields不为空,说明此类 某些字段必须设置值,加入集合中记录
                             params.put(actualTypeArgument.getTypeName(), actualParamField);
@@ -206,11 +223,8 @@ public class ClassTypeUtil {
                 }
             }
 
-            mnp.setMethodName(declaredMethod.getName());
-            mnp.setNecessaryParamInfo(params);
-            result.add(mnp);
+            result.put(declaredMethod.getName(), params);
         }
-        System.out.println(result);
         return result;
     }
 
@@ -220,9 +234,9 @@ public class ClassTypeUtil {
      * @param paramType Class
      * @return Set<String> 必须设置值的属性名称的集合
      */
-    private Set<String> getNecessaryField(Class paramType) {
+    private Set<Field> getNecessaryField(Class paramType) {
         Field[] declaredFields = paramType.getDeclaredFields();
-        Set<String> fieldName = new HashSet<>();
+        Set<Field> fieldName = new HashSet<>();
         for (Field declaredField : declaredFields) {
             Annotation[] fieldAnnotations = declaredField.getAnnotations();
             for (Annotation fieldAnnotation : fieldAnnotations) {
@@ -230,7 +244,7 @@ public class ClassTypeUtil {
                         NOTEMPTY_TYPE_NAME.contains(fieldAnnotation.annotationType().getName()) ||
                         NOTBLANK_TYPE_NAME.contains(fieldAnnotation.annotationType().getName())
                 ) {
-                    fieldName.add(declaredField.getName());
+                    fieldName.add(declaredField);
                     break;
                 }
             }
@@ -238,18 +252,135 @@ public class ClassTypeUtil {
         return fieldName;
     }
 
+    private Map<String, Set<Field>> getNullFieldMap(String[] lines, Map<String, Set<Field>> fieldSetMap) {
+        Map<String, Set<Field>> nullFieldMap = new HashMap<>();
+        if (CollectionUtils.isEmpty(fieldSetMap)) {
+            return nullFieldMap;
+        }
+        for (String s : fieldSetMap.keySet()) {
+            logger.error("INFO : s:" + s);
+            String[] split = s.split("\\.");
+            //获取到参数对象的类名
+            String className = split[split.length - 1];
+            Set<Field> fieldSet = fieldSetMap.get(s);
+            boolean param = false;
+            Set<Field> nullFieldSet = new HashSet<>();
+            for (Field field : fieldSet) {
+                boolean paramField = false;
+                String fieldName = field.getName();
+                for (String perLine : lines) {
+                    //TODO 判断是否有对这个 属性的值 进行赋值
+                    String patternParam = ".*new\\s+" + ClassTypeUtil.upperFirstCapse(className) + "\\(.*";
+                    String patternField = ".*" + ClassTypeUtil.lowerFirstCapse(className) + ".*" + "set" + fieldName + "\\(";
+                    if (Pattern.matches(patternField, perLine)) {
+                        //有对字段进行赋值
+                        paramField = true;
+                        logger.error("INFO : 字段赋值 " + perLine);
+                    }
+                    if (Pattern.matches(patternParam, perLine)) {
+                        //有实例化参数
+                        param = true;
+                        logger.error("INFO : 参数实例化 " + perLine);
+                    }
+                }
+                if (param && (!paramField)) {
+                    //参数有实例化,当未对某个字段赋值
+                    nullFieldSet.add(field);
+                }
+
+            }
+            if (!CollectionUtils.isEmpty(nullFieldSet)) {
+                nullFieldMap.put(s, nullFieldSet);
+            }
+
+        }
+        for (String s : nullFieldMap.keySet()) {
+            Set<Field> fieldSet = nullFieldMap.get(s);
+            for (Field field : fieldSet) {
+                logger.error("INFO : analyze result : Param: " + s + " field : " + field.getName());
+            }
+        }
+        return nullFieldMap;
+    }
+
     @Test
     public void main() throws ClassNotFoundException {
+        String ssss = "com.zy.hello.Controller";
+        String line0 = "TestController testController0 = new TestController();";
+        String line1 = "TaskAttributeMapper taskAttributeMapper0 = mock(TaskAttributeMapper.class, new ViolatedAssumptionAnswer());";
+        String line2 = "Injector.inject(taskAttributeController0, (Class<?>) TaskAttributeController.class, \"taskAttributeMapper\", (Object) taskAttributeMapper0);";
+        String line3 = "Injector.validateBean(taskAttributeController0, (Class<?>) TaskAttributeController.class);";
+        String line4 = "BaseRequest<TaskAttribute> baseRequest0 = new BaseRequest<TaskAttribute>();";
+        String line5 = "Person person0 = new Person();";
+        String line6 = "BaseResponse<Object> baseResponse0 = testController0.insert(baseRequest0, taskAttribute0, \"47a eG@hb|\", \"47a eG@hb|\");";
+        String line7 = "assertNotNull(baseResponse0);";
+       /* List<String> lines = new ArrayList<>();
+        lines.add(line0);
+        lines.add(line1);
+        lines.add(line2);
+        lines.add(line3);
+        lines.add(line4);
+        lines.add(line5);
+        lines.add(line6);
+        lines.add(line7);*/
+String[] lines = new String[]{line0,line1,line2,line3,line4,line5,line6,line7};
 
+        String mainClass = "^.*=?\\s?taskAttributeController0\\..*\\(.*";
+        String ccc = "taskAttributeController0";
 
-        String line = "taskAttributeController0.insert(baseRequest0, (TaskAttribute) null, \"\\u53C2\\u6570\\u6821\\u9A8C\\u5931\\u8D25\", \"\\u53C2\\u6570\\u6821\\u9A8C\\u5931\\u8D25\");";
-        String mainClass = "taskAttributeController0";
-        if (line.contains(mainClass)) {
-            int start = line.indexOf(mainClass);
-            int end = line.indexOf("(");
-            System.out.println(start);
-            System.out.println(end);
+//        for (String line : lines) {
+//            if (Pattern.matches(mainClass,line)) {
+//                String realMethodName = line.substring(line.indexOf(ccc)+ccc.length() + 1, line.indexOf("("));
+//                System.out.println(realMethodName);
+//                System.out.println(line);
+//            }
+//
+//
+//        }
+
+        StringBuilder builder = new StringBuilder();
+        for (String line : lines) {
+            Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam("com.zy.learning.annotation.TestController");
+            Map<String, Set<Field>> noAssignmentFieldMap = getNullFieldMap(lines, methodValidParam.get("getName"));
+            for (String s : noAssignmentFieldMap.keySet()) {
+                String[] split = s.split("\\.");
+                //获取到参数对象的类名
+                String className = split[split.length - 1];
+                String patternParam = ".*new\\s+" + ClassTypeUtil.upperFirstCapse(className) + "\\(.*";
+                if (Pattern.matches(patternParam, line)) {
+
+                    Set<Field> fieldSet = noAssignmentFieldMap.get(s);
+                    for (Field field : fieldSet) {
+                        //需要新增的行
+                        String newLine = "";
+                        //参数名称
+                        String paramName = "";
+                        //此 line 的内容是 实例化参数对象 下面需要设置对象属性值
+                        //TODO 获取 paramName 的值
+                        paramName = line.split("=")[0];
+                        paramName = paramName.replace(ClassTypeUtil.upperFirstCapse(className), "");
+                        paramName = paramName.trim();
+                        logger.error("INFO : patternName is " + paramName);
+                        Class<?> type = field.getType();
+                        System.out.println(String.class.equals(type));
+
+                        String valueString = "";
+                        newLine += paramName + ".set" + ClassTypeUtil.upperFirstCapse(field.getName()) + "(" + valueString + ");";
+                        builder.append(newLine);
+                    }
+                }
+
+            }
         }
+
+
+//
+//        String[] split = s.split("\\.");
+//        String className = split[split.length - 1];
+//        System.out.println(className);
+//
+//
+//        System.out.println( upperFirstCapse("asdf"));
 //        getMethodValidParam();
 
 
