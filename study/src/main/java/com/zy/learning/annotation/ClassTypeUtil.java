@@ -1,10 +1,14 @@
 package com.zy.learning.annotation;
 
+import net.sf.jsqlparser.statement.select.Select;
 import org.apache.commons.lang.RandomStringUtils;
+import org.apache.commons.lang.math.RandomUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
+import sun.nio.ch.WindowsSelectorProvider;
+import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
 import java.beans.BeanInfo;
 import java.lang.annotation.Annotation;
@@ -189,6 +193,7 @@ public class ClassTypeUtil {
                     //重复的类,则跳过
                     continue;
                 }
+//                boolean nextOne = false;
                 for (Annotation annotation : parameter.getAnnotations()) {
                     if (VALID_TYPE_NAME.contains(annotation.annotationType().getName())) {
                         necessaryFields = getNecessaryField(parameter.getType());
@@ -199,26 +204,19 @@ public class ClassTypeUtil {
                         break;
                     }
                 }
+
                 /**
-                 * 泛型下是否有必须要赋值的属性
+                 * 泛型下 是否有必须要赋值的属性
                  */
                 Type parameterizedType = parameter.getParameterizedType();
+
                 if (parameterizedType instanceof ParameterizedType) {
                     //判断获取的类型是否是参数类型
                     ParameterizedType pt = (ParameterizedType) parameterizedType;
                     //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
                     Type[] actualTypeArguments = pt.getActualTypeArguments();
-                    for (Type actualTypeArgument : actualTypeArguments) {
-                        if (null != params.get(actualTypeArgument.getTypeName())) {
-                            //重复的类,跳过
-                            continue;
-                        }
-                        Set<Field> actualParamField = getNecessaryField((Class) actualTypeArgument);
-                        if (!CollectionUtils.isEmpty(actualParamField)) {
-                            //necessaryFields不为空,说明此类 某些字段必须设置值,加入集合中记录
-                            params.put(actualTypeArgument.getTypeName(), actualParamField);
-                        }
-                    }
+
+                    getGenericToParams(params,actualTypeArguments);
 
                 }
             }
@@ -228,6 +226,20 @@ public class ClassTypeUtil {
         return result;
     }
 
+    private void getGenericToParams(Map<String, Set<Field>> params, Type[] types) {
+        for (Type type : types) {
+            if (type instanceof ParameterizedTypeImpl) {
+                //其内部还有泛型 例如: List<Map<T,T>>
+                getGenericToParams(params,((ParameterizedTypeImpl) type).getActualTypeArguments());
+            } else {
+                Set<Field> actualParamField = getNecessaryField((Class) type);
+                if (!CollectionUtils.isEmpty(actualParamField)) {
+                    //necessaryFields不为空,说明此类 某些字段必须设置值,加入集合中记录
+                    params.put(type.getTypeName(), actualParamField);
+                }
+            }
+        }
+    }
     /**
      * 根据参数 的 类,返回必须设置值的属性名称
      *
@@ -258,7 +270,7 @@ public class ClassTypeUtil {
             return nullFieldMap;
         }
         for (String s : fieldSetMap.keySet()) {
-            logger.error("INFO : s:" + s);
+//            logger.error("INFO : s:" + s);
             String[] split = s.split("\\.");
             //获取到参数对象的类名
             String className = split[split.length - 1];
@@ -275,12 +287,12 @@ public class ClassTypeUtil {
                     if (Pattern.matches(patternField, perLine)) {
                         //有对字段进行赋值
                         paramField = true;
-                        logger.error("INFO : 字段赋值 " + perLine);
+//                        logger.error("INFO : 字段赋值 " + perLine);
                     }
                     if (Pattern.matches(patternParam, perLine)) {
                         //有实例化参数
                         param = true;
-                        logger.error("INFO : 参数实例化 " + perLine);
+//                        logger.error("INFO : 参数实例化 " + perLine);
                     }
                 }
                 if (param && (!paramField)) {
@@ -294,12 +306,12 @@ public class ClassTypeUtil {
             }
 
         }
-        for (String s : nullFieldMap.keySet()) {
-            Set<Field> fieldSet = nullFieldMap.get(s);
-            for (Field field : fieldSet) {
-                logger.error("INFO : analyze result : Param: " + s + " field : " + field.getName());
-            }
-        }
+//        for (String s : nullFieldMap.keySet()) {
+//            Set<Field> fieldSet = nullFieldMap.get(s);
+//            for (Field field : fieldSet) {
+//                logger.error("INFO : analyze result : Param: " + s + " field : " + field.getName());
+//            }
+//        }
         return nullFieldMap;
     }
 
@@ -323,7 +335,7 @@ public class ClassTypeUtil {
         lines.add(line5);
         lines.add(line6);
         lines.add(line7);*/
-String[] lines = new String[]{line0,line1,line2,line3,line4,line5,line6,line7};
+        String[] lines = new String[]{line0, line1, line2, line3, line4, line5, line6, line7};
 
         String mainClass = "^.*=?\\s?taskAttributeController0\\..*\\(.*";
         String ccc = "taskAttributeController0";
@@ -360,11 +372,9 @@ String[] lines = new String[]{line0,line1,line2,line3,line4,line5,line6,line7};
                         paramName = line.split("=")[0];
                         paramName = paramName.replace(ClassTypeUtil.upperFirstCapse(className), "");
                         paramName = paramName.trim();
-                        logger.error("INFO : patternName is " + paramName);
+//                        logger.error("INFO : patternName is " + paramName);
                         Class<?> type = field.getType();
-                        System.out.println(String.class.equals(type));
-
-                        String valueString = "";
+                        String valueString = getRandomValue(type);
                         newLine += paramName + ".set" + ClassTypeUtil.upperFirstCapse(field.getName()) + "(" + valueString + ");";
                         builder.append(newLine);
                     }
@@ -389,6 +399,50 @@ String[] lines = new String[]{line0,line1,line2,line3,line4,line5,line6,line7};
 //        System.out.println(controllerClass());
 
 
+    }
+
+    private String getRandomValue(Class type) {
+        if (type.equals(byte.class) || type.equals(Byte.class)) {
+            return String.valueOf(RandomUtil.getRandomForIntegerBounded(-128, 127));
+        }
+        if (type.equals(int.class) || type.equals(Integer.class)) {
+            return String.valueOf(RandomUtils.nextInt());
+        }
+        if (type.equals(long.class) || type.equals(Long.class)) {
+            return String.valueOf(RandomUtils.nextLong());
+        }
+        if (type.equals(float.class) || type.equals(Float.class)) {
+            return String.valueOf(RandomUtils.nextFloat());
+        }
+        if (type.equals(double.class) || type.equals(Double.class)) {
+            return String.valueOf(RandomUtils.nextDouble());
+        }
+        if (type.equals(String.class)) {
+            return RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
+        }
+        if (type.equals(Boolean.class)) {
+            return String.valueOf(RandomUtils.nextBoolean());
+        }
+
+        return null;
+    }
+
+    @Test
+    public void test01() {
+        System.out.println(RandomUtil.getRandomForIntegerBounded(-128, 127));
+        System.out.println(String.valueOf(RandomUtils.nextBoolean()));
+        System.out.println(getRandomValue(String.class));
+    }
+
+    @Test
+    public void test02() {
+        System.out.println(null + "");
+    }
+
+    @Test
+    public void testgetMethodValidParam() {
+        Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam("com.zy.learning.annotation.Address");
+        System.out.println(methodValidParam);
     }
 
 
