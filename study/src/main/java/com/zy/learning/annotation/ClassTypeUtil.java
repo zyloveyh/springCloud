@@ -171,15 +171,13 @@ public class ClassTypeUtil {
 
     public Map<String, Map<String, Set<Field>>> getMethodValidParam(String targetClass) {
         Map<String, Map<String, Set<Field>>> result = new HashMap<>();
-        Class klass = null;
-        try {
-            klass = Class.forName(targetClass);
-        } catch (ClassNotFoundException e) {
-            logger.error("ClassNotFoundException class : " + targetClass);
-            return null;
-        }
-        Method[] declaredMethods = klass.getDeclaredMethods();
-        for (Method declaredMethod : declaredMethods) {
+
+        Map<String, Method> classDeclareMethods = getClassDeclareMethods(targetClass);
+
+        if (classDeclareMethods == null) return null;
+
+        for (String s : classDeclareMethods.keySet()) {
+            Method declaredMethod = classDeclareMethods.get(s);
             //需要使用getGenericParameterTypes 才能获取到泛型的类型
             Type[] genericParameterTypes = declaredMethod.getGenericParameterTypes();
             //获取参数类型
@@ -193,7 +191,6 @@ public class ClassTypeUtil {
                     //重复的类,则跳过
                     continue;
                 }
-//                boolean nextOne = false;
                 for (Annotation annotation : parameter.getAnnotations()) {
                     if (VALID_TYPE_NAME.contains(annotation.annotationType().getName())) {
                         necessaryFields = getNecessaryField(parameter.getType());
@@ -201,30 +198,52 @@ public class ClassTypeUtil {
                             //necessaryFields不为空,说明此类 某些字段必须设置值,加入集合中记录
                             params.put(parameter.getType().getTypeName(), necessaryFields);
                         }
+
+                        /**
+                         * 泛型下是否有必须要赋值的属性
+                         */
+                        Type parameterizedType = parameter.getParameterizedType();
+                        if (parameterizedType instanceof ParameterizedType) {
+                            //判断获取的类型是否是参数类型
+                            ParameterizedType pt = (ParameterizedType) parameterizedType;
+                            //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
+                            Type[] actualTypeArguments = pt.getActualTypeArguments();
+                            getGenericToParams(params, actualTypeArguments);
+                        }
+
                         break;
                     }
                 }
 
-                /**
-                 * 泛型下 是否有必须要赋值的属性
-                 */
-                Type parameterizedType = parameter.getParameterizedType();
-
-                if (parameterizedType instanceof ParameterizedType) {
-                    //判断获取的类型是否是参数类型
-                    ParameterizedType pt = (ParameterizedType) parameterizedType;
-                    //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
-                    Type[] actualTypeArguments = pt.getActualTypeArguments();
-
-                    getGenericToParams(params,actualTypeArguments);
-
-                }
             }
-
             result.put(declaredMethod.getName(), params);
         }
         return result;
     }
+
+    /**
+     * 获取 Class 文件中的所有方法(包含私有方法)
+     *
+     * @param targetClass
+     * @return
+     */
+    public Map<String, Method> getClassDeclareMethods(String targetClass) {
+        Class klass = null;
+        try {
+            klass = Class.forName(targetClass);
+        } catch (ClassNotFoundException e) {
+            logger.error("ClassNotFoundException class : " + targetClass);
+            return null;
+        }
+        Method[] declaredMethods = klass.getDeclaredMethods();
+
+        Map<String, Method> methodMap = new HashMap<>();
+        for (Method declaredMethod : declaredMethods) {
+            methodMap.put(declaredMethod.getName(), declaredMethod);
+        }
+        return methodMap;
+    }
+
 
     private void getGenericToParams(Map<String, Set<Field>> params, Type[] types) {
         for (Type type : types) {
@@ -441,7 +460,8 @@ public class ClassTypeUtil {
 
     @Test
     public void testgetMethodValidParam() {
-        Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam("com.zy.learning.annotation.Address");
+        Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam(
+                "com.zy.learning.annotation.demotest.controller.TEmployeeController");
         System.out.println(methodValidParam);
     }
 

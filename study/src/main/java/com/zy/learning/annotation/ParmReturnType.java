@@ -1,6 +1,7 @@
 package com.zy.learning.annotation;
 
-import org.apache.catalina.User;
+
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
@@ -48,7 +49,7 @@ public class ParmReturnType {
     }
 
     // 带参数的方法Test01
-    public static void test01(Map<String, Integer> map, List<User> list) {
+    public static void test01(Map<String, Integer> map, List<SecurityProperties.User> list) {
     }
 
     // 带返回值的方法Test02

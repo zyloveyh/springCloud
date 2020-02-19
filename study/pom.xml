@@ -95,7 +95,23 @@
             <artifactId>spring-web</artifactId>
             <version>5.2.0.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.chinastock.uniplatform</groupId>
+            <artifactId>com.chinastock.uniplatform.common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.chinastock.uniplatform</groupId>
+            <artifactId>com.chinastock.uniplatform.db</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
 
