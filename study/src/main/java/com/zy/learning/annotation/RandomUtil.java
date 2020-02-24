@@ -1,5 +1,6 @@
 package com.zy.learning.annotation;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 
 import java.util.Random;
@@ -19,6 +20,7 @@ public class RandomUtil {
         int intBounded = min + ((int) (new Random().nextFloat() * (max - min)));
         return intBounded;
     }
+
     /**
      * 随机数Long的生成
      */
@@ -49,6 +51,7 @@ public class RandomUtil {
         float floatBounded = min + new Random().nextFloat() * (max - min);
         return floatBounded;
     }
+
     /**
      * 随机数Double的生成
      */
@@ -63,5 +66,32 @@ public class RandomUtil {
         double boundedDouble = min + new Random().nextDouble() * (max - min);
         return boundedDouble;
     }
+
+
+    public static String getRandomStringByLevel(Integer min, Integer max, String level) {
+        Integer i = randomLevelInt(min, max, level);
+        return RandomStringUtils.randomAscii(i.intValue());
+    }
+
+    public static Integer getRandomIntegerValueByLevel(Integer min, Integer max, String level) {
+        return randomLevelInt(min, max, level);
+    }
+
+    private static Integer randomLevelInt(Integer min, Integer max, String level) {
+        if (min>max) {
+            return getRandomForIntegerUnbounded();
+        }
+        Integer minTem = (max - min) / 3 + min;
+        Integer maxTem = max - (max - min) / 3;
+        if (ClassTypeUtil.LOW.equals(level)) {
+            return RandomUtil.getRandomForIntegerBounded(min, minTem);
+        } else if (ClassTypeUtil.MIDDLE.equals(level)) {
+            return RandomUtil.getRandomForIntegerBounded(minTem, maxTem);
+        } else if (ClassTypeUtil.HEIGHT.equals(level)) {
+            return RandomUtil.getRandomForIntegerBounded(maxTem, max + 1);
+        }
+        return RandomUtil.getRandomForIntegerBounded(min, max + 1);
+    }
+
 
 }

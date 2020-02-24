@@ -1,32 +1,49 @@
 package com.zy.learning.annotation;
 
-import net.sf.jsqlparser.statement.select.Select;
-import org.apache.commons.lang.RandomStringUtils;
+import com.zy.learning.annotation.demotest.model.ReturnParameterInfo;
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
-import sun.nio.ch.WindowsSelectorProvider;
 import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
-import java.beans.BeanInfo;
+import javax.validation.constraints.Size;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.*;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClassTypeUtil {
-    private static Logger logger = LoggerFactory.getLogger(ClassTypeUtil.class);
-    private static String controllerTypeName = "org.springframework.stereotype.Controller";
-    private static String restControllerTypeName = "org.springframework.web.bind.annotation.RestController";
-    private static String mapperTypeName = "org.apache.ibatis.annotations.Mapper";
-    private static String autowiredTypeName = "org.springframework.beans.factory.annotation.Autowired";
-    private static String VALID_TYPE_NAME = "javax.validation.Valid";
-    private static String NOTNULL_TYPE_NAME = "javax.validation.constraints.NotNull";
-    private static String NOTEMPTY_TYPE_NAME = "javax.validation.constraints.NotEmpty";
-    private static String NOTBLANK_TYPE_NAME = "javax.validation.constraints.NotBlank";
+    public final static Logger logger = LoggerFactory.getLogger(ClassTypeUtil.class);
+    public final static String controllerTypeName = "org.springframework.stereotype.Controller";
+    public final static String restControllerTypeName = "org.springframework.web.bind.annotation.RestController";
+    public final static String mapperTypeName = "org.apache.ibatis.annotations.Mapper";
+    public final static String autowiredTypeName = "org.springframework.beans.factory.annotation.Autowired";
+    public final static String VALID_TYPE_NAME = "javax.validation.Valid";
+    public final static String NOTNULL_TYPE_NAME = "javax.validation.constraints.NotNull";
+    public final static String NOTEMPTY_TYPE_NAME = "javax.validation.constraints.NotEmpty";
+    public final static String NOTBLANK_TYPE_NAME = "javax.validation.constraints.NotBlank";
+
+    public final static String MAIN_CLASS = "main";
+
+
+    public final static List<Class> CLASS_ARRAY = Arrays.asList(byte.class, Byte.class, int.class, Integer.class,
+            long.class, Long.class, float.class, Float.class, double.class, Double.class, String.class, Boolean.class,
+            char.class, Character.class);
+    public final static String SIZE_TYPE_NAME = "javax.validation.constraints.Size";
+    public final static String REQUIRE = "require";
+    public final static String UN_REQUIRE = "unRequire";
+    public static final String METHOD_SPACE = "  ";
+    public static final String BLOCK_SPACE = "    ";
+    public static final String INNER_BLOCK_SPACE = "      ";
+    public static final String INNER_INNER_BLOCK_SPACE = "        ";
+    public static final String INNER_INNER_INNER_BLOCK_SPACE = "          ";
+    public static final String LOW = "low";
+    public static final String MIDDLE = "middle";
+    public static final String HEIGHT = "height";
+    private final static String NEWLINE = java.lang.System.getProperty("line.separator");
 
     public boolean controllerClass() {
         String targetClass = "com.zy.learning.annotation.Person";
@@ -68,9 +85,12 @@ public class ClassTypeUtil {
         return false;
     }
 
-    public List<FieldInfo> getAutowiredField() {
+    public static List<FieldInfo> getAutowiredField(String targetClass) {
         List<FieldInfo> result = new ArrayList<>();
-        String targetClass = "com.zy.learning.annotation.Person";
+        if (null == targetClass) {
+            targetClass = "com.zy.learning.annotation.Person";
+
+        }
         Class clazz = null;
         try {
             clazz = Class.forName(targetClass);
@@ -101,7 +121,7 @@ public class ClassTypeUtil {
         return result;
     }
 
-    public class FieldInfo {
+    public static class FieldInfo {
         private String name;
         private String typeSimpleName;
         private String typeName;
@@ -203,9 +223,11 @@ public class ClassTypeUtil {
                          * 泛型下是否有必须要赋值的属性
                          */
                         Type parameterizedType = parameter.getParameterizedType();
+
                         if (parameterizedType instanceof ParameterizedType) {
                             //判断获取的类型是否是参数类型
                             ParameterizedType pt = (ParameterizedType) parameterizedType;
+                            String typeName = pt.getRawType().getTypeName();
                             //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
                             Type[] actualTypeArguments = pt.getActualTypeArguments();
                             getGenericToParams(params, actualTypeArguments);
@@ -227,7 +249,7 @@ public class ClassTypeUtil {
      * @param targetClass
      * @return
      */
-    public Map<String, Method> getClassDeclareMethods(String targetClass) {
+    public static Map<String, Method> getClassDeclareMethods(String targetClass) {
         Class klass = null;
         try {
             klass = Class.forName(targetClass);
@@ -249,7 +271,7 @@ public class ClassTypeUtil {
         for (Type type : types) {
             if (type instanceof ParameterizedTypeImpl) {
                 //其内部还有泛型 例如: List<Map<T,T>>
-                getGenericToParams(params,((ParameterizedTypeImpl) type).getActualTypeArguments());
+                getGenericToParams(params, ((ParameterizedTypeImpl) type).getActualTypeArguments());
             } else {
                 Set<Field> actualParamField = getNecessaryField((Class) type);
                 if (!CollectionUtils.isEmpty(actualParamField)) {
@@ -259,13 +281,14 @@ public class ClassTypeUtil {
             }
         }
     }
+
     /**
      * 根据参数 的 类,返回必须设置值的属性名称
      *
      * @param paramType Class
      * @return Set<String> 必须设置值的属性名称的集合
      */
-    private Set<Field> getNecessaryField(Class paramType) {
+    private static Set<Field> getNecessaryField(Class paramType) {
         Field[] declaredFields = paramType.getDeclaredFields();
         Set<Field> fieldName = new HashSet<>();
         for (Field declaredField : declaredFields) {
@@ -333,6 +356,212 @@ public class ClassTypeUtil {
 //        }
         return nullFieldMap;
     }
+
+    /**
+     * 方法中的参数,哪些需要校验属性,哪些不需要
+     *
+     * @param method
+     * @return
+     */
+    public static Map<String, List<Parameter>> analysisMethod(Method method) {
+        Map<String, List<Parameter>> result = new HashMap<>();
+        result.put(REQUIRE, new ArrayList<Parameter>());
+        result.put(UN_REQUIRE, new ArrayList<Parameter>());
+        //获取方法内的参数
+        Parameter[] parameters = method.getParameters();
+        for (Parameter parameter : parameters) {
+            boolean require = false;
+            //对每个参数进行操作
+            for (Annotation annotation : parameter.getAnnotations()) {
+                if (ClassTypeUtil.VALID_TYPE_NAME.contains(annotation.annotationType().getName())) {
+                    require = true;
+                    break;
+                }
+            }
+            if (require) {
+                result.get(REQUIRE).add(parameter);
+            } else {
+                result.get(UN_REQUIRE).add(parameter);
+            }
+        }
+        return result;
+    }
+
+    public static Type[] getActualTypeArguments(Parameter parameter) {
+        Type parameterizedType = parameter.getParameterizedType();
+        if (parameterizedType instanceof ParameterizedType) {
+            //判断获取的类型是否是参数类型
+            ParameterizedType pt = (ParameterizedType) parameterizedType;
+            //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
+            Type[] actualTypeArguments = pt.getActualTypeArguments();
+            return actualTypeArguments;
+        }
+        return null;
+    }
+
+    public static StringBuilder generatePrarmeterField(Parameter parameter, String name, String level) {
+        StringBuilder result = new StringBuilder();
+        Map<String, Map<String, Field>> stringMapMap = analysisParameter(parameter);
+        Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+        for (String key : requireFieldMap.keySet()) {
+            Field field = requireFieldMap.get(key);
+            Type genericType = field.getGenericType();
+            if (genericType instanceof TypeVariable) {
+                //表明此类型是泛型类
+                //TODO 获取实际的类型 等等...
+
+            } else {
+                //非泛型
+                Class<?> type = field.getType();
+                if (CLASS_ARRAY.contains(type)) {
+                    //非自定义类型,可以进行赋值
+                    String fieldName = field.getName();
+                    String value = getValue(field, level);
+                    String line = INNER_BLOCK_SPACE + name + ".set" + ClassTypeUtil.upperFirstCapse(fieldName) + "(" + value + ");";
+                    result.append(line);
+                    result.append(NEWLINE);
+                } else {
+                    //是对象类型
+                    //TODO 继续分析处理
+                }
+
+            }
+
+
+        }
+
+
+        return result;
+    }
+
+    public static String getValue(Field field, String level) {
+        Class<?> type = field.getType();
+        Annotation[] annotations = field.getAnnotations();
+        Size declaredAnnotation = field.getDeclaredAnnotation(Size.class);
+        if (null == declaredAnnotation) {
+            return getRandomValue(type);
+        }
+        int min = 0;
+        int max = Integer.MAX_VALUE;
+        min = declaredAnnotation.min();
+        max = declaredAnnotation.max();
+        return getRandomValueByLevel(type, level, min, max);
+    }
+
+    public static String getParamReturnName(Parameter parameter) {
+        Class<?> type = parameter.getType();
+        String simpleName = type.getSimpleName();
+        String returnName = ClassTypeUtil.lowerFirstCapse(simpleName) + "0";
+        return returnName;
+    }
+
+    public static ReturnParameterInfo generateParameter(Parameter parameter, String level) {
+        ReturnParameterInfo rpi = new ReturnParameterInfo();
+        StringBuilder line = new StringBuilder();
+        Class<?> type = parameter.getType();
+        String simpleName = type.getSimpleName();
+        Type[] types = getActualTypeArguments(parameter);
+
+        String returnName = getParamReturnName(parameter);
+        String randomValue = ClassTypeUtil.getRandomValue(type);
+
+        if (null != randomValue) {
+            rpi.setType(ReturnParameterInfo.JAVA_TYPE);
+            rpi.setReturnName(randomValue);
+            rpi.setValue(randomValue);
+            return rpi;
+        }
+        if (null == types) {
+            //非泛型参数
+            line.append(INNER_BLOCK_SPACE + simpleName + " " + returnName + " = new " + simpleName + "();");
+            line.append(NEWLINE);
+        } else {
+            //泛型参数
+            String actualTypeString = "";
+            for (Type actualType : types) {
+                actualTypeString += actualType.getTypeName() + ", ";
+            }
+            actualTypeString = actualTypeString.trim().substring(0, actualTypeString.length() - 2);
+            line.append(INNER_BLOCK_SPACE + simpleName + "<" + actualTypeString + "> " + returnName +
+                    " = new " + simpleName + "<" + actualTypeString + ">" + "();");
+            line.append(NEWLINE);
+        }
+
+        //生成此参数的字段属性值
+        line.append(generatePrarmeterField(parameter, returnName, level));
+//        System.out.println(line);
+        rpi.setType(ReturnParameterInfo.CUSTOM_TYPE);
+        rpi.setReturnName(returnName);
+        rpi.setValue(line.toString());
+        return rpi;
+    }
+
+    public static Map<String, Map<String, Field>> analysisParameter(Parameter parameter) {
+        Map<String, Map<String, Field>> result = new HashMap<>();
+        result.put(REQUIRE, new HashMap<String, Field>());
+        result.put(UN_REQUIRE, new HashMap<String, Field>());
+
+        Class<?> paramType = parameter.getType();
+        Field[] declaredFields = paramType.getDeclaredFields();
+        for (Field declaredField : declaredFields) {
+            boolean require = false;
+            Annotation[] fieldAnnotations = declaredField.getAnnotations();
+            for (Annotation fieldAnnotation : fieldAnnotations) {
+                if (NOTNULL_TYPE_NAME.contains(fieldAnnotation.annotationType().getName()) ||
+                        NOTEMPTY_TYPE_NAME.contains(fieldAnnotation.annotationType().getName()) ||
+                        NOTBLANK_TYPE_NAME.contains(fieldAnnotation.annotationType().getName())
+                ) {
+                    require = true;
+                    break;
+                }
+            }
+            if (require) {
+                result.get(REQUIRE).put(declaredField.getName(), declaredField);
+            } else {
+                result.get(UN_REQUIRE).put(declaredField.getName(), declaredField);
+            }
+        }
+        return result;
+    }
+
+
+    public static Map<String, Map<String, Field>> analysisField(Field field) {
+
+        return null;
+    }
+
+    public static Map<String, Map<String, Field>> getAllFields(Parameter parameter) {
+        Map<String, Map<String, Field>> result = new HashMap<>();
+
+
+        /**
+         * 泛型下是否有必须要赋值的属性
+         */
+        Type parameterizedType = parameter.getParameterizedType();
+
+
+        if (parameterizedType instanceof ParameterizedType) {
+            //判断获取的类型是否是参数类型
+
+            ParameterizedType pt = (ParameterizedType) parameterizedType;
+            //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
+            //泛型的实际参数
+            Type[] actualTypeArguments = pt.getActualTypeArguments();
+            //泛型,字段属性
+            Class klass = (Class) pt.getRawType();
+            TypeVariable[] typeParameters = klass.getTypeParameters();
+
+            int size = typeParameters.length;
+            for (int i = 0; i < size; i++) {
+
+            }
+        }
+
+
+        return result;
+
+    }
+
 
     @Test
     public void main() throws ClassNotFoundException {
@@ -420,7 +649,7 @@ public class ClassTypeUtil {
 
     }
 
-    private String getRandomValue(Class type) {
+    public static String getRandomValue(Class type) {
         if (type.equals(byte.class) || type.equals(Byte.class)) {
             return String.valueOf(RandomUtil.getRandomForIntegerBounded(-128, 127));
         }
@@ -437,13 +666,61 @@ public class ClassTypeUtil {
             return String.valueOf(RandomUtils.nextDouble());
         }
         if (type.equals(String.class)) {
-            return RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
+            String randomString = RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
+            randomString = randomString.replace("\"", "\\\"");
+            randomString = randomString.replace("\\", "\\\\");
+            return "\"" + randomString + "\"";
         }
         if (type.equals(Boolean.class)) {
             return String.valueOf(RandomUtils.nextBoolean());
         }
 
         return null;
+    }
+
+    private static String getRandomValueByLevel(Class type, String level, int min, int max) {
+
+        if (type.equals(byte.class) || type.equals(Byte.class)) {
+            return String.valueOf(randomByteValue(min, max, level));
+        }
+        if (type.equals(int.class) || type.equals(Integer.class)) {
+            return String.valueOf(randomIntegerValue(min, max, level));
+        }
+        if (type.equals(long.class) || type.equals(Long.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextLong());
+        }
+        if (type.equals(float.class) || type.equals(Float.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextFloat());
+        }
+        if (type.equals(double.class) || type.equals(Double.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextDouble());
+        }
+        if (type.equals(String.class)) {
+            String randomString = RandomUtil.getRandomStringByLevel(min, max, level);
+            randomString = randomString.replace("\"", "\\\"");
+            randomString = randomString.replace("\\", "\\\\");
+            return "\"" + randomString + "\"";
+
+        }
+        if (type.equals(Boolean.class)) {
+            return String.valueOf(RandomUtils.nextBoolean());
+        }
+        return null;
+    }
+
+    private static Byte randomByteValue(Integer min, Integer max, String level) {
+        if ((min < -128 || max > 127)) {
+            return RandomUtil.getRandomIntegerValueByLevel(-128, 127, level).byteValue();
+        }
+        return RandomUtil.getRandomIntegerValueByLevel(min, max, level).byteValue();
+    }
+
+    private static Integer randomIntegerValue(Integer min, Integer max, String level) {
+        //TODO 修改min  max 的情况
+        return RandomUtil.getRandomIntegerValueByLevel(min, max, level);
     }
 
     @Test
@@ -460,8 +737,9 @@ public class ClassTypeUtil {
 
     @Test
     public void testgetMethodValidParam() {
-        Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam(
-                "com.zy.learning.annotation.demotest.controller.TEmployeeController");
+        String targetClass = "com.zy.learning.annotation.demotest.controller.TEmployeeController";
+//        String targetClass = "com.zy.learning.annotation.Address";
+        Map<String, Map<String, Set<Field>>> methodValidParam = getMethodValidParam(targetClass);
         System.out.println(methodValidParam);
     }
 
