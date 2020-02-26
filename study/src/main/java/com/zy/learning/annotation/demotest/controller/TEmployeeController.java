@@ -33,21 +33,13 @@ public class TEmployeeController {
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
     public BaseResponse<Integer> testParam(@Valid ClassInClass cic) {
 
-        ClassInClass classInClass0 = new ClassInClass();
-        classInClass0.setName("bh2a9\"'fm");
-        InnerClass innerClass0 = new InnerClass();
-        innerClass0.setAgeIN(740710125);
-        TEmployee tEmployee0 = new TEmployee();
-        tEmployee0.setEmpName("BmguSk3");
-        tEmployee0.setEmpNo("@Qj3*9~/#");
-        tEmployee0.setEmpStsCode("LzXjBo:0J");
-
-        classInClass0.setInnerClass(innerClass0);
-        类名.testParam(classInClass0);
 
         return null;
     }
 
+    private String getS() {
+        return null;
+    }
    /* @ApiOperation(value = "查询 selectAll")
     @RequestMapping(headers = "Content-Type=application/json;charset=UTF-8", method = RequestMethod.POST, value = "/selectAll")
     public BaseResponse<List<TEmployee>> selectAll(@RequestBody BaseRequest<Object> request) {

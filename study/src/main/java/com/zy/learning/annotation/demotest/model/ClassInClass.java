@@ -10,6 +10,9 @@ public class ClassInClass {
     @NotNull
     private InnerClass innerClass;
 
+    @NotNull
+    private ExecutionResult ee;
+
     public ClassInClass() {
     }
 

@@ -1,5 +1,6 @@
 package com.zy.learning.annotation;
 
+import com.zy.learning.annotation.demotest.controller.TEmployeeController;
 import com.zy.learning.annotation.demotest.model.ReturnParameterInfo;
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -706,6 +707,38 @@ public class ClassTypeUtil {
     }
 
 
+    public Set<Class> getFieldClassImport(Class targetClass) {
+        Set<Class> result = new HashSet<>();
+        //获取 方法
+        Method[] methods = targetClass.getDeclaredMethods();
+        for (Method method : methods) {
+            Map<String, List<Parameter>> stringListMap = analysisMethod(method);
+            List<Parameter> parameterList = stringListMap.get(REQUIRE);
+            for (Parameter parameter : parameterList) {
+                Map<String, Map<String, Field>> stringMapMap = analysisParameter(parameter);
+                Class<?> type = parameter.getType();
+                recursionField(type, result);
+            }
+        }
+
+
+        return result;
+    }
+
+    private void recursionField(Class klass, Set<Class> result) {
+        Map<String, Map<String, Field>> stringMapMap = analysisField(klass);
+        Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+        for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
+            Field field = stringFieldEntry.getValue();
+            Class<?> type = field.getType();
+            if (!CLASS_ARRAY.contains(type)) {
+                result.add(type);
+                recursionField(type, result);
+            }
+        }
+    }
+
+
     @Test
     public void main() throws ClassNotFoundException {
         String ssss = "com.zy.hello.Controller";
@@ -813,4 +846,25 @@ public class ClassTypeUtil {
     }
 
 
+    @Test
+    public void testInteger() {
+        Integer i = 0;
+        aaa(i);
+    }
+
+    private void aaa(Integer integer) {
+        Method[] methods = TEmployeeController.class.getDeclaredMethods();
+        for (Method method : methods) {
+            System.out.println(method.getName());
+        }
+    }
+
+
+    @Test
+    public void testGetFieldClassImport() {
+
+        Set<Class> fieldClassImport = getFieldClassImport(TEmployeeController.class);
+        System.out.println(fieldClassImport);
+
+    }
 }
