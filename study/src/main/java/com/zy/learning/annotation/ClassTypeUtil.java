@@ -9,6 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
@@ -323,7 +326,7 @@ public class ClassTypeUtil {
                 boolean paramField = false;
                 String fieldName = field.getName();
                 for (String perLine : lines) {
-                    //TODO 判断是否有对这个 属性的值 进行赋值
+                    // 判断是否有对这个 属性的值 进行赋值
                     String patternParam = ".*new\\s+" + ClassTypeUtil.upperFirstCapse(className) + "\\(.*";
                     String patternField = ".*" + ClassTypeUtil.lowerFirstCapse(className) + ".*" + "set" + fieldName + "\\(";
                     if (Pattern.matches(patternField, perLine)) {
@@ -422,7 +425,16 @@ public class ClassTypeUtil {
                     result.append(NEWLINE);
                 } else {
                     //是对象类型
-                    //TODO 继续分析处理
+                    // 继续分析处理
+                    String fieldName = field.getName();
+                    ReturnParameterInfo rpi = generateNewObjectByClassType(type, level);
+                    result.append(rpi.getValue());
+                    String line =
+                            INNER_BLOCK_SPACE + name + ".set" + ClassTypeUtil.upperFirstCapse(fieldName) + "(" + rpi.getReturnName() + ");";
+
+                    result.append(line);
+                    result.append(NEWLINE);
+
                 }
 
             }
@@ -431,6 +443,43 @@ public class ClassTypeUtil {
         }
 
 
+        return result;
+    }
+
+    /**
+     * 根据Class 类型生成 实例化的代码
+     *
+     * @param klass
+     * @return
+     */
+    public static ReturnParameterInfo generateNewObjectByClassType(Class klass, String level) {
+        ReturnParameterInfo result = new ReturnParameterInfo();
+        StringBuilder stringBuilder = new StringBuilder();
+        String objectName = klass.getSimpleName();
+        String returnName = lowerFirstCapse(objectName) + "0";
+        stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + objectName + "();");
+        stringBuilder.append(NEWLINE);
+        Map<String, Map<String, Field>> stringMapMap = analysisField(klass);
+        Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+        for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
+            Field field = stringFieldEntry.getValue();
+            Class<?> type = field.getType();
+            if (CLASS_ARRAY.contains(type)) {
+                String value = getRandomValue(type);
+                String line =
+                        INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
+                                "(" + value + ");";
+                stringBuilder.append(line);
+            } else {
+                ReturnParameterInfo returnInfo = generateNewObjectByClassType(type, level);
+                stringBuilder.append(returnInfo.getValue());
+            }
+            stringBuilder.append(NEWLINE);
+        }
+
+        result.setType(ReturnParameterInfo.CUSTOM_TYPE);
+        result.setReturnName(lowerFirstCapse(objectName) + "0");
+        result.setValue(stringBuilder.toString());
         return result;
     }
 
@@ -471,10 +520,10 @@ public class ClassTypeUtil {
             rpi.setValue(randomValue);
             return rpi;
         }
+
         if (null == types) {
             //非泛型参数
             line.append(INNER_BLOCK_SPACE + simpleName + " " + returnName + " = new " + simpleName + "();");
-            line.append(NEWLINE);
         } else {
             //泛型参数
             String actualTypeString = "";
@@ -484,8 +533,9 @@ public class ClassTypeUtil {
             actualTypeString = actualTypeString.trim().substring(0, actualTypeString.length() - 2);
             line.append(INNER_BLOCK_SPACE + simpleName + "<" + actualTypeString + "> " + returnName +
                     " = new " + simpleName + "<" + actualTypeString + ">" + "();");
-            line.append(NEWLINE);
         }
+
+        line.append(NEWLINE);
 
         //生成此参数的字段属性值
         line.append(generatePrarmeterField(parameter, returnName, level));
@@ -524,10 +574,28 @@ public class ClassTypeUtil {
         return result;
     }
 
-
-    public static Map<String, Map<String, Field>> analysisField(Field field) {
-
-        return null;
+    /**
+     * 对某个对象的属性进行分析
+     *
+     * @param klass
+     * @return
+     */
+    public static Map<String, Map<String, Field>> analysisField(Class klass) {
+        Map<String, Map<String, Field>> result = new HashMap<>();
+        result.put(REQUIRE, new HashMap<>());
+        result.put(UN_REQUIRE, new HashMap<>());
+        Field[] declaredFields = klass.getDeclaredFields();
+        for (Field field : declaredFields) {
+            NotNull nullAnnotation = field.getAnnotation(NotNull.class);
+            NotBlank blankAnnotation = field.getAnnotation(NotBlank.class);
+            NotEmpty emptyAnnotation = field.getAnnotation(NotEmpty.class);
+            if (null == nullAnnotation && null == blankAnnotation && null == emptyAnnotation) {
+                result.get(UN_REQUIRE).put(field.getName(), field);
+            } else {
+                result.get(REQUIRE).put(field.getName(), field);
+            }
+        }
+        return result;
     }
 
     public static Map<String, Map<String, Field>> getAllFields(Parameter parameter) {
@@ -560,6 +628,81 @@ public class ClassTypeUtil {
 
         return result;
 
+    }
+
+
+    public static String getRandomValue(Class type) {
+        if (type.equals(byte.class) || type.equals(Byte.class)) {
+            return String.valueOf(RandomUtil.getRandomForIntegerBounded(-128, 127));
+        }
+        if (type.equals(int.class) || type.equals(Integer.class)) {
+            return String.valueOf(RandomUtils.nextInt());
+        }
+        if (type.equals(long.class) || type.equals(Long.class)) {
+            return String.valueOf(RandomUtils.nextLong());
+        }
+        if (type.equals(float.class) || type.equals(Float.class)) {
+            return String.valueOf(RandomUtils.nextFloat());
+        }
+        if (type.equals(double.class) || type.equals(Double.class)) {
+            return String.valueOf(RandomUtils.nextDouble());
+        }
+        if (type.equals(String.class)) {
+            String randomString = RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
+            randomString = randomString.replace("\"", "\\\"");
+            randomString = randomString.replace("\\", "\\\\");
+            return "\"" + randomString + "\"";
+        }
+        if (type.equals(Boolean.class)) {
+            return String.valueOf(RandomUtils.nextBoolean());
+        }
+
+        return null;
+    }
+
+    private static String getRandomValueByLevel(Class type, String level, int min, int max) {
+
+        if (type.equals(byte.class) || type.equals(Byte.class)) {
+            return String.valueOf(randomByteValue(min, max, level));
+        }
+        if (type.equals(int.class) || type.equals(Integer.class)) {
+            return String.valueOf(randomIntegerValue(min, max, level));
+        }
+        if (type.equals(long.class) || type.equals(Long.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextLong());
+        }
+        if (type.equals(float.class) || type.equals(Float.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextFloat());
+        }
+        if (type.equals(double.class) || type.equals(Double.class)) {
+            //TODO 按level 生成
+            return String.valueOf(RandomUtils.nextDouble());
+        }
+        if (type.equals(String.class)) {
+            String randomString = RandomUtil.getRandomStringByLevel(min, max, level);
+            randomString = randomString.replace("\"", "\\\"");
+            randomString = randomString.replace("\\", "\\\\");
+            return "\"" + randomString + "\"";
+
+        }
+        if (type.equals(Boolean.class)) {
+            return String.valueOf(RandomUtils.nextBoolean());
+        }
+        return null;
+    }
+
+    private static Byte randomByteValue(Integer min, Integer max, String level) {
+        if ((min < -128 || max > 127)) {
+            return RandomUtil.getRandomIntegerValueByLevel(-128, 127, level).byteValue();
+        }
+        return RandomUtil.getRandomIntegerValueByLevel(min, max, level).byteValue();
+    }
+
+    private static Integer randomIntegerValue(Integer min, Integer max, String level) {
+        //TODO 修改min  max 的情况
+        return RandomUtil.getRandomIntegerValueByLevel(min, max, level);
     }
 
 
@@ -647,80 +790,6 @@ public class ClassTypeUtil {
 //        System.out.println(controllerClass());
 
 
-    }
-
-    public static String getRandomValue(Class type) {
-        if (type.equals(byte.class) || type.equals(Byte.class)) {
-            return String.valueOf(RandomUtil.getRandomForIntegerBounded(-128, 127));
-        }
-        if (type.equals(int.class) || type.equals(Integer.class)) {
-            return String.valueOf(RandomUtils.nextInt());
-        }
-        if (type.equals(long.class) || type.equals(Long.class)) {
-            return String.valueOf(RandomUtils.nextLong());
-        }
-        if (type.equals(float.class) || type.equals(Float.class)) {
-            return String.valueOf(RandomUtils.nextFloat());
-        }
-        if (type.equals(double.class) || type.equals(Double.class)) {
-            return String.valueOf(RandomUtils.nextDouble());
-        }
-        if (type.equals(String.class)) {
-            String randomString = RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
-            randomString = randomString.replace("\"", "\\\"");
-            randomString = randomString.replace("\\", "\\\\");
-            return "\"" + randomString + "\"";
-        }
-        if (type.equals(Boolean.class)) {
-            return String.valueOf(RandomUtils.nextBoolean());
-        }
-
-        return null;
-    }
-
-    private static String getRandomValueByLevel(Class type, String level, int min, int max) {
-
-        if (type.equals(byte.class) || type.equals(Byte.class)) {
-            return String.valueOf(randomByteValue(min, max, level));
-        }
-        if (type.equals(int.class) || type.equals(Integer.class)) {
-            return String.valueOf(randomIntegerValue(min, max, level));
-        }
-        if (type.equals(long.class) || type.equals(Long.class)) {
-            //TODO 按level 生成
-            return String.valueOf(RandomUtils.nextLong());
-        }
-        if (type.equals(float.class) || type.equals(Float.class)) {
-            //TODO 按level 生成
-            return String.valueOf(RandomUtils.nextFloat());
-        }
-        if (type.equals(double.class) || type.equals(Double.class)) {
-            //TODO 按level 生成
-            return String.valueOf(RandomUtils.nextDouble());
-        }
-        if (type.equals(String.class)) {
-            String randomString = RandomUtil.getRandomStringByLevel(min, max, level);
-            randomString = randomString.replace("\"", "\\\"");
-            randomString = randomString.replace("\\", "\\\\");
-            return "\"" + randomString + "\"";
-
-        }
-        if (type.equals(Boolean.class)) {
-            return String.valueOf(RandomUtils.nextBoolean());
-        }
-        return null;
-    }
-
-    private static Byte randomByteValue(Integer min, Integer max, String level) {
-        if ((min < -128 || max > 127)) {
-            return RandomUtil.getRandomIntegerValueByLevel(-128, 127, level).byteValue();
-        }
-        return RandomUtil.getRandomIntegerValueByLevel(min, max, level).byteValue();
-    }
-
-    private static Integer randomIntegerValue(Integer min, Integer max, String level) {
-        //TODO 修改min  max 的情况
-        return RandomUtil.getRandomIntegerValueByLevel(min, max, level);
     }
 
     @Test

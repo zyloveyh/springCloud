@@ -32,7 +32,6 @@ public class RunDemo {
                 ReturnParameterInfo rpi = returnInfoEntry.getValue();
                 if (rpi.getType() != null && ReturnParameterInfo.CUSTOM_TYPE.equals(rpi.getType())) {
                     testSuit.append(rpi.getValue());
-                    testSuit.append(NEWLINE);
                 }
             }
             map.putAll(getUnRequire(requireParameter));

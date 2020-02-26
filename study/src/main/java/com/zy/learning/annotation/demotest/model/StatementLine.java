@@ -1,10 +1,13 @@
 package com.zy.learning.annotation.demotest.model;
 
+import javax.validation.constraints.NotNull;
+
 public class StatementLine {
     public static final String FIELD="FieldAssignment";//属性赋值
     public static final String OBJECT="ObjectInstantiation";//对象实例化
 
     private String type;
+    @NotNull
     private Object returnType ;
     private String returnName;
     private String process;

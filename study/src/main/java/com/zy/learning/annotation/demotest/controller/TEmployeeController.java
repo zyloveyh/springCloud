@@ -31,12 +31,20 @@ public class TEmployeeController {
 
     @ApiOperation(value = "根据主键ID删除 deleteByPrimaryKey")
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
-    public BaseResponse<Integer> testParam(@Valid TEmployee base,@Valid String a,Integer ii,
-                                           @Valid StatementLine statementLine,String b,StatementLine z) {
+    public BaseResponse<Integer> testParam(@Valid ClassInClass cic) {
 
-        Base<TEmployee> base1 = new Base<>();
-        Map<String, String> map = new HashMap<>();
-//        System.out.println(record);
+        ClassInClass classInClass0 = new ClassInClass();
+        classInClass0.setName("bh2a9\"'fm");
+        InnerClass innerClass0 = new InnerClass();
+        innerClass0.setAgeIN(740710125);
+        TEmployee tEmployee0 = new TEmployee();
+        tEmployee0.setEmpName("BmguSk3");
+        tEmployee0.setEmpNo("@Qj3*9~/#");
+        tEmployee0.setEmpStsCode("LzXjBo:0J");
+
+        classInClass0.setInnerClass(innerClass0);
+        类名.testParam(classInClass0);
+
         return null;
     }
 
