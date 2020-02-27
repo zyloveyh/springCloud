@@ -404,7 +404,7 @@ public class ClassTypeUtil {
     }
 
     public static StringBuilder generatePrarmeterField(Parameter parameter, String name, String level,
-                                                 Map<Class, Integer> classNumMap) {
+                                                       Map<Class, Integer> classNumMap) {
         StringBuilder result = new StringBuilder();
         Map<String, Map<String, Field>> stringMapMap = analysisParameter(parameter);
         Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
@@ -454,7 +454,7 @@ public class ClassTypeUtil {
      * @return
      */
     public static ReturnParameterInfo generateNewObjectByClassType(Class klass, String level,
-                                                             Map<Class, Integer> classNumMap) {
+                                                                   Map<Class, Integer> classNumMap) {
         ReturnParameterInfo result = new ReturnParameterInfo();
         StringBuilder stringBuilder = new StringBuilder();
         String objectName = klass.getSimpleName();
@@ -486,6 +486,7 @@ public class ClassTypeUtil {
         result.setValue(stringBuilder.toString());
         return result;
     }
+
     /**
      * 获取 Class 实例化对应的名称
      *
@@ -503,6 +504,7 @@ public class ClassTypeUtil {
         classNumMap.put(type, integer);
         return ClassTypeUtil.lowerFirstCapse(type.getSimpleName()) + integer;
     }
+
     public static String getValue(Field field, String level) {
         Class<?> type = field.getType();
         Annotation[] annotations = field.getAnnotations();
@@ -605,15 +607,32 @@ public class ClassTypeUtil {
         result.put(REQUIRE, new HashMap<>());
         result.put(UN_REQUIRE, new HashMap<>());
         Field[] declaredFields = klass.getDeclaredFields();
+//        logger.error("INFO : class->" + klass.getSimpleName()+" "+klass.getTypeName() +" fields-> "+Arrays.toString(declaredFields));
         for (Field field : declaredFields) {
-            NotNull nullAnnotation = field.getAnnotation(NotNull.class);
-            NotBlank blankAnnotation = field.getAnnotation(NotBlank.class);
-            NotEmpty emptyAnnotation = field.getAnnotation(NotEmpty.class);
-            if (null == nullAnnotation && null == blankAnnotation && null == emptyAnnotation) {
-                result.get(UN_REQUIRE).put(field.getName(), field);
-            } else {
-                result.get(REQUIRE).put(field.getName(), field);
+            boolean require = false;
+            for (Annotation annotation : field.getAnnotations()) {
+                if (NOTNULL_TYPE_NAME.contains(annotation.annotationType().getName()) ||
+                        NOTEMPTY_TYPE_NAME.contains(annotation.annotationType().getName()) ||
+                        NOTBLANK_TYPE_NAME.contains(annotation.annotationType().getName())
+                ) {
+                    require = true;
+                    break;
+                }
             }
+            if (require) {
+                result.get(REQUIRE).put(field.getName(), field);
+            } else {
+                result.get(UN_REQUIRE).put(field.getName(), field);
+            }
+//            用户使用的注解可能不同
+//            NotNull nullAnnotation = field.getAnnotation(NotNull.class);
+//            NotBlank blankAnnotation = field.getAnnotation(NotBlank.class);
+//            NotEmpty emptyAnnotation = field.getAnnotation(NotEmpty.class);
+//            if (null == nullAnnotation && null == blankAnnotation && null == emptyAnnotation) {
+//                result.get(UN_REQUIRE).put(field.getName(), field);
+//            } else {
+//                result.get(REQUIRE).put(field.getName(), field);
+//            }
         }
         return result;
     }
