@@ -415,6 +415,8 @@ public class ClassTypeUtil {
                 //表明此类型是泛型类
                 //TODO 获取实际的类型 等等...
 
+
+
             } else {
                 //非泛型
                 Class<?> type = field.getType();

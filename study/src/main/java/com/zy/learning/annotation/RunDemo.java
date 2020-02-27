@@ -1,6 +1,7 @@
 package com.zy.learning.annotation;
 
 import com.zy.learning.annotation.demotest.model.ReturnParameterInfo;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 
 import javax.validation.constraints.Size;
@@ -20,13 +21,14 @@ public class RunDemo {
         String targetClass = "com.zy.learning.annotation.demotest.controller.TEmployeeController";
 
         Map<String, Method> classDeclareMethods = ClassTypeUtil.getClassDeclareMethods(targetClass);
-        for (String s : classDeclareMethods.keySet()) {
-            Method method = classDeclareMethods.get(s);
+        for (Map.Entry<String, Method> stringMethodEntry : classDeclareMethods.entrySet()) {
+            Method method = stringMethodEntry.getValue();
             Map<String, List<Parameter>> requireParameter = ClassTypeUtil.analysisMethod(method);
             Map<Parameter, ReturnParameterInfo> map = new HashMap<>();
+            Map<Class, Integer> classNumMap = new HashMap<>();
             for (Parameter parameter : requireParameter.get(ClassTypeUtil.REQUIRE)) {
-                Map<Class, Integer> classNumMap = new HashMap<>();
-                ReturnParameterInfo rpi = ClassTypeUtil.generateParameter(parameter, ClassTypeUtil.LOW,classNumMap);
+
+                ReturnParameterInfo rpi = ClassTypeUtil.generateParameter(parameter, ClassTypeUtil.LOW, classNumMap);
                 map.put(parameter, rpi);
             }
             for (Map.Entry<Parameter, ReturnParameterInfo> returnInfoEntry : map.entrySet()) {
@@ -37,12 +39,14 @@ public class RunDemo {
             }
             map.putAll(getUnRequire(requireParameter));
             String parameterString = getParameterString(method, requireParameter, map);
-            String name ="类名";
-            testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + name + "." + s + "(" + parameterString + ");");
-            System.out.println(testSuit);
+            String name = "类名";
+            testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + name + "." + stringMethodEntry.getKey() + "(" + parameterString + ");");
+            testSuit.append(NEWLINE);
+
         }
 
 
+        System.out.println(testSuit);
     }
 
     private Map<Parameter, ReturnParameterInfo> getUnRequire(Map<String, List<Parameter>> allParameter) {
@@ -79,6 +83,9 @@ public class RunDemo {
                 parameterString += "null, ";
             }
         }
+        /*if (StringUtils.isEmpty(parameterString)) {
+            return "";
+        }*/
         parameterString = parameterString.trim().substring(0, parameterString.length() - 2);
         return parameterString;
     }
