@@ -403,7 +403,8 @@ public class ClassTypeUtil {
         return null;
     }
 
-    public static StringBuilder generatePrarmeterField(Parameter parameter, String name, String level) {
+    public static StringBuilder generatePrarmeterField(Parameter parameter, String name, String level,
+                                                 Map<Class, Integer> classNumMap) {
         StringBuilder result = new StringBuilder();
         Map<String, Map<String, Field>> stringMapMap = analysisParameter(parameter);
         Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
@@ -426,13 +427,12 @@ public class ClassTypeUtil {
                     result.append(NEWLINE);
                 } else {
                     //是对象类型
-                    // 继续分析处理
+                    //继续分析处理
                     String fieldName = field.getName();
-                    ReturnParameterInfo rpi = generateNewObjectByClassType(type, level);
+                    ReturnParameterInfo rpi = generateNewObjectByClassType(type, level, classNumMap);
                     result.append(rpi.getValue());
                     String line =
                             INNER_BLOCK_SPACE + name + ".set" + ClassTypeUtil.upperFirstCapse(fieldName) + "(" + rpi.getReturnName() + ");";
-
                     result.append(line);
                     result.append(NEWLINE);
 
@@ -453,15 +453,18 @@ public class ClassTypeUtil {
      * @param klass
      * @return
      */
-    public static ReturnParameterInfo generateNewObjectByClassType(Class klass, String level) {
+    public static ReturnParameterInfo generateNewObjectByClassType(Class klass, String level,
+                                                             Map<Class, Integer> classNumMap) {
         ReturnParameterInfo result = new ReturnParameterInfo();
         StringBuilder stringBuilder = new StringBuilder();
         String objectName = klass.getSimpleName();
-        String returnName = lowerFirstCapse(objectName) + "0";
+        String returnName = getClassReturnName(klass, classNumMap);
         stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + objectName + "();");
         stringBuilder.append(NEWLINE);
+//        logger.error("INFO : analysisField Class ->" + klass.getName());
         Map<String, Map<String, Field>> stringMapMap = analysisField(klass);
         Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+//        logger.error("INFO : Class->" + klass.getSimpleName() + " requireField : " + requireFieldMap);
         for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
             Field field = stringFieldEntry.getValue();
             Class<?> type = field.getType();
@@ -472,7 +475,7 @@ public class ClassTypeUtil {
                                 "(" + value + ");";
                 stringBuilder.append(line);
             } else {
-                ReturnParameterInfo returnInfo = generateNewObjectByClassType(type, level);
+                ReturnParameterInfo returnInfo = generateNewObjectByClassType(type, level, classNumMap);
                 stringBuilder.append(returnInfo.getValue());
             }
             stringBuilder.append(NEWLINE);
@@ -483,7 +486,23 @@ public class ClassTypeUtil {
         result.setValue(stringBuilder.toString());
         return result;
     }
-
+    /**
+     * 获取 Class 实例化对应的名称
+     *
+     * @param type
+     * @param classNumMap
+     * @return
+     */
+    public static String getClassReturnName(Class type, Map<Class, Integer> classNumMap) {
+        Integer integer = classNumMap.get(type);
+        if (null == integer) {
+            classNumMap.put(type, 0);
+            return ClassTypeUtil.lowerFirstCapse(type.getSimpleName()) + "0";
+        }
+        integer++;
+        classNumMap.put(type, integer);
+        return ClassTypeUtil.lowerFirstCapse(type.getSimpleName()) + integer;
+    }
     public static String getValue(Field field, String level) {
         Class<?> type = field.getType();
         Annotation[] annotations = field.getAnnotations();
@@ -505,14 +524,14 @@ public class ClassTypeUtil {
         return returnName;
     }
 
-    public static ReturnParameterInfo generateParameter(Parameter parameter, String level) {
+    public static ReturnParameterInfo generateParameter(Parameter parameter, String level, Map<Class, Integer> classNumMap) {
         ReturnParameterInfo rpi = new ReturnParameterInfo();
         StringBuilder line = new StringBuilder();
         Class<?> type = parameter.getType();
         String simpleName = type.getSimpleName();
         Type[] types = getActualTypeArguments(parameter);
 
-        String returnName = getParamReturnName(parameter);
+        String returnName = getClassReturnName(parameter.getType(), classNumMap);
         String randomValue = ClassTypeUtil.getRandomValue(type);
 
         if (null != randomValue) {
@@ -539,7 +558,7 @@ public class ClassTypeUtil {
         line.append(NEWLINE);
 
         //生成此参数的字段属性值
-        line.append(generatePrarmeterField(parameter, returnName, level));
+        line.append(generatePrarmeterField(parameter, returnName, level, classNumMap));
 //        System.out.println(line);
         rpi.setType(ReturnParameterInfo.CUSTOM_TYPE);
         rpi.setReturnName(returnName);
@@ -650,8 +669,8 @@ public class ClassTypeUtil {
         }
         if (type.equals(String.class)) {
             String randomString = RandomStringUtils.randomAscii(RandomUtil.getRandomForIntegerBounded(6, 10));
+            randomString = randomString.replace("\\", "");
             randomString = randomString.replace("\"", "\\\"");
-            randomString = randomString.replace("\\", "\\\\");
             return "\"" + randomString + "\"";
         }
         if (type.equals(Boolean.class)) {
@@ -683,8 +702,8 @@ public class ClassTypeUtil {
         }
         if (type.equals(String.class)) {
             String randomString = RandomUtil.getRandomStringByLevel(min, max, level);
+            randomString = randomString.replace("\\", "");
             randomString = randomString.replace("\"", "\\\"");
-            randomString = randomString.replace("\\", "\\\\");
             return "\"" + randomString + "\"";
 
         }
@@ -715,7 +734,6 @@ public class ClassTypeUtil {
             Map<String, List<Parameter>> stringListMap = analysisMethod(method);
             List<Parameter> parameterList = stringListMap.get(REQUIRE);
             for (Parameter parameter : parameterList) {
-                Map<String, Map<String, Field>> stringMapMap = analysisParameter(parameter);
                 Class<?> type = parameter.getType();
                 recursionField(type, result);
             }

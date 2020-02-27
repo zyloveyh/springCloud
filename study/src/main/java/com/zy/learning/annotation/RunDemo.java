@@ -25,7 +25,8 @@ public class RunDemo {
             Map<String, List<Parameter>> requireParameter = ClassTypeUtil.analysisMethod(method);
             Map<Parameter, ReturnParameterInfo> map = new HashMap<>();
             for (Parameter parameter : requireParameter.get(ClassTypeUtil.REQUIRE)) {
-                ReturnParameterInfo rpi = ClassTypeUtil.generateParameter(parameter, ClassTypeUtil.LOW);
+                Map<Class, Integer> classNumMap = new HashMap<>();
+                ReturnParameterInfo rpi = ClassTypeUtil.generateParameter(parameter, ClassTypeUtil.LOW,classNumMap);
                 map.put(parameter, rpi);
             }
             for (Map.Entry<Parameter, ReturnParameterInfo> returnInfoEntry : map.entrySet()) {

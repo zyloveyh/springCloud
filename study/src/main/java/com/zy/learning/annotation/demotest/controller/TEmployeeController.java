@@ -31,7 +31,7 @@ public class TEmployeeController {
 
     @ApiOperation(value = "根据主键ID删除 deleteByPrimaryKey")
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
-    public BaseResponse<Integer> testParam(@Valid ClassInClass cic) {
+    public BaseResponse<Integer> testParam(@Valid ClassInClass cic,@Valid TEmployee tEmployee) {
 
 
         return null;
