@@ -5,12 +5,26 @@ import io.swagger.annotations.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "T_EMPLOYEE")
 @ApiModel(value = "TEmployee")
 public class TEmployee {
+
+    @NotNull
+    private List<String> sL;
+
+    public List<String> getsL() {
+        return sL;
+    }
+
+    public void setsL(List<String> sL) {
+        this.sL = sL;
+    }
+/*
     @JSONField(name="EmpNo")
     @Column(name="empNo",length=10)
 //    @Size(message="empNo max size is 10",max=10)
@@ -329,5 +343,5 @@ public class TEmployee {
                 ", adAcct='" + adAcct + '\'' +
                 ", remark='" + remark + '\'' +
                 '}';
-    }
+    }*/
 }

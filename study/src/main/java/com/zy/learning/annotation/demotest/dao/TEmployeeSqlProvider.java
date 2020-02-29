@@ -1,3 +1,4 @@
+/*
 package com.zy.learning.annotation.demotest.dao;
 
 import com.zy.learning.annotation.demotest.model.TEmployee;
@@ -192,4 +193,4 @@ public class TEmployeeSqlProvider {
         
         return sql.toString();
     }
-}
+}*/

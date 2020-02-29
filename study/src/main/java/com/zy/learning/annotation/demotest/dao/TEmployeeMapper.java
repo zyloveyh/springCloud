@@ -37,9 +37,9 @@ public interface TEmployeeMapper {
         "#{adAcct,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR})"
     })
     int insert(TEmployee record);
-
+/*
     @InsertProvider(type=TEmployeeSqlProvider.class, method="insertSelective")
-    int insertSelective(TEmployee record);
+    int insertSelective(TEmployee record);*/
 
     @Select({
         "select",
@@ -212,8 +212,8 @@ public interface TEmployeeMapper {
     })
     List<TEmployee> selectByCondition(@Param("entity") TEmployee entity);
 
-    @UpdateProvider(type=TEmployeeSqlProvider.class, method="updateByPrimaryKeySelective")
-    int updateByPrimaryKeySelective(TEmployee record);
+/*    @UpdateProvider(type=TEmployeeSqlProvider.class, method="updateByPrimaryKeySelective")
+    int updateByPrimaryKeySelective(TEmployee record);*/
 
     @Update({
         "update T_EMPLOYEE",

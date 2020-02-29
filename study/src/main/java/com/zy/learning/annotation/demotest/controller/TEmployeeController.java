@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,15 +32,13 @@ public class TEmployeeController {
 
     @ApiOperation(value = "根据主键ID删除 deleteByPrimaryKey")
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
-    public BaseResponse<Integer> testParam(@Valid ClassInClass cic,@Valid TEmployee tEmployee) {
-
-
+    public BaseResponse<Integer> testParam(@Valid Base<TEmployee,String> tba) {
         return null;
     }
 
-    private String getS() {
+   /* private String getS() {
         return null;
-    }
+    }*/
    /* @ApiOperation(value = "查询 selectAll")
     @RequestMapping(headers = "Content-Type=application/json;charset=UTF-8", method = RequestMethod.POST, value = "/selectAll")
     public BaseResponse<List<TEmployee>> selectAll(@RequestBody BaseRequest<Object> request) {

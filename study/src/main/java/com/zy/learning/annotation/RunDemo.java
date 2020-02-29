@@ -7,10 +7,7 @@ import org.junit.Test;
 import javax.validation.constraints.Size;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RunDemo {
     private final static String NEWLINE = java.lang.System.getProperty("line.separator");
@@ -145,4 +142,11 @@ public class RunDemo {
         System.out.println(a);
     }
 
+
+    @Test
+    public void testInstanceOf(){
+        List<String> list = new ArrayList<>();
+        System.out.println(list instanceof Map);
+
+    }
 }
