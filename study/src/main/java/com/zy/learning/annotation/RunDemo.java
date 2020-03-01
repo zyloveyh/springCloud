@@ -37,14 +37,48 @@ public class RunDemo {
             map.putAll(getUnRequire(requireParameter));
             String parameterString = getParameterString(method, requireParameter, map);
             String name = "类名";
-            testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + name + "." + stringMethodEntry.getKey() + "(" + parameterString + ");");
-            testSuit.append(NEWLINE);
+
+
+            String returnClass = "";
+            String returnName = "";
+
+            Class<?> returnType = method.getReturnType();
+
+            if ("void".equalsIgnoreCase(returnType.getName())) {
+                //没有返回值
+                testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + name + "." + stringMethodEntry.getKey() + "(" + parameterString + ");");
+                testSuit.append(NEWLINE);
+            } else {
+                //有返回值
+//                System.out.println(returnType);
+                Type genericReturnType = method.getGenericReturnType();
+                if (genericReturnType instanceof ParameterizedType) {
+                    //返回值包含泛型
+                    Type rawType = ((ParameterizedType) genericReturnType).getRawType();
+                    returnClass = ClassTypeUtil.getClassSimpleByTypeName(rawType.getTypeName());
+                    returnName = ClassTypeUtil.lowerFirstCapse(returnClass);
+//                    String genericString = ClassTypeUtil.getGenericStringFromType(actualTypeArguments);
+                    returnClass = ClassTypeUtil.getActualTypeStringByTypes(new Type[]{genericReturnType});
+
+                } else {
+                    //返回值 不含泛型
+                    returnClass = returnType.getSimpleName();
+                    returnName = ClassTypeUtil.lowerFirstCapse(returnClass);
+                }
+                testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + returnClass + " " + returnName + " = " + name +
+                        "." + stringMethodEntry.getKey() + "(" + parameterString + ");");
+                testSuit.append(NEWLINE);
+                testSuit.append(ClassTypeUtil.INNER_BLOCK_SPACE + "assertNotNull(" + returnName + ");");
+                testSuit.append(NEWLINE);
+            }
+
 
         }
 
 
         System.out.println(testSuit);
     }
+
 
     private Map<Parameter, ReturnParameterInfo> getUnRequire(Map<String, List<Parameter>> allParameter) {
         Map<Parameter, ReturnParameterInfo> result = new HashMap<>();
@@ -80,9 +114,9 @@ public class RunDemo {
                 parameterString += "null, ";
             }
         }
-        /*if (StringUtils.isEmpty(parameterString)) {
+        if (StringUtils.isEmpty(parameterString)) {
             return "";
-        }*/
+        }
         parameterString = parameterString.trim().substring(0, parameterString.length() - 2);
         return parameterString;
     }
@@ -144,7 +178,7 @@ public class RunDemo {
 
 
     @Test
-    public void testInstanceOf(){
+    public void testInstanceOf() {
         List<String> list = new ArrayList<>();
         System.out.println(list instanceof Map);
 

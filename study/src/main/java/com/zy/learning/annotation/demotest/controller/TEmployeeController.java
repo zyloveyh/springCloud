@@ -13,6 +13,7 @@ import com.zy.learning.annotation.demotest.dao.TEmployeeMapper;
 import com.zy.learning.annotation.demotest.model.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,12 +33,17 @@ public class TEmployeeController {
 
     @ApiOperation(value = "根据主键ID删除 deleteByPrimaryKey")
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
-    public BaseResponse<Integer> testParam(@Valid Base<TEmployee,String> tba) {
+    public Base<List<Map<String,Integer>>,String>  testParam(@Valid BaseRequest<TEmployee> tba) {
         return null;
     }
 
-   /* private String getS() {
+
+/*    public TEmployee testReturn(@Valid Base<TEmployee,String> tba) {
         return null;
+    }
+
+    private void getS() {
+
     }*/
    /* @ApiOperation(value = "查询 selectAll")
     @RequestMapping(headers = "Content-Type=application/json;charset=UTF-8", method = RequestMethod.POST, value = "/selectAll")

@@ -4,6 +4,7 @@ import com.zy.learning.annotation.demotest.controller.TEmployeeController;
 import com.zy.learning.annotation.demotest.model.ReturnParameterInfo;
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -600,8 +601,8 @@ public class ClassTypeUtil {
         Type[] types = getActualTypeArguments(parameter);
 
         String returnName = getClassReturnName(parameter.getType(), classNumMap);
-        String randomValue = ClassTypeUtil.getRandomValue(type);
 
+        String randomValue = ClassTypeUtil.getRandomValue(type);
         if (null != randomValue) {
             rpi.setType(ReturnParameterInfo.JAVA_TYPE);
             rpi.setReturnName(randomValue);
@@ -614,11 +615,9 @@ public class ClassTypeUtil {
             line.append(INNER_BLOCK_SPACE + simpleName + " " + returnName + " = new " + simpleName + "();");
         } else {
             //泛型参数
-            String actualTypeString = "";
-            for (Type actualType : types) {
-                actualTypeString += actualType.getTypeName() + ", ";
-            }
-            actualTypeString = actualTypeString.trim().substring(0, actualTypeString.length() - 2);
+            String actualTypeString = getActualTypeStringByTypes(types);
+
+
             line.append(INNER_BLOCK_SPACE + simpleName + "<" + actualTypeString + "> " + returnName +
                     " = new " + simpleName + "<" + actualTypeString + ">" + "();");
         }
@@ -632,6 +631,33 @@ public class ClassTypeUtil {
         rpi.setReturnName(returnName);
         rpi.setValue(line.toString());
         return rpi;
+    }
+
+    /**
+     * 根据Type 获取泛型字符串(< > 内的字符串内容)
+     * @param types  ParameterizedType.getActualTypeArguments 的结果
+     * @return
+     */
+    public static String getActualTypeStringByTypes(Type[] types) {
+        String actualTypeString = "";
+        for (Type type : types) {
+            if (type instanceof ParameterizedType) {
+                //此类型还包含泛型
+                String typeSimpleName = getClassSimpleByTypeName(((ParameterizedType) type).getRawType().getTypeName());
+
+                ParameterizedType parameterizedType = (ParameterizedType) type;
+                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+
+                String TypeString = getActualTypeStringByTypes(actualTypeArguments);
+                actualTypeString += typeSimpleName + "<" + TypeString + ">, ";
+            }else{
+                //不包含泛型
+                String typeSimpleName = getClassSimpleByTypeName(type.getTypeName());
+                actualTypeString+=typeSimpleName+", ";
+            }
+        }
+        actualTypeString = actualTypeString.trim().substring(0, actualTypeString.length() - 2);
+        return actualTypeString;
     }
 
     public static Map<String, Map<String, Field>> analysisParameter(Parameter parameter) {
@@ -841,6 +867,23 @@ public class ClassTypeUtil {
         }
     }
 
+    public static String getGenericStringFromType(Type[] types) {
+        String genericString = "";
+        for (Type type : types) {
+            String genericSimpleName = getClassSimpleByTypeName(type.getTypeName());
+            genericString += genericSimpleName + ", ";
+        }
+        genericString = genericString.trim().substring(0, genericString.length() - 2);
+        if (StringUtils.isEmpty(genericString)) {
+            return "";
+        }
+        return genericString;
+    }
+
+    public static String getClassSimpleByTypeName(String typeName) {
+        String[] split = typeName.split("\\.");
+        return split[split.length - 1];
+    }
 
     @Test
     public void main() throws ClassNotFoundException {
