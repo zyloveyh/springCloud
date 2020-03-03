@@ -33,18 +33,29 @@ public class TEmployeeController {
 
     @ApiOperation(value = "根据主键ID删除 deleteByPrimaryKey")
     @RequestMapping(method = RequestMethod.DELETE, value = "/testParam")
-    public Base<List<Map<String,Integer>>,String>  testParam(@Valid BaseRequest<TEmployee> tba) {
+/*    public Base<List<Map<String,Integer>>,String>  testParam(@Valid BaseRequest<List<Map<String,TEmployee>>> tba) {
+        return null;
+    }*/
+/*    public TEmployee testReturn2(@Valid TEmployee tba) {
+        return null;
+    }*/
+/*    public TEmployee testReturn1(@Valid BaseRequest<TEmployee> tba) {
+        return null;
+    }*/
+
+    public TEmployee testReturn(@Valid Base<TEmployee, String> tba) {
         return null;
     }
 
-
-/*    public TEmployee testReturn(@Valid Base<TEmployee,String> tba) {
+    public TEmployee testReturn3(@Valid List<TEmployee> tba) {
         return null;
     }
+
 
     private void getS() {
 
-    }*/
+    }
+
    /* @ApiOperation(value = "查询 selectAll")
     @RequestMapping(headers = "Content-Type=application/json;charset=UTF-8", method = RequestMethod.POST, value = "/selectAll")
     public BaseResponse<List<TEmployee>> selectAll(@RequestBody BaseRequest<Object> request) {

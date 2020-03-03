@@ -11,9 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.CollectionUtils;
 import sun.reflect.generics.reflectiveObjects.ParameterizedTypeImpl;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
@@ -392,11 +389,10 @@ public class ClassTypeUtil {
         return result;
     }
 
-    public static Type[] getActualTypeArguments(Parameter parameter) {
-        Type parameterizedType = parameter.getParameterizedType();
-        if (parameterizedType instanceof ParameterizedType) {
+    public static Type[] getActualTypeArguments(Type type) {
+        if (type instanceof ParameterizedType) {
             //判断获取的类型是否是参数类型
-            ParameterizedType pt = (ParameterizedType) parameterizedType;
+            ParameterizedType pt = (ParameterizedType) type;
             //actualTypeArguments: 泛型的参数,可能会是多个 例如: Map 集合
             Type[] actualTypeArguments = pt.getActualTypeArguments();
             return actualTypeArguments;
@@ -418,14 +414,12 @@ public class ClassTypeUtil {
         return false;
     }
 
-    public static StringBuilder generatePrarmeterField(Parameter parameter, String name, String level,
+    public static StringBuilder generateParameterField(Parameter parameter, String name, String level,
                                                        Map<Class, Integer> classNumMap) {
         StringBuilder result = new StringBuilder();
         //parameter 是 Collection 或者 Map 提示用户自己输入值
         if (isCollectionMap(parameter.getType())) {
-            String line = INNER_BLOCK_SPACE + "//TODO Add your value here ...";
-            result.append(line);
-            result.append(NEWLINE);
+            result.append(INNER_BLOCK_SPACE + "//TODO Add your value here ...");
             result.append(NEWLINE);
             result.append(NEWLINE);
             return result;
@@ -442,14 +436,12 @@ public class ClassTypeUtil {
                 //泛型的实际参数
                 Type[] actualTypeArguments = pt.getActualTypeArguments();
 
-                //第一种情况: 只要一个泛型
+                //第一种情况: 只一个泛型  此情况本可以和第二种情况合并 但是,多种泛型的情况下,是通过名称来找到此字段归属的实际类型,存在不确定性.
                 if (actualTypeArguments.length == 1) {
                     //只有一个值,说明,此字段就是泛型
-                    Class type = (Class) actualTypeArguments[0];
-                    generateParamFieldByField(name, level, classNumMap, result, field, type);
-
+                    Type actualType = actualTypeArguments[0];
+                    generateParamFieldRecursion(name, level, classNumMap, result, field, actualType);
                 }
-
                 //第二种情况: 有多个泛型
                 if (actualTypeArguments.length > 1) {
                     //泛型,字段属性
@@ -459,18 +451,17 @@ public class ClassTypeUtil {
                     for (int i = 0; i < size; i++) {
                         if (typeParameters[i].getName().equalsIgnoreCase(field.getName())) {
                             //找到了字段 field 对应的实际泛型
-                            Class type = (Class) actualTypeArguments[i];
-                            generateParamFieldByField(name, level, classNumMap, result, field, type);
+                            Type type = actualTypeArguments[i];
+                            generateParamFieldRecursion(name, level, classNumMap, result, field, type);
                         }
                     }
-
                 }
 
 
             } else {
                 //非泛型
-                Class<?> type = field.getType();
-                generateParamFieldByField(name, level, classNumMap, result, field, type);
+                Type type = field.getGenericType();
+                generateParamFieldRecursion(name, level, classNumMap, result, field, type);
 
             }
         }
@@ -487,17 +478,17 @@ public class ClassTypeUtil {
      * @param field       字段信息
      * @param type        此字段真实的类型,因为如果是泛型,考虑到泛型擦除,那么用Field只能获取到Object 类
      */
-    public static void generateParamFieldByField(String name, String level, Map<Class, Integer> classNumMap, StringBuilder result, Field field, Class type) {
-        if (CLASS_ARRAY.contains(type)) {
-            //非自定义类型,可以进行赋值
+    public static void generateParamFieldRecursion(String name, String level, Map<Class, Integer> classNumMap,
+                                                   StringBuilder result, Field field, Type type) {
+        if ((type instanceof Class) && CLASS_ARRAY.contains((Class) type)) {
+            // 正常Class 类型,且不是自定义的类,可以进行赋值
             String fieldName = field.getName();
-            String value = getValue(field, level, type);
+            String value = getValue(field, level, (Class) type);
             result.append(INNER_BLOCK_SPACE + name + ".set" + ClassTypeUtil.upperFirstCapse(fieldName) + "(" + value + ");");
             result.append(NEWLINE);
             return;
         }
 
-        //自定义类型,需要先new 再对字段进行赋值
         String fieldName = field.getName();
         ReturnParameterInfo rpi = generateNewObjectByClassType(type, level, classNumMap);
         if (null != rpi) {
@@ -505,54 +496,137 @@ public class ClassTypeUtil {
             result.append(INNER_BLOCK_SPACE + name + ".set" + ClassTypeUtil.upperFirstCapse(fieldName) + "(" + rpi.getReturnName() + ");");
             result.append(NEWLINE);
         }
-
     }
 
     /**
      * 根据Class 类型生成 实例化的代码
      *
-     * @param klass
+     * @param type 可能是: 集合 泛型 自定义Class
      * @return
      */
-    public static ReturnParameterInfo generateNewObjectByClassType(Class klass, String level,
+    public static ReturnParameterInfo generateNewObjectByClassType(Type type, String level,
                                                                    Map<Class, Integer> classNumMap) {
-        if (isCollectionMap(klass)) {
-            //TODO 此处可以完善,情况比较少见.暂时先按如下处理
-            //是集合类型 ,暂且先不生成
-            return null;
-        }
         ReturnParameterInfo result = new ReturnParameterInfo();
         StringBuilder stringBuilder = new StringBuilder();
-        String objectName = klass.getSimpleName();
-        String returnName = getClassReturnName(klass, classNumMap);
-        stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + objectName + "();");
-        stringBuilder.append(NEWLINE);
-//        logger.error("INFO : analysisField Class ->" + klass.getName());
-        Map<String, Map<String, Field>> stringMapMap = analysisField(klass);
-        Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
-//        logger.error("INFO : Class->" + klass.getSimpleName() + " requireField : " + requireFieldMap);
-        for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
-            Field field = stringFieldEntry.getValue();
-            Class<?> type = field.getType();
-            if (CLASS_ARRAY.contains(type)) {
-                String value = getRandomValue(type);
-                String line =
-                        INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
-                                "(" + value + ");";
-                stringBuilder.append(line);
-                stringBuilder.append(NEWLINE);
-            } else {
-                ReturnParameterInfo returnInfo = generateNewObjectByClassType(type, level, classNumMap);
-                if (null != returnInfo) {
-                    stringBuilder.append(returnInfo.getValue());
+
+        //正常
+        if (type instanceof Class) {
+            Class klass = (Class) type;
+            String objectName = klass.getSimpleName();
+            String returnName = getClassReturnName(klass, classNumMap);
+
+            stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + objectName + "();");
+            stringBuilder.append(NEWLINE);
+            Map<String, Map<String, Field>> stringMapMap = analysisField(klass);
+            Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+            for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
+                Field field = stringFieldEntry.getValue();
+                Class<?> fieldType = field.getType();
+                if (CLASS_ARRAY.contains(fieldType)) {
+//                    String value = getRandomValue(fieldType);
+                    String value = getValue(field, level, fieldType);
+                    String line =
+                            INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
+                                    "(" + value + ");";
+                    stringBuilder.append(line);
+                    stringBuilder.append(NEWLINE);
+                } else {
+                    ReturnParameterInfo returnInfo = generateNewObjectByClassType(field.getGenericType(), level, classNumMap);
+                    if (null != returnInfo) {
+                        String value = returnInfo.getReturnName();
+                        stringBuilder.append(returnInfo.getValue());
+                        stringBuilder.append(NEWLINE);
+                        stringBuilder.append(INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
+                                "(" + value + ");");
+                        stringBuilder.append(NEWLINE);
+                    }
                 }
             }
+            result.setType(ReturnParameterInfo.CUSTOM_TYPE);
+            result.setReturnName(returnName);
+            result.setValue(stringBuilder.toString());
+            return result;
         }
 
-        result.setType(ReturnParameterInfo.CUSTOM_TYPE);
-        result.setReturnName(returnName);
-        result.setValue(stringBuilder.toString());
-        return result;
+
+        //泛型
+        if (type instanceof ParameterizedType) {
+            ParameterizedType pType = (ParameterizedType) type;
+            Type rawType = pType.getRawType();
+            if (rawType instanceof Class) {
+                //是Class
+                Class rawKlass = (Class) rawType;
+                String actualTypeString = getActualTypeStringByTypes(pType.getActualTypeArguments());
+                String objectName = rawKlass.getSimpleName() + "<" + actualTypeString + ">";
+                String returnName = getClassReturnName(rawKlass, classNumMap);
+                if (isCollectionMap(rawKlass)) {
+                    //是集合类型 ,暂且先生成实例,里面的值需 用户自己添加
+                    stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + CollectionClassName(rawKlass) + "<>();");
+                    stringBuilder.append(NEWLINE);
+                    stringBuilder.append(INNER_BLOCK_SPACE + "//TODO Add your value here ...");
+                    stringBuilder.append(NEWLINE);
+                    stringBuilder.append(NEWLINE);
+                    result.setType(ReturnParameterInfo.CUSTOM_TYPE);
+                    result.setReturnName(returnName);
+                    result.setValue(stringBuilder.toString());
+                    return result;
+                } else {
+                    //是自定义的泛型类型
+                    stringBuilder.append(INNER_BLOCK_SPACE + objectName + " " + returnName + " = new " + objectName + "();");
+                    stringBuilder.append(NEWLINE);
+
+                    Map<String, Map<String, Field>> stringMapMap = analysisField(rawKlass);
+                    Map<String, Field> requireFieldMap = stringMapMap.get(REQUIRE);
+                    for (Map.Entry<String, Field> stringFieldEntry : requireFieldMap.entrySet()) {
+                        Field field = stringFieldEntry.getValue();
+                        Class<?> fieldType = field.getType();
+                        if (CLASS_ARRAY.contains(fieldType)) {
+//                            String value = getRandomValue(fieldType);
+                            String value = getValue(field, level, fieldType);
+                            String line =
+                                    INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
+                                            "(" + value + ");";
+                            stringBuilder.append(line);
+                            stringBuilder.append(NEWLINE);
+                        } else {
+                            ReturnParameterInfo returnInfo = generateNewObjectByClassType(field.getGenericType(), level, classNumMap);
+                            if (null != returnInfo) {
+                                String value = returnInfo.getReturnName();
+                                stringBuilder.append(returnInfo.getValue());
+                                stringBuilder.append(NEWLINE);
+                                stringBuilder.append(INNER_BLOCK_SPACE + returnName + ".set" + ClassTypeUtil.upperFirstCapse(stringFieldEntry.getKey()) +
+                                        "(" + value + ");");
+                                stringBuilder.append(NEWLINE);
+                            }
+                        }
+                    }
+
+                    result.setType(ReturnParameterInfo.CUSTOM_TYPE);
+                    result.setReturnName(returnName);
+                    result.setValue(stringBuilder.toString());
+                    return result;
+
+                }
+
+            }
+
+
+        }
+        return null;
+
+    }
+
+    public static String CollectionClassName(Class klass) {
+        if (List.class.equals(klass)) {
+            return "ArrayList";
+        }
+        if (Map.class.equals(klass)) {
+            return "HashMap";
+        }
+        if (Set.class.equals(klass)) {
+            return "HashSet";
+        }
+        return klass.getSimpleName();
     }
 
     /**
@@ -598,7 +672,10 @@ public class ClassTypeUtil {
         StringBuilder line = new StringBuilder();
         Class<?> type = parameter.getType();
         String simpleName = type.getSimpleName();
-        Type[] types = getActualTypeArguments(parameter);
+
+
+        Type parameterizedType = parameter.getParameterizedType();
+        Type[] types = getActualTypeArguments(parameterizedType);
 
         String returnName = getClassReturnName(parameter.getType(), classNumMap);
 
@@ -616,17 +693,15 @@ public class ClassTypeUtil {
         } else {
             //泛型参数
             String actualTypeString = getActualTypeStringByTypes(types);
-
-
             line.append(INNER_BLOCK_SPACE + simpleName + "<" + actualTypeString + "> " + returnName +
-                    " = new " + simpleName + "<" + actualTypeString + ">" + "();");
+                    " = new " + CollectionClassName(type) + "<" + actualTypeString + ">" + "();");
         }
-
         line.append(NEWLINE);
 
         //生成此参数的字段属性值
-        line.append(generatePrarmeterField(parameter, returnName, level, classNumMap));
-//        System.out.println(line);
+        line.append(generateParameterField(parameter, returnName, level, classNumMap));
+
+
         rpi.setType(ReturnParameterInfo.CUSTOM_TYPE);
         rpi.setReturnName(returnName);
         rpi.setValue(line.toString());
@@ -635,7 +710,8 @@ public class ClassTypeUtil {
 
     /**
      * 根据Type 获取泛型字符串(< > 内的字符串内容)
-     * @param types  ParameterizedType.getActualTypeArguments 的结果
+     *
+     * @param types ParameterizedType.getActualTypeArguments 的结果
      * @return
      */
     public static String getActualTypeStringByTypes(Type[] types) {
@@ -650,10 +726,10 @@ public class ClassTypeUtil {
 
                 String TypeString = getActualTypeStringByTypes(actualTypeArguments);
                 actualTypeString += typeSimpleName + "<" + TypeString + ">, ";
-            }else{
+            } else {
                 //不包含泛型
                 String typeSimpleName = getClassSimpleByTypeName(type.getTypeName());
-                actualTypeString+=typeSimpleName+", ";
+                actualTypeString += typeSimpleName + ", ";
             }
         }
         actualTypeString = actualTypeString.trim().substring(0, actualTypeString.length() - 2);

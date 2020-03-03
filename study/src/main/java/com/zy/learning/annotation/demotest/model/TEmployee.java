@@ -17,6 +17,17 @@ public class TEmployee {
     @NotNull
     private List<String> sL;
 
+/*    @NotNull
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }*/
+
     public List<String> getsL() {
         return sL;
     }
